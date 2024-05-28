@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://g4cgcehjl82k"]
+[gd_scene load_steps=10 format=3 uid="uid://g4cgcehjl82k"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qmg1m"]
 [ext_resource type="Texture2D" uid="uid://dnd3msk8mq2b4" path="res://assets/textures/orange.png" id="2_6ph0j"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_ebo6e"]
+[ext_resource type="Script" path="res://scripts/states/player_idle.gd" id="4_bgiyy"]
+[ext_resource type="Script" path="res://scripts/states/player_move.gd" id="5_87axk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i1ih4"]
 
@@ -12,7 +15,7 @@ albedo_texture = ExtResource("2_6ph0j")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5aay"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_qmg1m")
 
 [node name="Rig" type="Node3D" parent="."]
@@ -22,7 +25,7 @@ mesh = SubResource("BoxMesh_i1ih4")
 material = SubResource("StandardMaterial3D_q0ik5")
 
 [node name="FrontIndicatorMesh" type="CSGMesh3D" parent="Rig"]
-transform = Transform3D(0.367728, 0, 0, 0, 0.224498, 0, 0, 0, 0.210745, 0, 0.168716, -0.537692)
+transform = Transform3D(0.367728, 0, 0, 0, 0.224498, 0, 0, 0, 0.210745, 0, 0.2, -0.538)
 mesh = SubResource("BoxMesh_btonr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -32,3 +35,13 @@ shape = SubResource("BoxShape3D_x5aay")
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, -4.34436e-07, 4.76806, 8.14876)
 current = true
 far = 100.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_ebo6e")
+initial_state = NodePath("PlayerIdle")
+
+[node name="PlayerIdle" type="Node" parent="StateMachine"]
+script = ExtResource("4_bgiyy")
+
+[node name="PlayerMove" type="Node" parent="StateMachine"]
+script = ExtResource("5_87axk")
