@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://clyq3u2h0solb"]
+
+[ext_resource type="Texture2D" uid="uid://b8bbpk7kdqvn2" path="res://assets/textures/dark.png" id="1_ocbhm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8561w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmp72"]
+albedo_texture = ExtResource("1_ocbhm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i0qyt"]
+size = Vector3(10.509, 0.721191, 11.1119)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qp2s8"]
+
+[sub_resource type="Sky" id="Sky_fov37"]
+sky_material = SubResource("ProceduralSkyMaterial_qp2s8")
+
+[sub_resource type="Environment" id="Environment_4f7j7"]
+background_mode = 2
+sky = SubResource("Sky_fov37")
+
+[node name="Environment" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D"]
+transform = Transform3D(10.5642, 0, 0, 0, 0.696815, 0, 0, 0, 11.1174, 0, 0, 0)
+mesh = SubResource("BoxMesh_8561w")
+material = SubResource("StandardMaterial3D_xmp72")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00305176, -0.0256348, -0.0115356)
+shape = SubResource("BoxShape3D_i0qyt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4f7j7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.94504, 0.326954, 0, -0.326954, 0.94504, 0, 10.131, 17.7388)
+shadow_enabled = true
