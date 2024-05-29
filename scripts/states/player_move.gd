@@ -2,7 +2,6 @@ extends State
 class_name PlayerMove
 
 const SPEED = 12.0
-const JUMP_VELOCITY = 6.0
 
 var player
 

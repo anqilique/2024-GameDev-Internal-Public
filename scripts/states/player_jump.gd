@@ -1,7 +1,7 @@
 extends State
 class_name PlayerJump
 
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 5
 const JUMP_MAX_COUNT = 2
 
 var jump_count = 0

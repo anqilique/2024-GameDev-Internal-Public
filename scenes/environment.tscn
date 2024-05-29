@@ -11,10 +11,10 @@ albedo_texture = ExtResource("1_ocbhm")
 size = Vector3(44.3444, 0.721191, 39.3316)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r0g6d"]
-size = Vector3(1.63181, 9.57906, 39.027)
+size = Vector3(1.63181, 5.2114, 39.027)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_afxvo"]
-size = Vector3(45.2574, 9.25534, 1.10681)
+size = Vector3(45.2574, 5.01292, 1.10681)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qp2s8"]
 
@@ -41,27 +41,27 @@ shape = SubResource("BoxShape3D_i0qyt")
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5774, 4.42236, -0.100784)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5774, 1.84122, -0.100784)
 shape = SubResource("BoxShape3D_r0g6d")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.9763, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5774, 4.42236, -0.100784)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5774, 2.23853, -0.100784)
 shape = SubResource("BoxShape3D_r0g6d")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.493668, 4.54948, -19.3809)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.493668, 2.06598, -19.3809)
 shape = SubResource("BoxShape3D_afxvo")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 39.3068)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.493668, 4.54948, -19.3809)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.493668, 2.42827, -19.3809)
 shape = SubResource("BoxShape3D_afxvo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

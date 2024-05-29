@@ -1,7 +1,6 @@
 extends State
 class_name PlayerIdle
 
-const JUMP_VELOCITY = 4.5
 var player
 
 func _ready():
