@@ -10,7 +10,6 @@ var player
 
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
-	print("Player movement enabled!")
 	
 
 func exit():
@@ -40,7 +39,7 @@ func physics_update(delta):
 		player.velocity.x = move_toward(player.velocity.x, 0, SPEED)
 		player.velocity.z = move_toward(player.velocity.z, 0, SPEED)
 
-	if direction == Vector3(0, 0, 0):
+	if direction == Vector3(0, 0, 0) and player.is_on_floor():
 		get_parent().on_child_transition(self, "PlayerIdle")
 
 	player.move_and_slide()

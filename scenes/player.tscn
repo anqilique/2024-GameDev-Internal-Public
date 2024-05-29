@@ -45,3 +45,11 @@ script = ExtResource("4_bgiyy")
 
 [node name="PlayerMove" type="Node" parent="StateMachine"]
 script = ExtResource("5_87axk")
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = 499.0
+offset_top = 280.0
+offset_right = 649.0
+offset_bottom = 310.0
+text = "State: PlayerIdle"
+horizontal_alignment = 1

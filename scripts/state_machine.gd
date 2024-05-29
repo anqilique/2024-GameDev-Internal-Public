@@ -35,3 +35,5 @@ func on_child_transition(state, new_state_name):
 	
 	new_state.enter()
 	current_state = new_state
+	
+	get_parent().get_node("StateLabel").text = "State: " + current_state.name
