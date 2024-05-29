@@ -19,7 +19,7 @@ func handle_look_direction():
 	ray_origin = camera.project_ray_origin(mouse_position)
 	
 	# Set the end point of the ray.
-	ray_end = ray_origin + camera.project_ray_normal(mouse_position) * 2000
+	ray_end = ray_origin + camera.project_ray_normal(mouse_position) * 5000
 	
 	# Set the intersection
 	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)

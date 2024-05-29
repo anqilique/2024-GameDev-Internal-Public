@@ -8,7 +8,7 @@
 albedo_texture = ExtResource("1_ocbhm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i0qyt"]
-size = Vector3(10.509, 0.721191, 11.1119)
+size = Vector3(44.3444, 0.721191, 39.3316)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qp2s8"]
 
@@ -24,12 +24,12 @@ sky = SubResource("Sky_fov37")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D"]
-transform = Transform3D(10.5642, 0, 0, 0, 0.696815, 0, 0, 0, 11.1174, 0, 0, 0)
+transform = Transform3D(44.2758, 0, 0, 0, 0.696815, 0, 0, 0, 39.5536, 0, 0, 0)
 mesh = SubResource("BoxMesh_8561w")
 material = SubResource("StandardMaterial3D_xmp72")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00305176, -0.0256348, -0.0115356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110072, -0.0256348, -0.0124321)
 shape = SubResource("BoxShape3D_i0qyt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
