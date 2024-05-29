@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://g4cgcehjl82k"]
+[gd_scene load_steps=11 format=3 uid="uid://g4cgcehjl82k"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qmg1m"]
 [ext_resource type="Texture2D" uid="uid://dnd3msk8mq2b4" path="res://assets/textures/orange.png" id="2_6ph0j"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_ebo6e"]
 [ext_resource type="Script" path="res://scripts/states/player_idle.gd" id="4_bgiyy"]
 [ext_resource type="Script" path="res://scripts/states/player_move.gd" id="5_87axk"]
+[ext_resource type="Script" path="res://scripts/states/player_jump.gd" id="6_xqyd6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i1ih4"]
 
@@ -46,10 +47,11 @@ script = ExtResource("4_bgiyy")
 [node name="PlayerMove" type="Node" parent="StateMachine"]
 script = ExtResource("5_87axk")
 
+[node name="PlayerJump" type="Node" parent="StateMachine"]
+script = ExtResource("6_xqyd6")
+
 [node name="StateLabel" type="Label" parent="."]
-offset_left = 499.0
-offset_top = 280.0
-offset_right = 649.0
-offset_bottom = 310.0
+offset_right = 150.0
+offset_bottom = 30.0
 text = "State: PlayerIdle"
 horizontal_alignment = 1
