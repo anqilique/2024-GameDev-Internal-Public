@@ -4,9 +4,14 @@ extends CharacterBody3D
 var ray_origin = Vector3()
 var ray_end = Vector3()
 
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta):
 	handle_look_direction()
+	
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 
 func handle_look_direction():
 	# Get the current physics state.

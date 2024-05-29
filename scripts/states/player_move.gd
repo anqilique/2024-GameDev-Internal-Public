@@ -4,8 +4,6 @@ class_name PlayerMove
 const SPEED = 12.0
 const JUMP_VELOCITY = 6.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var player
 
 func enter():
@@ -19,10 +17,6 @@ func update(delta):
 	pass
 
 func physics_update(delta):
-	# Add the gravity.
-	if not player.is_on_floor():
-		player.velocity.y -= gravity * delta
-
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		player.velocity.y = JUMP_VELOCITY
