@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://7e0q4jg6iue"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_170ap"]
+
+[node name="SettingsMenu" type="Node2D"]
+script = ExtResource("1_170ap")
+
+[node name="MenuLabel" type="RichTextLabel" parent="."]
+offset_top = 441.0
+offset_right = 225.0
+offset_bottom = 648.0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center] Settings Menu"
+
+[node name="ReturnButton" type="Button" parent="MenuLabel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 37.0
+offset_right = 141.0
+offset_bottom = 68.0
+text = "Return"
+
+[connection signal="pressed" from="MenuLabel/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -1,8 +1,6 @@
 extends State
 class_name PlayerMove
 
-const SPEED = 12.0
-
 var player
 
 func enter():
@@ -26,11 +24,11 @@ func physics_update(delta):
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:  # Move in that direction.
-		player.velocity.x = direction.x * SPEED
-		player.velocity.z = direction.z * SPEED
+		player.velocity.x = direction.x * PlayerVars.speed
+		player.velocity.z = direction.z * PlayerVars.speed
 	else:  # Stop the player.
-		player.velocity.x = move_toward(player.velocity.x, 0, SPEED)
-		player.velocity.z = move_toward(player.velocity.z, 0, SPEED)
+		player.velocity.x = move_toward(player.velocity.x, 0, PlayerVars.speed)
+		player.velocity.z = move_toward(player.velocity.z, 0, PlayerVars.speed)
 	
 	# If not moving, switch to idle.
 	if direction == Vector3(0, 0, 0) and player.is_on_floor():

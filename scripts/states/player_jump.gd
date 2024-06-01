@@ -1,9 +1,6 @@
 extends State
 class_name PlayerJump
 
-const JUMP_VELOCITY = 5
-const JUMP_MAX_COUNT = 2
-
 var jump_count = 0
 var can_jump = false
 var player
@@ -17,8 +14,8 @@ func physics_update(delta):
 		can_jump = true
 	
 	# If the player is able to jump, and hasn't reached max jumps.
-	if can_jump and jump_count < JUMP_MAX_COUNT:
-		player.velocity.y = JUMP_VELOCITY
+	if can_jump and jump_count < PlayerVars.jump_max_count:
+		player.velocity.y = PlayerVars.jump_velocity
 		jump_count += 1
 	
 	player.move_and_slide()
