@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://drnnxrowmy8qp"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_5dvra"]
+[ext_resource type="Texture2D" uid="uid://bbn85d5rmmavq" path="res://assets/pause.png" id="1_o60lo"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_886wt"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="Shortcut" id="Shortcut_b3o0x"]
+events = [SubResource("InputEventKey_886wt")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_m22kv"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="Shortcut" id="Shortcut_jmluo"]
+events = [SubResource("InputEventKey_m22kv")]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1055.0
+offset_bottom = -444.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5dvra")
+
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 51.0
+grow_horizontal = 0
+shortcut = SubResource("Shortcut_b3o0x")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("1_o60lo")
+
+[node name="WhenPaused" type="Control" parent="."]
+layout_mode = 1
+anchor_left = -10.802
+anchor_right = 1.0
+anchor_bottom = 3.143
+offset_left = -8.20605
+offset_bottom = 6.828
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="WhenPaused"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="ResumeButton" type="Button" parent="WhenPaused"]
+layout_mode = 0
+offset_left = 1066.0
+offset_top = 51.0
+offset_right = 1136.0
+offset_bottom = 82.0
+scale = Vector2(1.13437, 1.13437)
+shortcut = SubResource("Shortcut_jmluo")
+shortcut_in_tooltip = false
+text = "Resume"
+
+[node name="OptionsButton" type="Button" parent="WhenPaused"]
+layout_mode = 0
+offset_left = 1066.0
+offset_top = 96.0
+offset_right = 1136.0
+offset_bottom = 127.0
+scale = Vector2(1.13437, 1.13437)
+text = "Options"
+
+[node name="Exit" type="Button" parent="WhenPaused"]
+layout_mode = 0
+offset_left = 1066.0
+offset_top = 140.0
+offset_right = 1136.0
+offset_bottom = 171.0
+scale = Vector2(1.13437, 1.13437)
+text = "Exit"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="WhenPaused/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="WhenPaused/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="WhenPaused/Exit" to="." method="_on_exit_pressed"]
