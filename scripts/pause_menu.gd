@@ -26,4 +26,5 @@ func _on_options_button_pressed():
 	print("Bring up options menu!")
 
 func _on_exit_pressed():
+	switch_to_pause(false)
 	get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
