@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8tchusbfdues"]
+[gd_scene load_steps=12 format=3 uid="uid://c8tchusbfdues"]
 
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_hxvoo"]
 [ext_resource type="Texture2D" uid="uid://cthh1rh7bq4hj" path="res://assets/textures/red.png" id="1_i5jk6"]
 [ext_resource type="Script" path="res://scripts/states/enemy_wander.gd" id="2_d7w2j"]
 [ext_resource type="Script" path="res://scripts/health_component.gd" id="2_re237"]
 [ext_resource type="Script" path="res://scripts/states/enemy_idle.gd" id="2_xdrw5"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_kq0uh"]
 [ext_resource type="Script" path="res://scripts/hitbox_component.gd" id="3_nx77o"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7qjmc"]
@@ -15,7 +17,10 @@ albedo_texture = ExtResource("1_i5jk6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ixml"]
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_hxvoo")
+statetimer_min = 0.05
+statetimer_max = 1.5
 
 [node name="Rig" type="Node3D" parent="."]
 
@@ -30,8 +35,9 @@ mesh = SubResource("BoxMesh_i81ob")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_3ixml")
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("2_xdrw5")
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_kq0uh")
+initial_state = NodePath("EnemyIdle")
 
 [node name="EnemyIdle" type="Node" parent="StateMachine"]
 script = ExtResource("2_xdrw5")
@@ -45,3 +51,8 @@ script = ExtResource("2_re237")
 [node name="HitboxComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("3_nx77o")
 health_component = NodePath("../HealthComponent")
+
+[node name="StateTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]

@@ -1,12 +1,15 @@
 extends State
 class_name EnemyIdle
 
+var enemy
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func enter():
+	enemy = get_parent().get_parent()
+	
 
+func physics_update(delta):
+	enemy.velocity.x = move_toward(enemy.velocity.x, 0, 12)
+	enemy.velocity.z = move_toward(enemy.velocity.z, 0, 12)
+	
+	enemy.move_and_slide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

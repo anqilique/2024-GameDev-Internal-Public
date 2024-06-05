@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 
 PlayerVars="*res://resources/autoloads/player_vars.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 ui_left={
