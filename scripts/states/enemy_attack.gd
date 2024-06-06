@@ -11,5 +11,13 @@ func enter():
 
 func update(delta):
 	if enemy.get_node("AttackTimer").is_stopped():
-		print("Deal Damage")
-		enemy.get_node("AttackTimer").start()
+		for body in enemy.get_node("Hitbox3D").get_overlapping_bodies():
+			if body.has_node("HurtboxComponent") and body.name == "Player":
+				
+				var hurtbox = body.get_node("HurtboxComponent")
+				var attack = Attack.new()
+				
+				attack.attack_damage = 10
+				hurtbox.damage(attack)
+				
+				enemy.get_node("AttackTimer").start()

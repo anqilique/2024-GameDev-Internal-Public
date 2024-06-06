@@ -54,6 +54,8 @@ script = ExtResource("6_xqyd6")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_v6ldb")
+health = 100
+max_health = 100
 
 [node name="HurtboxComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("8_iupyn")
