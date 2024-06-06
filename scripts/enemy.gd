@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 @export var statetimer_min : float
 @export var statetimer_max : float
 
@@ -36,3 +35,15 @@ func go_to_new_state(current_state):
 
 func _on_state_timer_timeout():
 	go_to_new_state($StateMachine.current_state.name)
+
+
+func _on_hitbox_3d_body_entered(body):
+	if body.name == "Player":
+		print("Switching to Attack State!")
+		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
+
+
+func _on_hitbox_3d_body_exited(body):
+	if body.name == "Player":
+		print("Switching to Idle State!")
+		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")

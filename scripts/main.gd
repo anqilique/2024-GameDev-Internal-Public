@@ -4,7 +4,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_enemies(10)
+	spawn_enemies(2)
 
 func spawn_enemies(how_many):
 	for n in range(how_many):

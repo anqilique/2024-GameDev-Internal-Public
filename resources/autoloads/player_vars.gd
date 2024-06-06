@@ -18,8 +18,6 @@ var masks = {
 # Health related variables.
 var current_health
 var max_health
-var health_multiplier
 
 # Attack related variables.
 var attack_damage
-var attack_damage_multiplier
