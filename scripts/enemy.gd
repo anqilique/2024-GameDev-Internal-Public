@@ -39,8 +39,9 @@ func _on_state_timer_timeout():
 
 func _on_hitbox_3d_body_entered(body):
 	if body.name == "Player":
-		print("Switching to Attack State!")
-		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
+		if body.get_node("StateMachine").current_state.name != "PlayerDeath":
+			print("Switching to Attack State!")
+			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
 
 
 func _on_hitbox_3d_body_exited(body):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://g4cgcehjl82k"]
+[gd_scene load_steps=15 format=3 uid="uid://g4cgcehjl82k"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qmg1m"]
 [ext_resource type="Texture2D" uid="uid://dnd3msk8mq2b4" path="res://assets/textures/orange.png" id="2_6ph0j"]
@@ -6,8 +6,10 @@
 [ext_resource type="Script" path="res://scripts/states/player_idle.gd" id="4_bgiyy"]
 [ext_resource type="Script" path="res://scripts/states/player_move.gd" id="5_87axk"]
 [ext_resource type="Script" path="res://scripts/states/player_jump.gd" id="6_xqyd6"]
+[ext_resource type="Script" path="res://scripts/states/player_takedmg.gd" id="7_p25r1"]
 [ext_resource type="Script" path="res://scripts/health_component.gd" id="7_v6ldb"]
 [ext_resource type="Script" path="res://scripts/hurtbox_component.gd" id="8_iupyn"]
+[ext_resource type="Script" path="res://scripts/states/player_death.gd" id="8_v35cr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i1ih4"]
 
@@ -52,6 +54,12 @@ script = ExtResource("5_87axk")
 [node name="PlayerJump" type="Node" parent="StateMachine"]
 script = ExtResource("6_xqyd6")
 
+[node name="PlayerTakeDMG" type="Node" parent="StateMachine"]
+script = ExtResource("7_p25r1")
+
+[node name="PlayerDeath" type="Node" parent="StateMachine"]
+script = ExtResource("8_v35cr")
+
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_v6ldb")
 health = 100
@@ -66,3 +74,8 @@ offset_right = 150.0
 offset_bottom = 30.0
 text = "State: PlayerIdle"
 horizontal_alignment = 1
+
+[node name="RecoveryTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]

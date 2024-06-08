@@ -35,3 +35,7 @@ func handle_look_direction():
 		var look_at_y = clamp($Rig.position.y, $Rig.position.y + 0.25, $Rig.position.y + 0.1)
 		var look_at_pt = Vector3(pos.x, look_at_y + 0.25, pos.z)
 		$Rig.look_at(look_at_pt, Vector3.UP)
+
+
+func _on_recovery_timer_timeout():
+	$StateMachine.on_child_transition($StateMachine.current_state, "PlayerIdle")
