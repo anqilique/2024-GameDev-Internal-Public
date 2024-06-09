@@ -22,7 +22,7 @@ func physics_update(delta):
 		get_parent().on_child_transition(self, "PlayerJump")
 	
 	# Slow the player down once if they're not jumping.
-	player.velocity.x = move_toward(player.velocity.x, 0, 12)
-	player.velocity.z = move_toward(player.velocity.z, 0, 12)
+	player.velocity.x = move_toward(player.velocity.x, 0, PlayerVars.speed)
+	player.velocity.z = move_toward(player.velocity.z, 0, PlayerVars.speed)
 	
 	player.move_and_slide()

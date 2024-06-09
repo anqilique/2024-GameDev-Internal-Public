@@ -1,6 +1,8 @@
 extends State
 class_name PlayerTakeDMG
 
+const DAMAGED_SPEED = 4
+
 var player
 
 func enter():
@@ -8,8 +10,10 @@ func enter():
 	player.get_node("RecoveryTimer").start()
 
 func physics_update(delta):
-	# Slow the player down once if they're not jumping.
-	player.velocity.x = move_toward(player.velocity.x, 0, 12)
-	player.velocity.z = move_toward(player.velocity.z, 0, 12)
+	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	player.velocity.x = move_toward(player.velocity.x, direction.x * DAMAGED_SPEED, PlayerVars.speed)
+	player.velocity.z = move_toward(player.velocity.z, direction.z * DAMAGED_SPEED, PlayerVars.speed)
 	
 	player.move_and_slide()
