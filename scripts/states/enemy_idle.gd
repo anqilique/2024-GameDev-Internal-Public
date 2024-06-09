@@ -7,7 +7,7 @@ func enter():
 	enemy = get_parent().get_parent()
 	
 
-func physics_update(delta):
+func physics_update(_delta):
 	enemy.velocity.x = move_toward(enemy.velocity.x, 0, 12)
 	enemy.velocity.z = move_toward(enemy.velocity.z, 0, 12)
 	

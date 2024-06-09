@@ -10,6 +10,9 @@ func damage(attack: Attack):
 	
 	print("	-->	", health, " / ", max_health)
 	
+	if get_parent().name == "Player":
+		PlayerVars.current_health = health
+	
 	if health <= 0:
 		var death_state = ""
 		

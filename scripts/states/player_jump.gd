@@ -8,7 +8,7 @@ var player
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 
-func physics_update(delta):
+func physics_update(_delta):
 	# Handle jump.
 	if Input.is_action_pressed("ui_accept") or player.is_on_floor():
 		can_jump = true

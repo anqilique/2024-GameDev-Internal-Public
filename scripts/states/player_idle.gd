@@ -6,7 +6,7 @@ var player
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 
-func update(delta):
+func update(_delta):
 	if (  # If any of the horizontal movement keys are pressed.
 		Input.is_action_pressed("ui_left") or 
 		Input.is_action_pressed("ui_right") or
@@ -16,7 +16,7 @@ func update(delta):
 	):
 		get_parent().on_child_transition(self, "PlayerMove")
 
-func physics_update(delta):
+func physics_update(_delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		get_parent().on_child_transition(self, "PlayerJump")

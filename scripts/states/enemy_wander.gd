@@ -6,6 +6,7 @@ const SPEED = 0.1
 var enemy
 var moving
 var direction
+
 var movement_dict = {
 	"FORWARD" : -1,
 	"BACKWARD" : 1,
@@ -18,7 +19,7 @@ func enter():
 	direction = movement_dict.keys().pick_random()
 	
 
-func physics_update(delta):
+func physics_update(_delta):
 	if direction in ["FORWARD", "BACKWARD"]:
 		enemy.velocity.z += SPEED * movement_dict[direction]
 	elif direction in ["LEFT", "RIGHT"]:

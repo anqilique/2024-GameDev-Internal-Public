@@ -76,6 +76,7 @@ text = "State: PlayerIdle"
 horizontal_alignment = 1
 
 [node name="RecoveryTimer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]

@@ -1,7 +1,7 @@
 extends State
 class_name PlayerTakeDMG
 
-const DAMAGED_SPEED = 4
+const DAMAGED_SPEED = 8
 
 var player
 
@@ -9,7 +9,7 @@ func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	player.get_node("RecoveryTimer").start()
 
-func physics_update(delta):
+func physics_update(_delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
