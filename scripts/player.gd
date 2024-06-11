@@ -6,11 +6,15 @@ var ray_end = Vector3()
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func go_to_state(new_state):
+	if $StateMachine.current_state.name != "PlayerDeath":
+		$StateMachine.on_child_transition($StateMachine.current_state, new_state)
+
 func _physics_process(delta):
 	handle_look_direction()
 	
 	if Input.is_action_just_pressed("ui_left_mouse_button"):
-		$StateMachine.on_child_transition($StateMachine.current_state, "PlayerAttack")
+		go_to_state("PlayerAttack")
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -41,8 +45,8 @@ func handle_look_direction():
 
 
 func _on_recovery_timer_timeout():
-	$StateMachine.on_child_transition($StateMachine.current_state, "PlayerIdle")
+	go_to_state("PlayerIdle")
 
 
 func _on_attack_timer_timeout():
-	$StateMachine.on_child_transition($StateMachine.current_state, "PlayerIdle")
+	go_to_state("PlayerIdle")
