@@ -19,7 +19,7 @@ func damage(attack: Attack):
 		match get_parent().get_groups()[0]:
 			"Player" : death_state = "PlayerDeath"
 			"Enemies" : death_state = "EnemyDeath"
-		
+			
 		if death_state != "" and state_machine.has_node(death_state):
 			state_machine.on_child_transition(state_machine.current_state, death_state)
 	
@@ -30,7 +30,7 @@ func damage(attack: Attack):
 		match get_parent().get_groups()[0]:
 			"Player" : hit_state = "PlayerTakeDMG"
 			"Enemies" : hit_state = "EnemyTakeDMG"
-		
+			
 		if hit_state != "" and state_machine.has_node(hit_state):
 			state_machine.on_child_transition(state_machine.current_state, hit_state)
 	

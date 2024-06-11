@@ -19,7 +19,7 @@ func enter():
 			var hurtbox = body.get_node("HurtboxComponent")
 			var attack = Attack.new()
 			
-			attack.attack_damage = 10
+			attack.attack_damage = PlayerVars.attack_damage
 			hurtbox.damage(attack)
 
 func update(_delta):

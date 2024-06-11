@@ -20,4 +20,4 @@ var current_health
 var max_health
 
 # Attack related variables.
-var attack_damage
+var attack_damage = 10
