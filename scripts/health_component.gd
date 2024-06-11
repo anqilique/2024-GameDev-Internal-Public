@@ -16,25 +16,21 @@ func damage(attack: Attack):
 	if health <= 0:
 		var death_state = ""
 		
-		match get_parent().name:
+		match get_parent().get_groups()[0]:
 			"Player" : death_state = "PlayerDeath"
-			"Enemy" : death_state = "EnemyDeath"
+			"Enemies" : death_state = "EnemyDeath"
 		
 		if death_state != "" and state_machine.has_node(death_state):
 			state_machine.on_child_transition(state_machine.current_state, death_state)
-		else:
-			print("Need to create state!")
 	
 	
 	else:
 		var hit_state = ""
 		
-		match get_parent().name:
+		match get_parent().get_groups()[0]:
 			"Player" : hit_state = "PlayerTakeDMG"
-			"Enemy" : hit_state = "EnemyTakeDMG"
+			"Enemies" : hit_state = "EnemyTakeDMG"
 		
 		if hit_state != "" and state_machine.has_node(hit_state):
 			state_machine.on_child_transition(state_machine.current_state, hit_state)
-		else:
-			print("Need to create state!")
 	

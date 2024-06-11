@@ -4,7 +4,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_enemies(20)
+	spawn_enemies(2)
 
 func spawn_enemies(how_many):
 	for n in range(how_many):
@@ -14,8 +14,9 @@ func spawn_enemies(how_many):
 		var rand_z = randf_range(-20, 20)
 		new_enemy.position = Vector3(rand_x, 0.5, rand_z)
 		
-		add_child(new_enemy)
 		new_enemy.add_to_group("Enemies")
+		add_child(new_enemy)
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

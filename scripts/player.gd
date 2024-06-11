@@ -9,6 +9,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _physics_process(delta):
 	handle_look_direction()
 	
+	if Input.is_action_just_pressed("ui_left_mouse_button"):
+		$StateMachine.on_child_transition($StateMachine.current_state, "PlayerAttack")
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -38,4 +41,8 @@ func handle_look_direction():
 
 
 func _on_recovery_timer_timeout():
+	$StateMachine.on_child_transition($StateMachine.current_state, "PlayerIdle")
+
+
+func _on_attack_timer_timeout():
 	$StateMachine.on_child_transition($StateMachine.current_state, "PlayerIdle")
