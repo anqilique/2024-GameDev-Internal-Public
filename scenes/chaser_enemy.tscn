@@ -1,0 +1,86 @@
+[gd_scene load_steps=16 format=3 uid="uid://c30yqjvqjoy4u"]
+
+[ext_resource type="Script" path="res://scripts/chaser_enemy.gd" id="1_l23o5"]
+[ext_resource type="Texture2D" uid="uid://d3dtrws4chvpm" path="res://assets/textures/purple.png" id="1_pn3hx"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_shc54"]
+[ext_resource type="Script" path="res://scripts/health_component.gd" id="2_syxm2"]
+[ext_resource type="Script" path="res://scripts/states/enemy/enemy_idle.gd" id="3_gxmvj"]
+[ext_resource type="Script" path="res://scripts/hurtbox_component.gd" id="3_yd2iv"]
+[ext_resource type="Script" path="res://scripts/states/enemy/enemy_wander.gd" id="4_2o4ip"]
+[ext_resource type="Script" path="res://scripts/states/enemy/enemy_attack.gd" id="5_kiqp3"]
+[ext_resource type="Script" path="res://scripts/states/enemy/enemy_takedmg.gd" id="6_rq73r"]
+[ext_resource type="Script" path="res://scripts/states/enemy/enemy_death.gd" id="7_np0au"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_23usq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_enggn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xnju"]
+albedo_texture = ExtResource("1_pn3hx")
+
+[sub_resource type="BoxMesh" id="BoxMesh_u78wt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1hmr"]
+size = Vector3(1.21436, 1.22961, 1.50586)
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
+script = ExtResource("1_l23o5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_23usq")
+
+[node name="Rig" type="Node3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Rig"]
+mesh = SubResource("BoxMesh_enggn")
+material = SubResource("StandardMaterial3D_5xnju")
+
+[node name="FrontIndicatorMesh" type="CSGMesh3D" parent="Rig"]
+transform = Transform3D(0.367728, 0, 0, 0, 0.224498, 0, 0, 0, 0.210745, 0, 0.2, -0.538)
+mesh = SubResource("BoxMesh_u78wt")
+
+[node name="Hitbox3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -0.25293)
+shape = SubResource("BoxShape3D_g1hmr")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_shc54")
+
+[node name="EnemyIdle" type="Node" parent="StateMachine"]
+script = ExtResource("3_gxmvj")
+
+[node name="EnemyWander" type="Node" parent="StateMachine"]
+script = ExtResource("4_2o4ip")
+
+[node name="EnemyAttack" type="Node" parent="StateMachine"]
+script = ExtResource("5_kiqp3")
+attack_cooldown = 2.0
+
+[node name="EnemyTakeDMG" type="Node" parent="StateMachine"]
+script = ExtResource("6_rq73r")
+
+[node name="EnemyDeath" type="Node" parent="StateMachine"]
+script = ExtResource("7_np0au")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_syxm2")
+health = 60
+max_health = 60
+
+[node name="HurtboxComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_yd2iv")
+health_component = NodePath("../HealthComponent")
+
+[node name="StateTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RecoveryTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true

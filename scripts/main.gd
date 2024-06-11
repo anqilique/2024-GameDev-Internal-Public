@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var enemy_scene : PackedScene
+@export var passive_enemy_scene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +8,7 @@ func _ready():
 
 func spawn_enemies(how_many):
 	for n in range(how_many):
-		var new_enemy = enemy_scene.instantiate()
+		var new_enemy = passive_enemy_scene.instantiate()
 		
 		var rand_x = randf_range(-20, 20)
 		var rand_z = randf_range(-20, 20)
