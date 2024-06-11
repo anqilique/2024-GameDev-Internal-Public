@@ -15,7 +15,6 @@ func enter():
 	player.get_node("AttackTimer").start()
 	
 	for body in player.get_node("Rig/Hitbox3D").get_overlapping_bodies():
-		print(body)
 		if body.has_node("HurtboxComponent") and body.is_in_group("Enemies"):
 			var hurtbox = body.get_node("HurtboxComponent")
 			var attack = Attack.new()

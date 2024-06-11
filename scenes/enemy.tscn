@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://scripts/states/enemy_takedmg.gd" id="7_1rtgd"]
 [ext_resource type="Script" path="res://scripts/hurtbox_component.gd" id="7_q7nco"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ixml"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_7qjmc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpxb8"]
@@ -17,15 +19,17 @@ albedo_texture = ExtResource("1_i5jk6")
 
 [sub_resource type="BoxMesh" id="BoxMesh_i81ob"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3ixml"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_qc4uw"]
 size = Vector3(1.21436, 1.22961, 1.50586)
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 4
 script = ExtResource("1_hxvoo")
 statetimer_min = 0.05
 statetimer_max = 1.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3ixml")
 
 [node name="Rig" type="Node3D" parent="."]
 
@@ -37,10 +41,9 @@ material = SubResource("StandardMaterial3D_lpxb8")
 transform = Transform3D(0.367728, 0, 0, 0, 0.224498, 0, 0, 0, 0.210745, 0, 0.2, -0.538)
 mesh = SubResource("BoxMesh_i81ob")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_3ixml")
-
 [node name="Hitbox3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -0.25293)
@@ -73,11 +76,11 @@ health_component = NodePath("../HealthComponent")
 [node name="StateTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="AttackTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="RecoveryTimer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="body_entered" from="Hitbox3D" to="." method="_on_hitbox_3d_body_entered"]

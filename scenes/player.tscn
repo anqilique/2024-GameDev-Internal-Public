@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://scripts/states/player_death.gd" id="8_v35cr"]
 [ext_resource type="Script" path="res://scripts/states/player_attack.gd" id="9_oj1nr"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x5aay"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_i1ih4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0ik5"]
@@ -22,10 +24,13 @@ albedo_texture = ExtResource("2_6ph0j")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj5w1"]
 size = Vector3(1.21436, 1.22961, 3.30811)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_x5aay"]
-
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_qmg1m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_x5aay")
 
 [node name="Rig" type="Node3D" parent="."]
 
@@ -38,13 +43,12 @@ transform = Transform3D(0.367728, 0, 0, 0, 0.224498, 0, 0, 0, 0.210745, 0, 0.2, 
 mesh = SubResource("BoxMesh_btonr")
 
 [node name="Hitbox3D" type="Area3D" parent="Rig"]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rig/Hitbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -1.15405)
 shape = SubResource("BoxShape3D_rj5w1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_x5aay")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.690049, 0.723762, 0, -0.723762, 0.690049, -4.34436e-07, 9.52555, 8.14876)
