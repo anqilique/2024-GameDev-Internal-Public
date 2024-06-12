@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://0k5brkemduba"]
+[gd_scene load_steps=7 format=3 uid="uid://0k5brkemduba"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_rko6x"]
 [ext_resource type="PackedScene" uid="uid://clyq3u2h0solb" path="res://scenes/environment.tscn" id="1_uuast"]
 [ext_resource type="PackedScene" uid="uid://g4cgcehjl82k" path="res://scenes/player.tscn" id="2_b511t"]
 [ext_resource type="PackedScene" uid="uid://c8tchusbfdues" path="res://scenes/passive_enemy.tscn" id="3_qiinr"]
 [ext_resource type="PackedScene" uid="uid://dj6ga5g6jywsx" path="res://scenes/layer_ui.tscn" id="3_wax13"]
+[ext_resource type="PackedScene" uid="uid://c30yqjvqjoy4u" path="res://scenes/chaser_enemy.tscn" id="3_wf5i2"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_rko6x")
 passive_enemy_scene = ExtResource("3_qiinr")
+chaser_enemy_scene = ExtResource("3_wf5i2")
 
 [node name="Environment" parent="." instance=ExtResource("1_uuast")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46297, 0)

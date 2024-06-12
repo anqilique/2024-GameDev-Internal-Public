@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://c8tchusbfdues"]
 
-[ext_resource type="Script" path="res://scripts/passive_enemy.gd" id="1_hxvoo"]
 [ext_resource type="Texture2D" uid="uid://cthh1rh7bq4hj" path="res://assets/textures/red.png" id="1_i5jk6"]
+[ext_resource type="Script" path="res://scripts/passive_enemy.gd" id="1_lnpef"]
 [ext_resource type="Script" path="res://scripts/health_component.gd" id="2_re237"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_kq0uh"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_idle.gd" id="4_ub4h8"]
@@ -25,7 +25,7 @@ size = Vector3(1.21436, 1.22961, 1.50586)
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 4
-script = ExtResource("1_hxvoo")
+script = ExtResource("1_lnpef")
 statetimer_min = 0.05
 statetimer_max = 1.5
 

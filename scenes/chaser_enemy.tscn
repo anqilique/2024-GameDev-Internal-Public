@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c30yqjvqjoy4u"]
+[gd_scene load_steps=17 format=3 uid="uid://c30yqjvqjoy4u"]
 
 [ext_resource type="Script" path="res://scripts/chaser_enemy.gd" id="1_l23o5"]
 [ext_resource type="Texture2D" uid="uid://d3dtrws4chvpm" path="res://assets/textures/purple.png" id="1_pn3hx"]
@@ -22,6 +22,9 @@ albedo_texture = ExtResource("1_pn3hx")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g1hmr"]
 size = Vector3(1.21436, 1.22961, 1.50586)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3jbml"]
+radius = 4.26947
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 script = ExtResource("1_l23o5")
@@ -47,8 +50,21 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -0.25293)
 shape = SubResource("BoxShape3D_g1hmr")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="Vision3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vision3D"]
+transform = Transform3D(1.29038, 0, 0, 0, 1.29038, 0, 0, 0, 1.29038, -0.000732422, 0.114807, -1.83705)
+shape = SubResource("SphereShape3D_3jbml")
+
+[node name="VisionRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -10)
+collision_mask = 3
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_shc54")
+initial_state = NodePath("EnemyIdle")
 
 [node name="EnemyIdle" type="Node" parent="StateMachine"]
 script = ExtResource("3_gxmvj")
@@ -84,3 +100,6 @@ one_shot = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
+
+[connection signal="body_entered" from="Vision3D" to="." method="_on_vision_3d_body_entered"]
+[connection signal="body_exited" from="Vision3D" to="." method="_on_vision_3d_body_exited"]
