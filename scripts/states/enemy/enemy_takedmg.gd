@@ -11,6 +11,3 @@ func enter():
 	enemy.get_node("RecoveryTimer").start()
 	
 	print("Ouch Damage!")
-
-func physics_update(_delta):
-	pass

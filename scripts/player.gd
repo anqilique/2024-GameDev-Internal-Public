@@ -37,6 +37,7 @@ func handle_look_direction():
 	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
 	var intersection = space_state.intersect_ray(query)
 	
+	# Set the rig to look at the correct position.
 	if not intersection.is_empty():
 		var pos = intersection.position
 		var look_at_y = clamp($Rig.position.y, $Rig.position.y + 0.25, $Rig.position.y + 0.1)

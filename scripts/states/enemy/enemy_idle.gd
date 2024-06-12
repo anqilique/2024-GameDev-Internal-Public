@@ -8,6 +8,7 @@ func enter():
 	
 
 func physics_update(_delta):
+	# Slow down to a velocity of zero.
 	enemy.velocity.x = move_toward(enemy.velocity.x, 0, 12)
 	enemy.velocity.z = move_toward(enemy.velocity.z, 0, 12)
 	

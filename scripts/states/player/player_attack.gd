@@ -14,6 +14,7 @@ func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	player.get_node("AttackTimer").start()
 	
+	# Attack all enemies within the player's attack range.
 	for body in player.get_node("Rig/Hitbox3D").get_overlapping_bodies():
 		if body.has_node("HurtboxComponent") and body.is_in_group("Enemies"):
 			var hurtbox = body.get_node("HurtboxComponent")

@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	reset_statetimer()
 
-func reset_statetimer():
+func reset_statetimer():  # Randomize time spent in state.
 	time_in_state = randf_range(statetimer_min, statetimer_max)
 	$StateTimer.wait_time = time_in_state
 	$StateTimer.start()
@@ -24,12 +24,13 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func go_to_new_state(current_state):
+func go_to_new_state(current_state):  # Switch between idling/wandering.
 	if current_state == "EnemyIdle":
 		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyWander")
 	elif current_state == "EnemyWander":
 		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
 	
+	# Randomize the time spent in state.
 	reset_statetimer()
 
 
@@ -38,14 +39,14 @@ func _on_state_timer_timeout():
 
 
 func _on_hitbox_3d_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player":  # If player in range and alive.
 		if body.get_node("StateMachine").current_state.name != "PlayerDeath":
 			print("Switching to Attack State!")
 			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
 
 
 func _on_hitbox_3d_body_exited(body):
-	if body.name == "Player":
+	if body.name == "Player":  # If player leaves the enemy's detect range.
 		print("Switching to Idle State!")
 		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
 

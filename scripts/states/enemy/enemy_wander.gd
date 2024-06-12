@@ -20,6 +20,7 @@ func enter():
 	
 
 func physics_update(_delta):
+	# Move in the random direction previously chosen.
 	if direction in ["FORWARD", "BACKWARD"]:
 		enemy.velocity.z += SPEED * movement_dict[direction]
 	elif direction in ["LEFT", "RIGHT"]:
