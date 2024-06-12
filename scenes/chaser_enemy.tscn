@@ -28,6 +28,8 @@ radius = 4.26947
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 script = ExtResource("1_l23o5")
+statetimer_min = 0.2
+statetimer_max = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_23usq")
@@ -103,3 +105,4 @@ one_shot = true
 
 [connection signal="body_entered" from="Vision3D" to="." method="_on_vision_3d_body_entered"]
 [connection signal="body_exited" from="Vision3D" to="." method="_on_vision_3d_body_exited"]
+[connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
