@@ -27,10 +27,8 @@ func check_can_chase(player):
 			var colliding_with = $VisionRayCast3D.get_collider()
 			
 			if colliding_with.name == "Player":
-				print("I see you!")
-				$StateMachine.on_child_transition($StateMachine.current_state, "EnemyChase")
-			else:
-				print("I don't see you!")
+				pass
+				#$StateMachine.on_child_transition($StateMachine.current_state, "EnemyChase")
 
 
 func _physics_process(delta):
