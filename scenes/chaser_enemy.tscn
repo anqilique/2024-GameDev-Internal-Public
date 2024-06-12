@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c30yqjvqjoy4u"]
+[gd_scene load_steps=18 format=3 uid="uid://c30yqjvqjoy4u"]
 
 [ext_resource type="Script" path="res://scripts/chaser_enemy.gd" id="1_l23o5"]
 [ext_resource type="Texture2D" uid="uid://d3dtrws4chvpm" path="res://assets/textures/purple.png" id="1_pn3hx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_idle.gd" id="3_gxmvj"]
 [ext_resource type="Script" path="res://scripts/hurtbox_component.gd" id="3_yd2iv"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_wander.gd" id="4_2o4ip"]
+[ext_resource type="Script" path="res://scripts/states/enemy/enemy_chase.gd" id="4_341sb"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_attack.gd" id="5_kiqp3"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_takedmg.gd" id="6_rq73r"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_death.gd" id="7_np0au"]
@@ -68,6 +69,9 @@ collision_mask = 3
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_shc54")
 initial_state = NodePath("EnemyIdle")
+
+[node name="EnemyChase" type="Node" parent="StateMachine"]
+script = ExtResource("4_341sb")
 
 [node name="EnemyIdle" type="Node" parent="StateMachine"]
 script = ExtResource("3_gxmvj")

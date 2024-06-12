@@ -20,15 +20,11 @@ func check_can_chase(player):
 	if $StateMachine.current_state.name != "EnemyChase":
 		var player_pos = player.global_transform.origin
 		
-		$VisionRayCast3D.look_at(player_pos, Vector3.UP)
-		$VisionRayCast3D.force_raycast_update()
-		
 		if $VisionRayCast3D.is_colliding():
 			var colliding_with = $VisionRayCast3D.get_collider()
 			
 			if colliding_with.name == "Player":
-				pass
-				#$StateMachine.on_child_transition($StateMachine.current_state, "EnemyChase")
+				$StateMachine.on_child_transition($StateMachine.current_state, "EnemyChase")
 
 
 func _physics_process(delta):
@@ -41,6 +37,10 @@ func _physics_process(delta):
 	for body in $Vision3D.get_overlapping_bodies():
 		if body.name == "Player":
 			check_can_chase(body)
+			
+			$VisionRayCast3D.look_at(body.global_transform.origin, Vector3.UP)
+			$VisionRayCast3D.force_raycast_update()
+	
 
 
 func go_to_new_state(current_state):
@@ -62,7 +62,7 @@ func _on_vision_3d_body_entered(body):
 
 
 func _on_vision_3d_body_exited(body):
-	if body.name == "Player": # and $StateMachine.current_state.name != "EnemyIdle"
+	if body.name == "Player"and $StateMachine.current_state.name != "EnemyIdle":
 		if body.get_node("StateMachine").current_state.name != "PlayerDeath":
 			print("Switching to Chase State! I DON'T see you!")
 			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
