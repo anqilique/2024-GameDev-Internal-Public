@@ -40,8 +40,8 @@ func handle_look_direction():
 	# Set the rig to look at the correct position.
 	if not intersection.is_empty():
 		var pos = intersection.position
-		var look_at_y = clamp($Rig.position.y, $Rig.position.y + 0.25, $Rig.position.y + 0.1)
-		var look_at_pt = Vector3(pos.x, look_at_y + 0.25, pos.z)
+		var look_at_pt = Vector3(pos.x, -0.5, pos.z)
+		
 		$Rig.look_at(look_at_pt, Vector3.UP)
 
 
