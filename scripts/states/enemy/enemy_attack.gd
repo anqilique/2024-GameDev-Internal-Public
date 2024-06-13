@@ -11,7 +11,15 @@ func enter():
 
 func update(_delta):
 	if enemy.get_node("AttackTimer").is_stopped():  # If not on cooldown.
-		for body in enemy.get_node("Hitbox3D").get_overlapping_bodies():
+		
+		var hitbox
+		
+		if enemy.has_node("Rig/Hitbox3D"):
+			hitbox = enemy.get_node("Rig/Hitbox3D")
+		else:
+			hitbox = enemy.get_node("Hitbox3D")
+		
+		for body in hitbox.get_overlapping_bodies():
 			
 			# If the player is detected.
 			if body.has_node("HurtboxComponent") and body.name == "Player":
