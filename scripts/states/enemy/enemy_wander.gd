@@ -27,4 +27,8 @@ func physics_update(_delta):
 		enemy.velocity.x += SPEED * movement_dict[direction]
 		
 	enemy.look_at(enemy.global_transform.origin + enemy.velocity)
+	
+	for node in ["Rig", "CollisionShape3D"]:
+		enemy.get_node(node).look_at(enemy.global_transform.origin + enemy.velocity)
+		
 	enemy.move_and_slide()

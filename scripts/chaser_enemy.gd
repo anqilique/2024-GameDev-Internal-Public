@@ -19,7 +19,10 @@ func reset_statetimer():
 
 func check_can_chase(player):
 	# If the enemy is not already chasing the player...
-	if $StateMachine.current_state.name != "EnemyChase":
+	if (
+		$StateMachine.current_state.name != "EnemyChase"
+		and $StateMachine.current_state.name != "EnemyAttack"
+	):
 		var player_pos = player.global_transform.origin
 		
 		# Check if there is anything colliding with the raycast.
@@ -43,11 +46,9 @@ func _physics_process(delta):
 	for body in $Vision3D.get_overlapping_bodies():
 		if body.name == "Player":  # If player detected, check if can chase.
 			check_can_chase(body)
-			
 			# Always keep the raycast pointing towards the player.
 			$VisionRayCast3D.look_at(body.global_transform.origin, Vector3.UP)
 			$VisionRayCast3D.force_raycast_update()
-	
 
 
 func go_to_new_state(current_state):  # Switch between idle and wander.
@@ -75,3 +76,14 @@ func _on_vision_3d_body_exited(body):  # If player goes out of range, back to id
 
 func _on_navigation_agent_3d_target_reached():
 	$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
+
+func _on_hitbox_3d_body_entered(body):
+	if body.name == "Player":  # If player in range and alive.
+		if body.get_node("StateMachine").current_state.name != "PlayerDeath":
+			print("Switching to Attack State!")
+			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
+
+func _on_hitbox_3d_body_exited(body):
+		if body.name == "Player":  # If player leaves the enemy's detect range.
+			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
+			check_can_chase(body)

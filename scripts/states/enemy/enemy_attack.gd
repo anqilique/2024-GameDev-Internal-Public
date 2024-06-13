@@ -43,3 +43,7 @@ func update(_delta):
 					# Return to the idle state.
 					var state_machine = enemy.get_node("StateMachine")
 					state_machine.on_child_transition(state_machine.current_state, "EnemyIdle")
+			
+			else:
+				var state_machine = enemy.get_node("StateMachine")
+				state_machine.on_child_transition(state_machine.current_state, "EnemyIdle")
