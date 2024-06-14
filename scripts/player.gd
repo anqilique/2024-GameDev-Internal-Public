@@ -6,6 +6,9 @@ var ray_end = Vector3()
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _ready():
+	pass
+
 func go_to_state(new_state):
 	if $StateMachine.current_state.name != "PlayerDeath":
 		$StateMachine.on_child_transition($StateMachine.current_state, new_state)

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://u4ppq1nm1588"]
+
+[ext_resource type="Script" path="res://scripts/player_stats_ui.gd" id="1_ksy8e"]
+
+[sub_resource type="Gradient" id="Gradient_imy84"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dgg31"]
+gradient = SubResource("Gradient_imy84")
+
+[sub_resource type="Gradient" id="Gradient_2n6lr"]
+colors = PackedColorArray(2.52686e-07, 0.476484, 0, 1, 0.282353, 0.87451, 0.282353, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8hx5h"]
+gradient = SubResource("Gradient_2n6lr")
+
+[node name="PlayerStatsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ksy8e")
+
+[node name="Health" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Health"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 456.0
+offset_bottom = 53.0
+scale = Vector2(0.568985, 0.313264)
+value = 80.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+texture_under = SubResource("GradientTexture2D_dgg31")
+texture_progress = SubResource("GradientTexture2D_8hx5h")

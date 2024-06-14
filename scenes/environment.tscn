@@ -19,7 +19,7 @@ agent_height = 1.0
 albedo_texture = ExtResource("1_ocbhm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i0qyt"]
-size = Vector3(44.3444, 0.721191, 39.3316)
+size = Vector3(51.2138, 0.721191, 44.1139)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qp2s8"]
 
@@ -33,7 +33,7 @@ sky = SubResource("Sky_fov37")
 [node name="Environment" type="Node3D"]
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06261, -0.808853, 0.439125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3844, -0.808853, 0.439125)
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
@@ -41,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5774, 1.84122, -0.100784)
 shape = SubResource("BoxShape3D_r0g6d")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.9137, -0.808853, 0.439125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1085, -0.808853, 0.439125)
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
@@ -49,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5774, 2.23853, -0.100784)
 shape = SubResource("BoxShape3D_r0g6d")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06261, -0.808853, 0.439125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06261, -0.808853, -1.19693)
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
@@ -57,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.493668, 2.06598, -19.3809)
 shape = SubResource("BoxShape3D_afxvo")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06261, -0.808853, 39.7459)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06261, -0.808853, 40.2404)
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
@@ -73,12 +73,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.547255, 0)
 collision_mask = 0
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="NavigationRegion3D/StaticBody3D"]
-transform = Transform3D(44.2758, 0, 0, 0, 0.696815, 0, 0, 0, 39.5536, 0, 0, 0)
+transform = Transform3D(50.7535, 0, 0, 0, 0.798762, 0, 0, 0, 45.3405, 0, 0, 0)
 mesh = SubResource("BoxMesh_8561w")
 material = SubResource("StandardMaterial3D_xmp72")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110072, -0.0256348, -0.0124321)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112542, -0.0256348, 0.491652)
 shape = SubResource("BoxShape3D_i0qyt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

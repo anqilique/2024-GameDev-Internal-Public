@@ -11,7 +11,6 @@ var nav_agent
 
 func enter():
 	enemy = get_parent().get_parent()
-	player = get_tree().get_first_node_in_group("Player")
 	
 	nav_agent = enemy.get_node("NavigationAgent3D")
 
@@ -26,6 +25,8 @@ func update(delta):
 	nav_agent.set_target_position(player.global_transform.origin)
 
 func physics_update(delta):
+	player = get_tree().get_first_node_in_group("Player")
+	
 	if player.get_node("StateMachine").current_state.name != "PlayerDeath":
 		var current_location = enemy.global_transform.origin
 		var next_location = nav_agent.get_next_path_position()

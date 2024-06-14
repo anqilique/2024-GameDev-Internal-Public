@@ -5,15 +5,15 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_enemies(3, 2)
+	spawn_enemies(10, 5)
 
 func spawn_enemies(how_many_passive, how_many_chaser):
 	for n in range(how_many_passive):  # Spawn passive enemies.
 		var new_enemy = passive_enemy_scene.instantiate()
 		
 		# Randomize position.
-		var rand_x = randf_range(-20, 20)
-		var rand_z = randf_range(-20, 20)
+		var rand_x = randf_range(-10, 10)
+		var rand_z = randf_range(-10, 10)
 		new_enemy.position = Vector3(rand_x, 0.5, rand_z)
 		
 		new_enemy.add_to_group("Enemies")

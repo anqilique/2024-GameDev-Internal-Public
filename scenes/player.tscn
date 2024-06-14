@@ -87,10 +87,11 @@ script = ExtResource("8_iupyn")
 health_component = NodePath("../HealthComponent")
 
 [node name="StateLabel" type="Label" parent="."]
-offset_right = 150.0
-offset_bottom = 30.0
+offset_left = 23.0
+offset_top = 34.0
+offset_right = 173.0
+offset_bottom = 64.0
 text = "State: PlayerIdle"
-horizontal_alignment = 1
 
 [node name="RecoveryTimer" type="Timer" parent="."]
 wait_time = 0.5

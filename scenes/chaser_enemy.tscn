@@ -29,6 +29,7 @@ radius = 4.26947
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_l23o5")
 statetimer_min = 0.2
 statetimer_max = 2.0
