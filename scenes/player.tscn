@@ -88,9 +88,9 @@ health_component = NodePath("../HealthComponent")
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = 23.0
-offset_top = 34.0
+offset_top = 615.0
 offset_right = 173.0
-offset_bottom = 64.0
+offset_bottom = 645.0
 text = "State: PlayerIdle"
 
 [node name="RecoveryTimer" type="Timer" parent="."]

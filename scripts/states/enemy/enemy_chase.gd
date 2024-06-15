@@ -21,10 +21,10 @@ func exit():
 	
 	enemy.move_and_slide()
 
-func update(delta):
+func update(_delta):
 	nav_agent.set_target_position(player.global_transform.origin)
 
-func physics_update(delta):
+func physics_update(_delta):
 	player = get_tree().get_first_node_in_group("Player")
 	
 	if player.get_node("StateMachine").current_state.name != "PlayerDeath":

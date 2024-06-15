@@ -33,7 +33,7 @@ func update(_delta):
 	):
 		get_parent().on_child_transition(self, "PlayerMove")
 
-func physics_update(delta):	
+func physics_update(_delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		get_parent().on_child_transition(self, "PlayerJump")

@@ -6,8 +6,8 @@ var jump_velocity = 6
 var jump_max_count = 1
 
 # Mask related variables.
-var current_mask
-var masks = {
+var current_mask = "5"
+var masks = {  # "No. Code" : []
 	"1" : [],
 	"2" : [],
 	"3" : [],

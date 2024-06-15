@@ -23,8 +23,6 @@ func check_can_chase(player):
 		$StateMachine.current_state.name != "EnemyChase"
 		and $StateMachine.current_state.name != "EnemyAttack"
 	):
-		var player_pos = player.global_transform.origin
-		
 		# Check if there is anything colliding with the raycast.
 		if $VisionRayCast3D.is_colliding():
 			var colliding_with = $VisionRayCast3D.get_collider()
