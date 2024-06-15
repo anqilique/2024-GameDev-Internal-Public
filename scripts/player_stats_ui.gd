@@ -9,7 +9,7 @@ func update_health(current, maximum):
 	$Health/TextureProgressBar.value = current
 
 func update_mask(current):
-	$Mask/Label.text = "M" + current
+	$Mask/Label.text = "M" + str(current)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -22,5 +22,5 @@ func _process(_delta):
 	):
 		update_health(PlayerVars.current_health, PlayerVars.max_health)
 	
-	if PlayerVars.current_mask not in $Mask/Label.text:
+	if str(PlayerVars.current_mask) not in $Mask/Label.text:
 		update_mask(PlayerVars.current_mask)

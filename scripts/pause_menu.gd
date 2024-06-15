@@ -3,12 +3,34 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$WhenPaused.hide()
-	$WhenPaused/ColorRect.z_index = -1
+	$PauseButton.z_index = 1
+	
+	for node in get_node("WhenPaused").get_children():
+		if node.name == "ColorRect":
+			node.z_index = 0
+		else:
+			node.z_index = 1
+
+func handle_ui_visibility(hide_list, show_list):
+	if hide_list != []:
+		for named in hide_list:
+			var node  = get_parent().get_node(named)
+			if node.is_visible():
+				node.hide()
+	
+	if show_list != []:
+		for named in show_list:
+			var node  = get_parent().get_node(named)
+			if not node.is_visible():
+				node.show()
 
 func switch_to_pause(pause_game):
 	if pause_game:
 		$WhenPaused.show()
 		get_tree().paused = true
+		
+		handle_ui_visibility(["MaskMenu"], [])
+		
 	else:
 		$WhenPaused.hide()
 		get_tree().paused = false

@@ -143,3 +143,9 @@ mouse_filter = 1
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="mouse_entered" from="1" to="." method="_on_1_mouse_entered"]
+[connection signal="mouse_entered" from="2" to="." method="_on_2_mouse_entered"]
+[connection signal="mouse_entered" from="3" to="." method="_on_3_mouse_entered"]
+[connection signal="mouse_entered" from="4" to="." method="_on_4_mouse_entered"]
+[connection signal="mouse_entered" from="5" to="." method="_on_5_mouse_entered"]
