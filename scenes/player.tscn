@@ -7,10 +7,10 @@
 [ext_resource type="Script" path="res://scripts/states/player/player_move.gd" id="5_87axk"]
 [ext_resource type="Script" path="res://scripts/states/player/player_jump.gd" id="6_xqyd6"]
 [ext_resource type="Script" path="res://scripts/states/player/player_takedmg.gd" id="7_p25r1"]
-[ext_resource type="Script" path="res://scripts/health_component.gd" id="7_v6ldb"]
-[ext_resource type="Script" path="res://scripts/hurtbox_component.gd" id="8_iupyn"]
 [ext_resource type="Script" path="res://scripts/states/player/player_death.gd" id="8_v35cr"]
 [ext_resource type="Script" path="res://scripts/states/player/player_attack.gd" id="9_oj1nr"]
+[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/health_component.tscn" id="10_c1bje"]
+[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/hurtbox_component.tscn" id="11_5robf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5aay"]
 
@@ -77,14 +77,10 @@ script = ExtResource("8_v35cr")
 [node name="PlayerAttack" type="Node" parent="StateMachine"]
 script = ExtResource("9_oj1nr")
 
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("7_v6ldb")
-health = 100
-max_health = 100
-
-[node name="HurtboxComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
-script = ExtResource("8_iupyn")
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("11_5robf")]
 health_component = NodePath("../HealthComponent")
+
+[node name="HealthComponent" parent="." instance=ExtResource("10_c1bje")]
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = 23.0
