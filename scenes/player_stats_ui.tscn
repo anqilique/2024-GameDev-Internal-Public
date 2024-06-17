@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" path="res://scripts/player_stats_ui.gd" id="1_ksy8e"]
 
-[sub_resource type="Gradient" id="Gradient_imy84"]
+[sub_resource type="Gradient" id="Gradient_hjf8b"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dgg31"]
-gradient = SubResource("Gradient_imy84")
+gradient = SubResource("Gradient_hjf8b")
 
-[sub_resource type="Gradient" id="Gradient_2n6lr"]
+[sub_resource type="Gradient" id="Gradient_gu1ve"]
 colors = PackedColorArray(2.52686e-07, 0.476484, 0, 1, 0.282353, 0.87451, 0.282353, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8hx5h"]
-gradient = SubResource("Gradient_2n6lr")
+gradient = SubResource("Gradient_gu1ve")
 
 [node name="PlayerStatsUI" type="Control"]
 layout_mode = 3

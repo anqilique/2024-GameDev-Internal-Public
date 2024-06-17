@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8tchusbfdues"]
+[gd_scene load_steps=17 format=3 uid="uid://c8tchusbfdues"]
 
 [ext_resource type="Texture2D" uid="uid://cthh1rh7bq4hj" path="res://assets/textures/red.png" id="1_i5jk6"]
 [ext_resource type="Script" path="res://scripts/passive_enemy.gd" id="1_lnpef"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_death.gd" id="8_wceyh"]
 [ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/health_component.tscn" id="9_i3t3n"]
 [ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/hurtbox_component.tscn" id="9_ogxc8"]
+[ext_resource type="PackedScene" uid="uid://dwo8g0e354tel" path="res://scenes/health_bar.tscn" id="11_0ja2b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ixml"]
 
@@ -49,6 +50,9 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -0.25293)
 shape = SubResource("BoxShape3D_qc4uw")
+
+[node name="HealthBar" parent="." instance=ExtResource("11_0ja2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_kq0uh")

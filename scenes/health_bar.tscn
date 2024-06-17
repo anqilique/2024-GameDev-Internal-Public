@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwo8g0e354tel"]
+
+[sub_resource type="Gradient" id="Gradient_imy84"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ut0vi"]
+gradient = SubResource("Gradient_imy84")
+
+[sub_resource type="Gradient" id="Gradient_2n6lr"]
+colors = PackedColorArray(0.724185, 0.0788515, 0.105827, 1, 0.996841, 0.642976, 0.358399, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ypa70"]
+gradient = SubResource("Gradient_2n6lr")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u06ju"]
+viewport_path = NodePath("SubViewport")
+
+[node name="HealthBar" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(251, 12)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="SubViewport"]
+offset_right = 442.0
+offset_bottom = 40.0
+scale = Vector2(0.568985, 0.313264)
+value = 80.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+texture_under = SubResource("GradientTexture2D_ut0vi")
+texture_progress = SubResource("GradientTexture2D_ypa70")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+flip_v = true
+billboard = 1
+texture = SubResource("ViewportTexture_u06ju")

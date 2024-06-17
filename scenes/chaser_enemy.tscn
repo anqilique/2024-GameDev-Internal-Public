@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://c30yqjvqjoy4u"]
+[gd_scene load_steps=19 format=3 uid="uid://c30yqjvqjoy4u"]
 
 [ext_resource type="Script" path="res://scripts/chaser_enemy.gd" id="1_l23o5"]
 [ext_resource type="Texture2D" uid="uid://d3dtrws4chvpm" path="res://assets/textures/purple.png" id="1_pn3hx"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_shc54"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_idle.gd" id="3_gxmvj"]
+[ext_resource type="PackedScene" uid="uid://dwo8g0e354tel" path="res://scenes/health_bar.tscn" id="3_vtwhl"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_wander.gd" id="4_2o4ip"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_chase.gd" id="4_341sb"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_attack.gd" id="5_kiqp3"]
@@ -56,6 +57,9 @@ material = SubResource("StandardMaterial3D_5xnju")
 [node name="FrontIndicatorMesh" type="CSGMesh3D" parent="Rig"]
 transform = Transform3D(0.367728, 0, 0, 0, 0.224498, 0, 0, 0, 0.210745, 0, 0.2, -0.538)
 mesh = SubResource("BoxMesh_u78wt")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_vtwhl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Vision3D" type="Area3D" parent="."]
 collision_layer = 4
