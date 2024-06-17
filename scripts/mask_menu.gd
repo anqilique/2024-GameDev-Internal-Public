@@ -24,7 +24,10 @@ func mask_selected(button):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_right_mouse_button"):
+	if (
+		Input.is_action_just_pressed("ui_right_mouse_button")
+		and PlayerVars.current_health > 0
+		):
 		var get_mouse_pos = get_global_mouse_position()
 		show_menu(get_mouse_pos)
 	
