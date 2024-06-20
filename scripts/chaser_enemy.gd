@@ -48,7 +48,6 @@ func _physics_process(delta):
 			$VisionRayCast3D.look_at(body.global_transform.origin, Vector3.UP)
 			$VisionRayCast3D.force_raycast_update()
 
-
 func go_to_new_state(current_state):  # Switch between idle and wander.
 	if current_state == "EnemyIdle":
 		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyWander")
