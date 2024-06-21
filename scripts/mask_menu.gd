@@ -1,5 +1,7 @@
 extends Control
 
+const SHORTCUT = "ui_right_mouse_button"
+
 var change_mask_to
 
 # Called when the node enters the scene tree for the first time.
@@ -25,15 +27,15 @@ func mask_selected(button):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (
-		Input.is_action_just_pressed("ui_right_mouse_button")
+		Input.is_action_just_pressed(SHORTCUT)
 		and PlayerVars.current_health > 0
 		):
 		var get_mouse_pos = get_global_mouse_position()
 		show_menu(get_mouse_pos)
 	
 	elif (
-		Input.is_action_just_released("ui_right_mouse_button")
-		or is_visible() and not Input.is_action_pressed("ui_right_mouse_button")
+		Input.is_action_just_released(SHORTCUT)
+		or is_visible() and not Input.is_action_pressed(SHORTCUT)
 		):
 		
 		hide_menu()
