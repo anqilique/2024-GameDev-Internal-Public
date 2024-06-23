@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjts4cmotahp"]
+
+[ext_resource type="PackedScene" uid="uid://dd013jepdlg8p" path="res://assets/blender/full_block.glb" id="1_1spxc"]
+[ext_resource type="PackedScene" uid="uid://eauvm1mhlm05" path="res://assets/blender/half_block.glb" id="2_aa142"]
+
+[node name="Blocks" type="Node3D"]
+
+[node name="full_block2" parent="." instance=ExtResource("1_1spxc")]
+
+[node name="half_block2" parent="." instance=ExtResource("2_aa142")]
