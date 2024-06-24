@@ -51,9 +51,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -1.15
 shape = SubResource("BoxShape3D_rj5w1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.690049, 0.723762, 0, -0.723762, 0.690049, -4.34436e-07, 9.52555, 8.14876)
+transform = Transform3D(1, 0, 0, 0, 0.690049, 0.723762, 0, -0.723762, 0.690049, -4.34436e-07, 13.082, 8.73972)
 current = true
-far = 100.0
+fov = 65.0
+near = 5.0
+far = 60.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_ebo6e")

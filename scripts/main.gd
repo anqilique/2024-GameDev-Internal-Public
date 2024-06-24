@@ -6,15 +6,15 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerVars.current_health = PlayerVars.starting_health
-	spawn_enemies(10, 5)
+	spawn_enemies(10, 8)
 
 func spawn_enemies(how_many_passive, how_many_chaser):
 	for n in range(how_many_passive):  # Spawn passive enemies.
 		var new_enemy = passive_enemy_scene.instantiate()
 		
 		# Randomize position.
-		var rand_x = randf_range(-10, 10)
-		var rand_z = randf_range(-10, 10)
+		var rand_x = randf_range(-22, 22)
+		var rand_z = randf_range(-16, 22)
 		new_enemy.position = Vector3(rand_x, 0.5, rand_z)
 		
 		new_enemy.add_to_group("Enemies")
@@ -24,8 +24,8 @@ func spawn_enemies(how_many_passive, how_many_chaser):
 		var new_enemy = chaser_enemy_scene.instantiate()
 		
 		# Randomize position.
-		var rand_x = randf_range(-20, 20)
-		var rand_z = randf_range(-20, 20)
+		var rand_x = randf_range(-22, 22)
+		var rand_z = randf_range(-16, 22)
 		new_enemy.position = Vector3(rand_x, 0.5, rand_z)
 		
 		new_enemy.add_to_group("Enemies")

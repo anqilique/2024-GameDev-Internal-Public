@@ -13,8 +13,11 @@ passive_enemy_scene = ExtResource("3_qiinr")
 chaser_enemy_scene = ExtResource("3_wf5i2")
 
 [node name="Environment" parent="." instance=ExtResource("1_uuast")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46297, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_b511t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.801, 0)
 
 [node name="LayerUI" parent="." instance=ExtResource("3_wax13")]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.912, 0, 0)
