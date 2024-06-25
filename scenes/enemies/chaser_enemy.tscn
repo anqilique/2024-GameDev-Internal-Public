@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemies/chaser_enemy.gd" id="1_k40bd"]
 [ext_resource type="Texture2D" uid="uid://d3dtrws4chvpm" path="res://assets/textures/purple.png" id="1_pn3hx"]
-[ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_shc54"]
+[ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="2_shc54"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_idle.gd" id="3_gxmvj"]
 [ext_resource type="PackedScene" uid="uid://dwo8g0e354tel" path="res://scenes/gui/health_bar.tscn" id="3_vtwhl"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_wander.gd" id="4_2o4ip"]

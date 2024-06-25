@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cbm7x1cj15ktb"]
 
-[ext_resource type="Script" path="res://scripts/state_machine.gd" id="1_cel2k"]
+[ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="1_cel2k"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_q6key"]
 [ext_resource type="Script" path="res://scripts/states/player/player_idle.gd" id="2_un224"]
 [ext_resource type="Script" path="res://scripts/states/player/player_move.gd" id="3_41ft3"]
