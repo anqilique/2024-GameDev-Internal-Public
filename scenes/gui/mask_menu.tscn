@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://crhc0gakiboc"]
 
-[ext_resource type="Script" path="res://scripts/mask_menu.gd" id="1_mcjxm"]
+[ext_resource type="Script" path="res://scripts/gui/mask_menu.gd" id="1_tl3pa"]
 
 [sub_resource type="Gradient" id="Gradient_6byqk"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -13,7 +13,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_mcjxm")
+script = ExtResource("1_tl3pa")
 
 [node name="1" type="Control" parent="."]
 layout_mode = 1

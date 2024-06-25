@@ -1,15 +1,15 @@
 [gd_scene load_steps=20 format=3 uid="uid://cbm7x1cj15ktb"]
 
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="1_cel2k"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_q6key"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_q6key"]
 [ext_resource type="Script" path="res://scripts/states/player/player_idle.gd" id="2_un224"]
 [ext_resource type="Script" path="res://scripts/states/player/player_move.gd" id="3_41ft3"]
 [ext_resource type="Script" path="res://scripts/states/player/player_jump.gd" id="4_ny2lo"]
 [ext_resource type="Script" path="res://scripts/states/player/player_takedmg.gd" id="5_ve8hb"]
 [ext_resource type="Script" path="res://scripts/states/player/player_death.gd" id="6_5hq85"]
 [ext_resource type="Script" path="res://scripts/states/player/player_attack.gd" id="7_4eqrt"]
-[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/hurtbox_component.tscn" id="8_hheba"]
-[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/health_component.tscn" id="9_1csif"]
+[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/other/hurtbox_component.tscn" id="8_hheba"]
+[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="9_1csif"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t40r5"]
 height = 2.37885

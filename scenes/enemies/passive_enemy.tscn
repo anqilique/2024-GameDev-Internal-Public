@@ -1,16 +1,16 @@
 [gd_scene load_steps=17 format=3 uid="uid://c8tchusbfdues"]
 
 [ext_resource type="Texture2D" uid="uid://cthh1rh7bq4hj" path="res://assets/textures/red.png" id="1_i5jk6"]
-[ext_resource type="Script" path="res://scripts/passive_enemy.gd" id="1_lnpef"]
+[ext_resource type="Script" path="res://scripts/enemies/passive_enemy.gd" id="1_w8y0b"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_kq0uh"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_idle.gd" id="4_ub4h8"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_wander.gd" id="5_v7vw2"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_attack.gd" id="6_naqfq"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_takedmg.gd" id="7_pi5ua"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_death.gd" id="8_wceyh"]
-[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/health_component.tscn" id="9_i3t3n"]
-[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/hurtbox_component.tscn" id="9_ogxc8"]
-[ext_resource type="PackedScene" uid="uid://dwo8g0e354tel" path="res://scenes/health_bar.tscn" id="11_0ja2b"]
+[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/other/hurtbox_component.tscn" id="10_ecmtm"]
+[ext_resource type="PackedScene" uid="uid://dwo8g0e354tel" path="res://scenes/gui/health_bar.tscn" id="11_0ja2b"]
+[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="11_iq8m5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ixml"]
 
@@ -26,7 +26,7 @@ size = Vector3(1.21436, 1.22961, 1.50586)
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 4
-script = ExtResource("1_lnpef")
+script = ExtResource("1_w8y0b")
 statetimer_min = 0.05
 statetimer_max = 1.5
 
@@ -74,10 +74,10 @@ script = ExtResource("7_pi5ua")
 [node name="EnemyDeath" type="Node" parent="StateMachine"]
 script = ExtResource("8_wceyh")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("9_ogxc8")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("10_ecmtm")]
 health_component = NodePath("../HealthComponent")
 
-[node name="HealthComponent" parent="." instance=ExtResource("9_i3t3n")]
+[node name="HealthComponent" parent="." instance=ExtResource("11_iq8m5")]
 health = 30
 max_health = 30
 

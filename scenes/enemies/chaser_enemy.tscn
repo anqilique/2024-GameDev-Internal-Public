@@ -1,17 +1,17 @@
 [gd_scene load_steps=19 format=3 uid="uid://c30yqjvqjoy4u"]
 
-[ext_resource type="Script" path="res://scripts/chaser_enemy.gd" id="1_l23o5"]
+[ext_resource type="Script" path="res://scripts/enemies/chaser_enemy.gd" id="1_k40bd"]
 [ext_resource type="Texture2D" uid="uid://d3dtrws4chvpm" path="res://assets/textures/purple.png" id="1_pn3hx"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_shc54"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_idle.gd" id="3_gxmvj"]
-[ext_resource type="PackedScene" uid="uid://dwo8g0e354tel" path="res://scenes/health_bar.tscn" id="3_vtwhl"]
+[ext_resource type="PackedScene" uid="uid://dwo8g0e354tel" path="res://scenes/gui/health_bar.tscn" id="3_vtwhl"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_wander.gd" id="4_2o4ip"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_chase.gd" id="4_341sb"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_attack.gd" id="5_kiqp3"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_takedmg.gd" id="6_rq73r"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_death.gd" id="7_np0au"]
-[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/hurtbox_component.tscn" id="10_n73p0"]
-[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/health_component.tscn" id="10_wa011"]
+[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/other/hurtbox_component.tscn" id="11_h36sy"]
+[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="12_jko6h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_23usq"]
 
@@ -31,7 +31,7 @@ radius = 4.26947
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 4
 collision_mask = 5
-script = ExtResource("1_l23o5")
+script = ExtResource("1_k40bd")
 statetimer_min = 0.2
 statetimer_max = 2.0
 
@@ -96,10 +96,10 @@ script = ExtResource("6_rq73r")
 [node name="EnemyDeath" type="Node" parent="StateMachine"]
 script = ExtResource("7_np0au")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("10_n73p0")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("11_h36sy")]
 health_component = NodePath("../HealthComponent")
 
-[node name="HealthComponent" parent="." instance=ExtResource("10_wa011")]
+[node name="HealthComponent" parent="." instance=ExtResource("12_jko6h")]
 
 [node name="StateTimer" type="Timer" parent="."]
 one_shot = true

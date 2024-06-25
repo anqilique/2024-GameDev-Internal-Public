@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://g4cgcehjl82k"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_qmg1m"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_qmg1m"]
 [ext_resource type="Texture2D" uid="uid://dnd3msk8mq2b4" path="res://assets/textures/orange.png" id="2_6ph0j"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_ebo6e"]
 [ext_resource type="Script" path="res://scripts/states/player/player_idle.gd" id="4_bgiyy"]
@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://scripts/states/player/player_takedmg.gd" id="7_p25r1"]
 [ext_resource type="Script" path="res://scripts/states/player/player_death.gd" id="8_v35cr"]
 [ext_resource type="Script" path="res://scripts/states/player/player_attack.gd" id="9_oj1nr"]
-[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/health_component.tscn" id="10_c1bje"]
-[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/hurtbox_component.tscn" id="11_5robf"]
+[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="10_c1bje"]
+[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/other/hurtbox_component.tscn" id="11_5robf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5aay"]
 

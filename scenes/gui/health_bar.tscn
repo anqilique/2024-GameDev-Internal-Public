@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwo8g0e354tel"]
 
-[ext_resource type="Script" path="res://scripts/health_bar.gd" id="1_6hi2x"]
+[ext_resource type="Script" path="res://scripts/gui/health_bar.gd" id="1_6hi2x"]
 
 [sub_resource type="Gradient" id="Gradient_imy84"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)

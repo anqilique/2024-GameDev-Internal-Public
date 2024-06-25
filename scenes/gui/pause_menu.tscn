@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://drnnxrowmy8qp"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_5dvra"]
+[ext_resource type="Script" path="res://scripts/gui/pause_menu.gd" id="1_5dvra"]
 [ext_resource type="Texture2D" uid="uid://bbn85d5rmmavq" path="res://assets/pause.png" id="1_o60lo"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_886wt"]

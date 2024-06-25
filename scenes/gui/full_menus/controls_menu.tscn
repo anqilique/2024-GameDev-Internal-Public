@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://7e0q4jg6iue"]
+[gd_scene load_steps=2 format=3 uid="uid://bgl4r1qrq43sc"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_170ap"]
+[ext_resource type="Script" path="res://scripts/gui/menu.gd" id="1_staal"]
 
-[node name="SettingsMenu" type="Node2D"]
-script = ExtResource("1_170ap")
+[node name="ControlsMenu" type="Node2D"]
+script = ExtResource("1_staal")
 
 [node name="MenuLabel" type="RichTextLabel" parent="."]
 offset_top = 441.0
@@ -11,14 +11,19 @@ offset_right = 225.0
 offset_bottom = 648.0
 mouse_filter = 1
 bbcode_enabled = true
-text = "[center] Settings Menu"
+text = "[center] Controls Menu
+
+Movement
+WASD / Arrow Keys
+
+Space Key Jump"
 
 [node name="ReturnButton" type="Button" parent="MenuLabel"]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 37.0
+offset_top = 158.0
 offset_right = 141.0
-offset_bottom = 68.0
+offset_bottom = 189.0
 text = "Return"
 
 [connection signal="pressed" from="MenuLabel/ReturnButton" to="." method="_on_return_button_pressed"]

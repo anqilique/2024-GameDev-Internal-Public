@@ -1,5 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bjts4cmotahp"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ewsr7"]
+points = PackedVector3Array(0.8, 1.6, 0.8, 0.8, 0, 0.8, 0.8, 1.6, -0.8, -0.8, 1.6, 0.8, 0.8, 0, -0.8, -0.8, 0, 0.8, -0.8, 1.6, -0.8, -0.8, 0, -0.8)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j8vw"]
 vertex_color_use_as_albedo = true
 
@@ -34,9 +37,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ydd3f")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ewsr7"]
-points = PackedVector3Array(0.8, 1.6, 0.8, 0.8, 0, 0.8, 0.8, 1.6, -0.8, -0.8, 1.6, 0.8, 0.8, 0, -0.8, -0.8, 0, 0.8, -0.8, 1.6, -0.8, -0.8, 0, -0.8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ga4i"]
 vertex_color_use_as_albedo = true
@@ -80,14 +80,14 @@ points = PackedVector3Array(-0.8, 0, -0.8, -0.8, 0, 0.8, -0.8, 0.8, -0.8, 0.8, 0
 
 [node name="full_block2" type="Node3D" parent="."]
 
+[node name="StaticBody3D" type="StaticBody3D" parent="full_block2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="full_block2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ewsr7")
+
 [node name="full_block" type="MeshInstance3D" parent="full_block2"]
 mesh = SubResource("ArrayMesh_f6gkh")
 skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="full_block2/full_block"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="full_block2/full_block/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_ewsr7")
 
 [node name="half_block2" type="Node3D" parent="."]
 
