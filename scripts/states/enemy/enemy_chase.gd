@@ -35,5 +35,7 @@ func physics_update(_delta):
 		enemy.velocity = new_velocity
 		enemy.move_and_slide()
 		
-		enemy.get_node("Rig").look_at(player.global_transform.origin, Vector3.UP)
-		enemy.get_node("Vision3D").look_at(player.global_transform.origin, Vector3.UP)
+		var look_at_target_pos = Vector3(player.position.x, enemy.position.y, player.position.z)
+		
+		enemy.get_node("Rig").look_at(look_at_target_pos, Vector3.UP)
+		enemy.get_node("Vision3D").look_at(look_at_target_pos, Vector3.UP)

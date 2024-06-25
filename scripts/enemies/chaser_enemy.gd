@@ -45,7 +45,9 @@ func _physics_process(delta):
 		if body.name == "Player":  # If player detected, check if can chase.
 			check_can_chase(body)
 			# Always keep the raycast pointing towards the player.
-			$VisionRayCast3D.look_at(body.global_transform.origin, Vector3.UP)
+			var look_at_target_pos = Vector3(body.position.x, self.position.y, body.position.z)
+			
+			$VisionRayCast3D.look_at(look_at_target_pos, Vector3.UP)
 			$VisionRayCast3D.force_raycast_update()
 
 func go_to_new_state(current_state):  # Switch between idle and wander.
