@@ -5,6 +5,7 @@ class_name PlayerAttack
 
 var player
 var rig_animator
+var mask_data
 
 """
 AttackTimer will be a placeholder until proper animations are established!
@@ -15,6 +16,7 @@ func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	player.get_node("AttackTimer").start()
 	rig_animator = player.get_node("Rig/player_basic/AnimationPlayer")
+	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
 	
 	if rig_animator.current_animation != "attack":
 			rig_animator.play("attack")
@@ -44,8 +46,10 @@ func physics_update(_delta):
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		if rig_animator.current_animation != "attack":
 			get_parent().on_child_transition(self, "PlayerJump")
-		
-	player.velocity.x = move_toward(player.velocity.x, 0, PlayerVars.speed)
-	player.velocity.z = move_toward(player.velocity.z, 0, PlayerVars.speed)
+	
+	var movement_speed = PlayerVars.base_speed + mask_data.movement_speed_bonus
+	
+	player.velocity.x = move_toward(player.velocity.x, 0, movement_speed)
+	player.velocity.z = move_toward(player.velocity.z, 0, movement_speed)
 	
 	player.move_and_slide()

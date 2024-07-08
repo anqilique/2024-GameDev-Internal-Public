@@ -3,10 +3,12 @@ class_name PlayerMove
 
 var player
 var rig_animator
+var mask_data
 
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	rig_animator = player.get_node("Rig/player_basic/AnimationPlayer")
+	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
 
 func exit():
 	pass
@@ -23,16 +25,19 @@ func physics_update(_delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	var movement_speed = PlayerVars.base_speed + mask_data.movement_speed_bonus
+	print(movement_speed)
+	
 	if direction:  # Move in that direction.
-		player.velocity.x = direction.x * PlayerVars.speed
-		player.velocity.z = direction.z * PlayerVars.speed
+		player.velocity.x = direction.x * movement_speed
+		player.velocity.z = direction.z * movement_speed
 		
 		if rig_animator.current_animation != "run ":
 			rig_animator.play("run ")
 		
 	else:  # Stop the player.
-		player.velocity.x = move_toward(player.velocity.x, 0, PlayerVars.speed)
-		player.velocity.z = move_toward(player.velocity.z, 0, PlayerVars.speed)
+		player.velocity.x = move_toward(player.velocity.x, 0, movement_speed)
+		player.velocity.z = move_toward(player.velocity.z, 0, movement_speed)
 		
 	# If not moving, switch to idle.
 	if direction == Vector3(0, 0, 0) and player.is_on_floor():

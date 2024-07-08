@@ -20,7 +20,7 @@ func hide_menu():
 	
 	if PlayerVars.current_mask != change_mask_to:
 		PlayerVars.current_mask = change_mask_to
-
+	
 func mask_selected(button):
 	change_mask_to = button
 
