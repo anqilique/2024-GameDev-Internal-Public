@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dsrhp4mklgdom"
-path="res://.godot/imported/player_basic.gltf-f65b44b656d0ee97cf99a00e659fa838.scn"
+uid="uid://bi55kwag16u7c"
+path="res://.godot/imported/player_basic.glb-37dbb30b512959a5015eec888cfe81df.scn"
 
 [deps]
 
-source_file="res://assets/blender/player_basic.gltf"
-dest_files=["res://.godot/imported/player_basic.gltf-f65b44b656d0ee97cf99a00e659fa838.scn"]
+source_file="res://assets/blender/player_basic.glb"
+dest_files=["res://.godot/imported/player_basic.glb-37dbb30b512959a5015eec888cfe81df.scn"]
 
 [params]
 
-nodes/root_type="CharacterBody3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

@@ -3,10 +3,12 @@ extends Node3D
 @export var passive_enemy_scene : PackedScene
 @export var chaser_enemy_scene : PackedScene
 
+const ENEMY_SPAWN_Y = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerVars.current_health = PlayerVars.starting_health
-	spawn_enemies(0, 0)
+	spawn_enemies(2, 2)
 
 func spawn_enemies(how_many_passive, how_many_chaser):
 	for n in range(how_many_passive):  # Spawn passive enemies.
@@ -15,7 +17,7 @@ func spawn_enemies(how_many_passive, how_many_chaser):
 		# Randomize position.
 		var rand_x = randf_range(-22, 22)
 		var rand_z = randf_range(-16, 22)
-		new_enemy.position = Vector3(rand_x, 0.5, rand_z)
+		new_enemy.position = Vector3(rand_x, ENEMY_SPAWN_Y, rand_z)
 		
 		new_enemy.add_to_group("Enemies")
 		add_child(new_enemy)
@@ -26,7 +28,7 @@ func spawn_enemies(how_many_passive, how_many_chaser):
 		# Randomize position.
 		var rand_x = randf_range(-22, 22)
 		var rand_z = randf_range(-16, 22)
-		new_enemy.position = Vector3(rand_x, 0.5, rand_z)
+		new_enemy.position = Vector3(rand_x, ENEMY_SPAWN_Y, rand_z)
 		
 		new_enemy.add_to_group("Enemies")
 		add_child(new_enemy)

@@ -26,7 +26,7 @@ albedo_texture = ExtResource("1_pn3hx")
 [sub_resource type="BoxMesh" id="BoxMesh_u78wt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3jbml"]
-radius = 4.26947
+radius = 6.15245
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 4

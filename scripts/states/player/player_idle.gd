@@ -2,9 +2,13 @@ extends State
 class_name PlayerIdle
 
 var player
+var rig_animator
 
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
+	rig_animator = player.get_node("Rig/player_basic/AnimationPlayer")
+	
+	print(rig_animator.get)
 
 func update(_delta):
 	if (  # If any of the horizontal movement keys are pressed.
@@ -25,5 +29,8 @@ func physics_update(_delta):
 	# Slow the player down once if they're not jumping.
 	player.velocity.x = move_toward(player.velocity.x, 0, PlayerVars.speed)
 	player.velocity.z = move_toward(player.velocity.z, 0, PlayerVars.speed)
+	
+	if rig_animator.current_animation != "idle ":
+		rig_animator.play("idle ")
 	
 	player.move_and_slide()
