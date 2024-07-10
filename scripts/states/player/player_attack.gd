@@ -36,16 +36,19 @@ func update(_delta):
 		Input.is_action_pressed("ui_right") or
 		Input.is_action_pressed("ui_up") or
 		Input.is_action_pressed("ui_down") or
-		Input.is_action_pressed("ui_accept")
+		
+		# Or if mouse is released.
+		Input.is_action_just_released("ui_left_mouse_button")
 	):
-		if rig_animator.current_animation != "attack":
-			get_parent().on_child_transition(self, "PlayerMove")
+		player.get_node("AttackTimer").stop()
+		get_parent().on_child_transition(self, "PlayerMove")
 
 func physics_update(_delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
-		if rig_animator.current_animation != "attack":
-			get_parent().on_child_transition(self, "PlayerJump")
+		
+		player.get_node("AttackTimer").stop()
+		get_parent().on_child_transition(self, "PlayerJump")
 	
 	var movement_speed = PlayerVars.base_speed + mask_data.movement_speed_bonus
 	

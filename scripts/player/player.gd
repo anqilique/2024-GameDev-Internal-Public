@@ -53,4 +53,4 @@ func _on_recovery_timer_timeout():
 
 
 func _on_attack_timer_timeout():
-	go_to_state("PlayerIdle")
+	go_to_state("PlayerAttack")
