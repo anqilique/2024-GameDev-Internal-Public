@@ -19,6 +19,7 @@ var masks = {  # Code No. : "File Path"
 # Health related variables.
 var current_health = 100
 var max_health = 100
+var base_max_health = 100
 
 var starting_health = 100
 

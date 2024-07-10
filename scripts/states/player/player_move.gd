@@ -26,7 +26,6 @@ func physics_update(_delta):
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	var movement_speed = PlayerVars.base_speed + mask_data.movement_speed_bonus
-	print(movement_speed)
 	
 	if direction:  # Move in that direction.
 		player.velocity.x = direction.x * movement_speed

@@ -21,6 +21,11 @@ func hide_menu():
 	if PlayerVars.current_mask != change_mask_to:
 		PlayerVars.current_mask = change_mask_to
 	
+	var mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
+	
+	if PlayerVars.max_health != PlayerVars.base_max_health + mask_data.max_health_bonus:
+		PlayerVars.max_health = PlayerVars.base_max_health + mask_data.max_health_bonus
+	
 func mask_selected(button):
 	change_mask_to = button
 
