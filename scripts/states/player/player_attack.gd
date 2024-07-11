@@ -7,11 +7,6 @@ var player
 var rig_animator
 var mask_data
 
-"""
-AttackTimer will be a placeholder until proper animations are established!
-Replace the timeout with an animation finished signal.
-"""
-
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	player.get_node("AttackTimer").start()

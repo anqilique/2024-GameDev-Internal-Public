@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://1v2ut2p7b0le"]
+
+[ext_resource type="Script" path="res://scripts/gui/death_menu.gd" id="1_68mfo"]
+
+[node name="DeathMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_68mfo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1114.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="MenuPanel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 744.0
+offset_top = 356.0
+offset_right = 1114.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuPanel"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = -12.0
+offset_right = 209.0
+offset_bottom = 59.0
+scale = Vector2(2, 2)
+bbcode_enabled = true
+text = "[center]
+You Have Died"
+
+[node name="RespawnButton" type="Button" parent="MenuPanel"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 110.0
+offset_right = 209.0
+offset_bottom = 141.0
+scale = Vector2(2, 2)
+text = "Respawn
+"
+
+[node name="QuitButton" type="Button" parent="MenuPanel"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 204.0
+offset_right = 206.0
+offset_bottom = 235.0
+scale = Vector2(2, 2)
+text = "Quit"
+
+[connection signal="pressed" from="MenuPanel/RespawnButton" to="." method="_on_respawn_button_pressed"]
+[connection signal="pressed" from="MenuPanel/QuitButton" to="." method="_on_quit_button_pressed"]
