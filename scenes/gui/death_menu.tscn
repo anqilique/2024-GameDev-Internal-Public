@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://1v2ut2p7b0le"]
+[gd_scene load_steps=4 format=3 uid="uid://1v2ut2p7b0le"]
 
 [ext_resource type="Script" path="res://scripts/gui/death_menu.gd" id="1_68mfo"]
+[ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="2_d1t5o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwxjl"]
+shader = ExtResource("2_d1t5o")
+shader_parameter/blur = 0.5
 
 [node name="DeathMenu" type="Control"]
 layout_mode = 3
@@ -8,6 +13,19 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_68mfo")
+
+[node name="BlurBG" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_kwxjl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1115.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
