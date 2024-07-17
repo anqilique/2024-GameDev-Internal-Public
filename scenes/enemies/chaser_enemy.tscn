@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c30yqjvqjoy4u"]
+[gd_scene load_steps=21 format=3 uid="uid://c30yqjvqjoy4u"]
 
 [ext_resource type="Script" path="res://scripts/enemies/chaser_enemy.gd" id="1_k40bd"]
 [ext_resource type="Texture2D" uid="uid://d3dtrws4chvpm" path="res://assets/textures/purple.png" id="1_pn3hx"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_takedmg.gd" id="6_rq73r"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_death.gd" id="7_np0au"]
 [ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/other/hurtbox_component.tscn" id="11_h36sy"]
+[ext_resource type="PackedScene" uid="uid://d3g8tgfu6ecju" path="res://scenes/other/health_collectable.tscn" id="11_pnel6"]
+[ext_resource type="PackedScene" uid="uid://dx75c8mg74i2t" path="res://scenes/other/essence_collectable.tscn" id="12_4yoa5"]
 [ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="12_jko6h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_23usq"]
@@ -95,6 +97,8 @@ script = ExtResource("6_rq73r")
 
 [node name="EnemyDeath" type="Node" parent="StateMachine"]
 script = ExtResource("7_np0au")
+health_collectable_scene = ExtResource("11_pnel6")
+essence_collectable_scene = ExtResource("12_4yoa5")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("11_h36sy")]
 health_component = NodePath("../HealthComponent")

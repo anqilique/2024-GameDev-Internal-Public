@@ -3,7 +3,7 @@ extends Node
 # Movement related variables.
 var base_speed = 12
 
-var jump_velocity = 6
+var jump_velocity = 8
 var jump_max_count = 1
 
 # Mask related variables.
@@ -25,3 +25,6 @@ var starting_health = 100
 
 # Attack related variables.
 var attack_damage = 10
+
+# Currency related variables.
+var essence = 0

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3g8tgfu6ecju"]
+
+[ext_resource type="Script" path="res://scripts/other/collectables.gd" id="1_s0a7i"]
+[ext_resource type="Texture2D" uid="uid://cthh1rh7bq4hj" path="res://assets/textures/red.png" id="2_8ytlc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lftmg"]
+radius = 0.571716
+
+[sub_resource type="SphereMesh" id="SphereMesh_cv0fq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dhs2"]
+albedo_texture = ExtResource("2_8ytlc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjl7i"]
+
+[node name="HealthCollectable" type="CharacterBody3D"]
+script = ExtResource("1_s0a7i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.434106, 0, 0, 0, 0.434106, 0, 0, 0, 0.434106, 0, 0, 0)
+shape = SubResource("SphereShape3D_lftmg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.486648, 0, 0, 0, 0.486648, 0, 0, 0, 0.486648, 0, 0, 0)
+mesh = SubResource("SphereMesh_cv0fq")
+surface_material_override/0 = SubResource("StandardMaterial3D_2dhs2")
+
+[node name="CollectArea3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectArea3D"]
+transform = Transform3D(0.430893, 0, 0, 0, 0.430893, 0, 0, 0, 0.430893, 0, 0, 0)
+shape = SubResource("BoxShape3D_rjl7i")
+
+[connection signal="body_entered" from="CollectArea3D" to="." method="_on_collect_area_3d_body_entered"]

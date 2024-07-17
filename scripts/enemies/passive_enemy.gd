@@ -31,7 +31,8 @@ func go_to_new_state(current_state):  # Switch between idling/wandering.
 		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
 	
 	# Randomize the time spent in state.
-	reset_statetimer()
+	if current_state != "EnemyDeath":
+		reset_statetimer()
 
 
 func _on_state_timer_timeout():
