@@ -20,6 +20,11 @@ script = ExtResource("1_s0a7i")
 transform = Transform3D(0.434106, 0, 0, 0, 0.434106, 0, 0, 0, 0.434106, 0, 0, 0)
 shape = SubResource("SphereShape3D_lftmg")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039568, 0.0316315)
+light_color = Color(1, 0.823529, 0.862745, 1)
+omni_range = 5.11108
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.486648, 0, 0, 0, 0.486648, 0, 0, 0, 0.486648, 0, 0, 0)
 mesh = SubResource("SphereMesh_cv0fq")

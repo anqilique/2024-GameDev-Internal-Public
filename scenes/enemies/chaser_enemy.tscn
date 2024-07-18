@@ -115,6 +115,13 @@ one_shot = true
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5127, 0.00321913)
+light_color = Color(0.623529, 0.168627, 0.890196, 1)
+light_energy = 2.0
+light_indirect_energy = 2.0
+omni_range = 5.11108
+
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
 [connection signal="body_entered" from="Rig/Hitbox3D" to="." method="_on_hitbox_3d_body_entered"]
 [connection signal="body_exited" from="Rig/Hitbox3D" to="." method="_on_hitbox_3d_body_exited"]
