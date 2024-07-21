@@ -16,14 +16,14 @@ func enter():
 	if rig_animator.current_animation != "attack":
 			rig_animator.play("attack")
 	
-	# Attack all enemies within the player's attack range.
-	for body in player.get_node("Rig/Hitbox3D").get_overlapping_bodies():
-		if body.has_node("HurtboxComponent") and body.is_in_group("Enemies"):
-			var hurtbox = body.get_node("HurtboxComponent")
-			var attack = Attack.new()
-			
-			attack.attack_damage = PlayerVars.attack_damage + mask_data.attack_damage_bonus
-			hurtbox.damage(attack)
+	## Attack all enemies within the player's attack range.
+	#for body in player.get_node("Rig/Hitbox3D").get_overlapping_bodies():
+		#if body.has_node("HurtboxComponent") and body.is_in_group("Enemies"):
+			#var hurtbox = body.get_node("HurtboxComponent")
+			#var attack = Attack.new()
+			#
+			#attack.attack_damage = PlayerVars.attack_damage + mask_data.attack_damage_bonus
+			#hurtbox.damage(attack)
 
 func update(_delta):
 	if (  # If any of the horizontal movement keys are pressed.
@@ -51,3 +51,14 @@ func physics_update(_delta):
 	player.velocity.z = move_toward(player.velocity.z, 0, movement_speed)
 	
 	player.move_and_slide()
+
+
+func _on_animation_player_animation_finished(anim_name):
+	# Attack all enemies within the player's attack range.
+	for body in player.get_node("Rig/Hitbox3D").get_overlapping_bodies():
+		if body.has_node("HurtboxComponent") and body.is_in_group("Enemies"):
+			var hurtbox = body.get_node("HurtboxComponent")
+			var attack = Attack.new()
+			
+			attack.attack_damage = PlayerVars.attack_damage + mask_data.attack_damage_bonus
+			hurtbox.damage(attack)

@@ -28,6 +28,7 @@ size = Vector3(1.21436, 1.22961, 1.50586)
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_w8y0b")
 statetimer_min = 0.05
 statetimer_max = 1.5
