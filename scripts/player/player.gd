@@ -10,7 +10,7 @@ func _ready():
 	pass
 
 func go_to_state(new_state):
-	if $StateMachine.current_state.name != "PlayerDeath":
+	if $StateMachine.current_state.name not in [new_state, "PlayerDeath"]:
 		$StateMachine.on_child_transition($StateMachine.current_state, new_state)
 
 func _physics_process(delta):
@@ -49,8 +49,5 @@ func handle_look_direction():
 
 
 func _on_recovery_timer_timeout():
-	go_to_state("PlayerIdle")
-
-
-func _on_attack_timer_timeout():
-	go_to_state("PlayerAttack")
+	#go_to_state("PlayerIdle")
+	pass

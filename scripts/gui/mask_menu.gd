@@ -12,10 +12,12 @@ func _ready():
 func show_menu(location):
 	position = location
 	Engine.time_scale = 0.2
+	$CanvasLayer.visible = true
 	show()
 
 func hide_menu():
 	Engine.time_scale = 1
+	$CanvasLayer.visible = false
 	hide()
 	
 	if PlayerVars.current_mask != change_mask_to:

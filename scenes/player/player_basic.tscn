@@ -540,16 +540,11 @@ text = "State: PlayerIdle"
 wait_time = 0.5
 one_shot = true
 
-[node name="AttackTimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156905, -0.247942)
-light_color = Color(0.92549, 0.466667, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156905, -0.531006)
+light_color = Color(0.964706, 0.396078, 0.27451, 1)
 light_energy = 2.0
 omni_range = 5.11108
 
 [connection signal="animation_finished" from="Rig/player_basic/AnimationPlayer" to="StateMachine/PlayerAttack" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -128,3 +128,4 @@ omni_range = 5.11108
 [connection signal="body_entered" from="Vision3D" to="." method="_on_vision_3d_body_entered"]
 [connection signal="body_exited" from="Vision3D" to="." method="_on_vision_3d_body_exited"]
 [connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
+[connection signal="timeout" from="RecoveryTimer" to="StateMachine/EnemyTakeDMG" method="_on_recovery_timer_timeout"]

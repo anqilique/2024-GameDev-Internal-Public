@@ -24,7 +24,7 @@ var base_max_health = 100
 var starting_health = 100
 
 # Attack related variables.
-var attack_damage = 10
+var attack_damage = 25
 
 # Currency related variables.
 var essence = 0

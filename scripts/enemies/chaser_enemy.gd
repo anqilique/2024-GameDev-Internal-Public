@@ -5,7 +5,7 @@ extends CharacterBody3D
 
 @onready var time_in_state : float
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+# Get the gravity from the project settings to be synce	d with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
