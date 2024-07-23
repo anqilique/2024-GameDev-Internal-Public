@@ -12,6 +12,7 @@ func enter():
 	rig_animator = player.get_node("Rig/player_basic/AnimationPlayer")
 	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
 	
+	# If not already attacking, start an attack.
 	if rig_animator.current_animation != "attack":
 			rig_animator.play("attack")
 

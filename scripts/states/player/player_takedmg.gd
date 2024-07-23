@@ -17,6 +17,7 @@ func physics_update(_delta):  # Allow the player to move, but slower.
 	
 	var movement_speed = PlayerVars.base_speed + mask_data.movement_speed_bonus
 	
+	# Slow the player down when they are hit.
 	player.velocity.x = move_toward(player.velocity.x, direction.x * DAMAGED_SPEED, movement_speed)
 	player.velocity.z = move_toward(player.velocity.z, direction.z * DAMAGED_SPEED, movement_speed)
 	

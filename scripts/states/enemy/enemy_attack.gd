@@ -14,6 +14,7 @@ func update(_delta):
 		
 		var hitbox
 		
+		# Hitboxes differ between enemy types. Get right one.
 		if enemy.has_node("Rig/Hitbox3D"):
 			hitbox = enemy.get_node("Rig/Hitbox3D")
 		else:
@@ -44,6 +45,6 @@ func update(_delta):
 					var state_machine = enemy.get_node("StateMachine")
 					state_machine.on_child_transition(state_machine.current_state, "EnemyIdle")
 			
-			else:
+			else:  # When player is not in range, go back to idling.
 				var state_machine = enemy.get_node("StateMachine")
 				state_machine.on_child_transition(state_machine.current_state, "EnemyIdle")

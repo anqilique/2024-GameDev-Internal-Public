@@ -21,12 +21,13 @@ func exit():
 	
 	enemy.move_and_slide()
 
-func update(_delta):
+func update(_delta):  # Target the player's location.
 	nav_agent.set_target_position(player.global_transform.origin)
 
 func physics_update(_delta):
 	player = get_tree().get_first_node_in_group("Player")
 	
+	# If the player is still alive, chase them.
 	if player.get_node("StateMachine").current_state.name != "PlayerDeath":
 		var current_location = enemy.global_transform.origin
 		var next_location = nav_agent.get_next_path_position()

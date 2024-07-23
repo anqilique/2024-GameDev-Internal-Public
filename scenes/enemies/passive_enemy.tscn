@@ -106,4 +106,4 @@ omni_range = 5.11108
 [connection signal="body_entered" from="Hitbox3D" to="." method="_on_hitbox_3d_body_entered"]
 [connection signal="body_exited" from="Hitbox3D" to="." method="_on_hitbox_3d_body_exited"]
 [connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
-[connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]
+[connection signal="timeout" from="RecoveryTimer" to="StateMachine/EnemyTakeDMG" method="_on_recovery_timer_timeout"]

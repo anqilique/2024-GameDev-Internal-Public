@@ -10,9 +10,9 @@ func _ready():
 	hide_menu()
 
 func show_menu(location):
-	position = location
-	Engine.time_scale = 0.2
-	$CanvasLayer.visible = true
+	position = location  # Go to mouse position.
+	Engine.time_scale = 0.2  # Slow game down.
+	$CanvasLayer.visible = true  # Blur the background.
 	show()
 
 func hide_menu():
@@ -20,8 +20,11 @@ func hide_menu():
 	$CanvasLayer.visible = false
 	hide()
 	
+	# Update the current mask.
 	if PlayerVars.current_mask != change_mask_to:
 		PlayerVars.current_mask = change_mask_to
+	
+	""" Update Player Health """
 	
 	var mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
 	

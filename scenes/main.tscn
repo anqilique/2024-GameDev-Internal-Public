@@ -18,6 +18,3 @@ chaser_enemy_scene = ExtResource("3_wf5i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70789, 0)
 
 [node name="LayerUI" parent="." instance=ExtResource("3_wax13")]
-
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.912, 0, 0)

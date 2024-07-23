@@ -49,5 +49,4 @@ func handle_look_direction():
 
 
 func _on_recovery_timer_timeout():
-	#go_to_state("PlayerIdle")
-	pass
+	if $StateMachine.current_state == "PlayerTakeDMG": go_to_state("PlayerIdle")

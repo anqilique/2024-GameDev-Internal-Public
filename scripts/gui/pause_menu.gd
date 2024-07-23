@@ -13,13 +13,13 @@ func _ready():
 
 func handle_ui_visibility(hide_list, show_list):
 	if hide_list != []:
-		for named in hide_list:
+		for named in hide_list:  # Hide all nodes listed.
 			var node  = get_parent().get_node(named)
 			if node.is_visible():
 				node.hide()
 	
 	if show_list != []:
-		for named in show_list:
+		for named in show_list:  # Show all nodes listed.
 			var node  = get_parent().get_node(named)
 			if not node.is_visible():
 				node.show()

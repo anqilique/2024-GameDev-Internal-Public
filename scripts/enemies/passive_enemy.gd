@@ -50,7 +50,3 @@ func _on_hitbox_3d_body_exited(body):
 	if body.name == "Player":  # If player leaves the enemy's detect range.
 		print("Switching to Idle State!")
 		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
-
-
-func _on_recovery_timer_timeout():
-	$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
