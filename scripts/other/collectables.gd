@@ -18,6 +18,9 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, 2)
 		velocity.z = move_toward(velocity.x, 0, 2)
+		
+		if $AnimationPlayer.current_animation != "float":
+			$AnimationPlayer.play("float")
 
 	move_and_slide()
 
