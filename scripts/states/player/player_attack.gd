@@ -42,14 +42,15 @@ func physics_update(_delta):
 
 
 func _on_animation_player_animation_finished(anim_name):
-	# Attack all enemies within the player's attack range.
-	for body in player.get_node("Rig/Hitbox3D").get_overlapping_bodies():
-		if body.has_node("HurtboxComponent") and body.is_in_group("Enemies"):
-			var hurtbox = body.get_node("HurtboxComponent")
-			var attack = Attack.new()
-			
-			attack.attack_damage = PlayerVars.attack_damage + mask_data.attack_damage_bonus
-			hurtbox.damage(attack)
+	if anim_name == "attack":
+		# Attack all enemies within the player's attack range.
+		for body in player.get_node("Rig/Hitbox3D").get_overlapping_bodies():
+			if body.has_node("HurtboxComponent") and body.is_in_group("Enemies"):
+				var hurtbox = body.get_node("HurtboxComponent")
+				var attack = Attack.new()
+				
+				attack.attack_damage = PlayerVars.attack_damage + mask_data.attack_damage_bonus
+				hurtbox.damage(attack)
 	
 	# Attack again if the player is still holding the mouse down.
 	if Input.is_action_pressed("ui_left_mouse_button"):

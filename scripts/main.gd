@@ -8,7 +8,7 @@ const ENEMY_SPAWN_Y = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerVars.current_health = PlayerVars.starting_health
-	spawn_enemies(8, 4)
+	spawn_enemies(4, 8)
 
 func spawn_enemies(how_many_passive, how_many_chaser):
 	for n in range(how_many_passive):  # Spawn passive enemies.

@@ -1,12 +1,16 @@
 extends Control
 
+@onready var bar = $Health/TextureProgressBar
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	bar.value = PlayerVars.current_health
+	bar.max_value = PlayerVars.max_health
 
 func update_health(current, maximum):
-	$Health/TextureProgressBar.max_value = maximum
-	$Health/TextureProgressBar.value = current
+	var tween = get_tree().create_tween()
+	tween.tween_property(bar, "value", current, 0.25).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(bar, "max_value", maximum, 0.25).set_trans(Tween.TRANS_LINEAR)
 
 func update_mask(current):
 	$Mask/Label.text = "M" + str(current)
@@ -17,8 +21,8 @@ func _process(_delta):
 	 # If the local node values don't match the global ones...
 	
 	if (
-		PlayerVars.current_health != $Health/TextureProgressBar.value
-		or PlayerVars.max_health != $Health/TextureProgressBar.max_value
+		PlayerVars.current_health != bar.value
+		or PlayerVars.max_health != bar.max_value
 	):
 		update_health(PlayerVars.current_health, PlayerVars.max_health)
 	

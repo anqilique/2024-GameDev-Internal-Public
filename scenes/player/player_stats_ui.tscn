@@ -1,15 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://u4ppq1nm1588"]
+[gd_scene load_steps=4 format=3 uid="uid://u4ppq1nm1588"]
 
 [ext_resource type="Script" path="res://scripts/player/player_stats_ui.gd" id="1_ksy8e"]
 
-[sub_resource type="Gradient" id="Gradient_hjf8b"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dgg31"]
-gradient = SubResource("Gradient_hjf8b")
-
 [sub_resource type="Gradient" id="Gradient_gu1ve"]
-colors = PackedColorArray(2.52686e-07, 0.476484, 0, 1, 0.282353, 0.87451, 0.282353, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8hx5h"]
 gradient = SubResource("Gradient_gu1ve")
@@ -38,7 +32,6 @@ nine_patch_stretch = true
 stretch_margin_left = 10
 stretch_margin_top = 10
 stretch_margin_right = 10
-texture_under = SubResource("GradientTexture2D_dgg31")
 texture_progress = SubResource("GradientTexture2D_8hx5h")
 
 [node name="Mask" type="Control" parent="."]
