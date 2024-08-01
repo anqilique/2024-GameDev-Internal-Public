@@ -7,6 +7,7 @@ var jump_velocity = 8
 var jump_max_count = 1
 
 # Mask related variables.
+var broken_masks = []
 var current_mask = 5
 var masks = {  # Code No. : "File Path"
 	1 : "res://resources/masks/dragon_mask.tres",
