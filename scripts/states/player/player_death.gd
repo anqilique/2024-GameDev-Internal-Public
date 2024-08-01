@@ -13,3 +13,6 @@ func enter():
 	
 	var main_scene = player.get_parent()
 	main_scene.get_node("LayerUI/DeathMenu").show_screen()
+
+func exit():
+	pass
