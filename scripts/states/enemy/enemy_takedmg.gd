@@ -25,11 +25,16 @@ func _on_recovery_timer_timeout():
 	else:
 		hitbox = enemy.get_node("Hitbox3D")
 	
-	for body in hitbox.get_overlapping_bodies():
-		
-		# If the player is detected.
-		if body.has_node("HurtboxComponent") and body.name == "Player":
-			state_machine.on_child_transition(state_machine.current_state, "EnemyAttack")
-		
-		else:
-			state_machine.on_child_transition(state_machine.current_state, "EnemyIdle")
+	if hitbox.get_overlapping_bodies() != []:
+		for body in hitbox.get_overlapping_bodies():
+			# If the player is detected.
+			if body.has_node("HurtboxComponent") and body.name == "Player":
+				var player_state = body.get_node("StateMachine").current_state.name
+				
+				# Don't bother attacking if the player is dead.
+				if player_state == "PlayerDeath": return
+				
+				# If player is alive, then attack.
+				state_machine.on_child_transition(state_machine.current_state, "EnemyAttack")
+			
+	else: state_machine.on_child_transition(state_machine.current_state, "EnemyIdle")

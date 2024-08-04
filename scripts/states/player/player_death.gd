@@ -5,8 +5,7 @@ var player
 
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
-	player.set_collision_layer(4)  # Empty Layer
-	player.get_node("Rig").hide()
+	player.change_visibility("hide")
 	
 	if PlayerVars.current_mask not in PlayerVars.broken_masks:
 		PlayerVars.broken_masks.append(PlayerVars.current_mask)
@@ -15,4 +14,25 @@ func enter():
 	main_scene.get_node("LayerUI/DeathMenu").show_screen()
 
 func exit():
-	pass
+	print("--> Exiting death state.")
+	player.change_visibility("show")
+	
+	# If all masks are broken --> Respawn without progress.
+	if PlayerVars.broken_masks.size() == 5:
+		pass
+		
+	else:  # Else --> Switch to next available mask.
+		if PlayerVars.current_mask in PlayerVars.broken_masks:
+			for mask in PlayerVars.current_mask:
+				if mask not in PlayerVars.broken_masks:
+					PlayerVars.current_mask = mask
+	
+	PlayerVars.current_health = PlayerVars.max_health
+	
+	var health_comp = player.get_node("HealthComponent")
+	health_comp.health = PlayerVars.current_health
+	health_comp.max_health = PlayerVars.max_health
+	
+	print(get_parent().current_state)
+	
+	player.global_position = Vector3(0, 4.8, 0)

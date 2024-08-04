@@ -9,6 +9,14 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	pass
 
+func change_visibility(set_to):
+	if set_to == "hide":
+		set_collision_layer(4)  # Empty Layer
+		$Rig.hide()
+	else:
+		set_collision_layer(2)  # Original Layer
+		$Rig.show()
+
 func go_to_state(new_state):
 	if $StateMachine.current_state.name not in [new_state, "PlayerDeath"]:
 		$StateMachine.on_child_transition($StateMachine.current_state, new_state)

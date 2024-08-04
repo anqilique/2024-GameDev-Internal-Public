@@ -24,12 +24,10 @@ func update(_delta):
 			
 			# If the player is detected.
 			if body.has_node("HurtboxComponent") and body.name == "Player":
-				
 				# And if the player is not dead.
 				if body.get_node("StateMachine").current_state.name != "PlayerDeath":
 					var hurtbox = body.get_node("HurtboxComponent")
 					var attack = Attack.new()
-					
 					# Attack the player's hurtbox.
 					attack.attack_damage = 10
 					hurtbox.damage(attack)

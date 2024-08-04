@@ -3,7 +3,6 @@ extends Node3D
 @onready var bar = $SubViewport/TextureProgressBar
 
 func update_health(current, maximum):
-	
 	var tween = get_tree().create_tween()
 	tween.tween_property(bar, "value", current, 0.25).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(bar, "max_value", maximum, 0.25).set_trans(Tween.TRANS_LINEAR)
