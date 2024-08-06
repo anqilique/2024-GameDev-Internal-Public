@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://fsfbswxgtst5"]
+[gd_scene load_steps=4 format=3 uid="uid://fsfbswxgtst5"]
 
 [ext_resource type="PackedScene" uid="uid://d1o062mq0l8yx" path="res://scenes/environment/camp_environment.tscn" id="1_kmjdd"]
+[ext_resource type="PackedScene" uid="uid://b0euaykfx2xia" path="res://scenes/player/player_basic.tscn" id="2_a2cx2"]
+[ext_resource type="PackedScene" uid="uid://dj6ga5g6jywsx" path="res://scenes/gui/layer_ui.tscn" id="3_d0eja"]
 
 [node name="Camp" type="Node3D"]
 
 [node name="Environment" parent="." instance=ExtResource("1_kmjdd")]
+
+[node name="Player" parent="." instance=ExtResource("2_a2cx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70789, 0)
+
+[node name="LayerUI" parent="." instance=ExtResource("3_d0eja")]
