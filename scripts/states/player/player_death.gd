@@ -23,7 +23,7 @@ func exit():
 		
 	else:  # Else --> Switch to next available mask.
 		if PlayerVars.current_mask in PlayerVars.broken_masks:
-			for mask in PlayerVars.current_mask:
+			for mask in PlayerVars.masks.keys():
 				if mask not in PlayerVars.broken_masks:
 					PlayerVars.current_mask = mask
 	

@@ -3,13 +3,17 @@ extends Control
 const SHORTCUT = "ui_right_mouse_button"
 
 var change_mask_to
+var available_masks
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	change_mask_to = PlayerVars.current_mask
+	available_masks = PlayerVars.masks.keys()
 	hide_menu()
 
 func show_menu(location):
+	if PlayerVars.broken_masks.size() > 3: return
+	
 	position = location  # Go to mouse position.
 	Engine.time_scale = 0.2  # Slow game down.
 	$CanvasLayer.visible = true  # Blur the background.
@@ -49,6 +53,13 @@ func _process(delta):
 		):
 		
 		hide_menu()
+	
+	# Check there is the correct number of available masks left.
+	if available_masks.size() != PlayerVars.masks.keys().size() - PlayerVars.broken_masks.size():
+		available_masks = []
+		for mask in PlayerVars.masks.keys():
+			if mask not in PlayerVars.broken_masks: available_masks.append(mask)
+			else: get_node(str(mask)).hide()
 
 """
 Mask Button Signals
