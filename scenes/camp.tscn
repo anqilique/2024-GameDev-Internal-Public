@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://fsfbswxgtst5"]
+
+[ext_resource type="PackedScene" uid="uid://d1o062mq0l8yx" path="res://scenes/environment/camp_environment.tscn" id="1_kmjdd"]
+
+[node name="Camp" type="Node3D"]
+
+[node name="Environment" parent="." instance=ExtResource("1_kmjdd")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://0k5brkemduba"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_rko6x"]
-[ext_resource type="PackedScene" uid="uid://clyq3u2h0solb" path="res://scenes/environment/environment.tscn" id="1_uuast"]
+[ext_resource type="PackedScene" uid="uid://clyq3u2h0solb" path="res://scenes/environment/main_environment.tscn" id="1_uuast"]
 [ext_resource type="PackedScene" uid="uid://c8tchusbfdues" path="res://scenes/enemies/passive_enemy.tscn" id="3_qiinr"]
 [ext_resource type="PackedScene" uid="uid://dj6ga5g6jywsx" path="res://scenes/gui/layer_ui.tscn" id="3_wax13"]
 [ext_resource type="PackedScene" uid="uid://c30yqjvqjoy4u" path="res://scenes/enemies/chaser_enemy.tscn" id="3_wf5i2"]
