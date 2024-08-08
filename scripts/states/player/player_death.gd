@@ -19,7 +19,8 @@ func exit():
 	
 	# If all masks are broken --> Respawn without progress.
 	if PlayerVars.broken_masks.size() == 5:
-		pass
+		PlayerVars.current_mask = 5
+		PlayerVars.broken_masks = []
 		
 	else:  # Else --> Switch to next available mask.
 		if PlayerVars.current_mask in PlayerVars.broken_masks:

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dsv7ebrcq8qv5"]
+
+[node name="UpgradesMenu" type="CanvasLayer"]
+
+[node name="UpgradePanel" type="Panel" parent="."]
+offset_left = 31.0
+offset_top = 33.0
+offset_right = 792.0
+offset_bottom = 525.0
+
+[node name="PlayerStatsPanel" type="Panel" parent="."]
+offset_left = 821.0
+offset_top = 33.0
+offset_right = 1119.0
+offset_bottom = 525.0
+
+[node name="ActivityPanel" type="Panel" parent="."]
+offset_left = 353.0
+offset_top = 551.0
+offset_right = 1119.0
+offset_bottom = 608.0
+
+[node name="ExitButton" type="Panel" parent="."]
+offset_left = 32.0
+offset_top = 551.0
+offset_right = 330.0
+offset_bottom = 608.0

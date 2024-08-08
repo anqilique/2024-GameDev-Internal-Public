@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://fsfbswxgtst5"]
+[gd_scene load_steps=6 format=3 uid="uid://fsfbswxgtst5"]
 
 [ext_resource type="PackedScene" uid="uid://d1o062mq0l8yx" path="res://scenes/environment/camp_environment.tscn" id="1_kmjdd"]
 [ext_resource type="PackedScene" uid="uid://b0euaykfx2xia" path="res://scenes/player/player_basic.tscn" id="2_a2cx2"]
 [ext_resource type="PackedScene" uid="uid://dj6ga5g6jywsx" path="res://scenes/gui/layer_ui.tscn" id="3_d0eja"]
+[ext_resource type="PackedScene" uid="uid://dsv7ebrcq8qv5" path="res://scenes/gui/upgrades_menu.tscn" id="4_d1641"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e6pr4"]
+radius = 3.4096
 
 [node name="Camp" type="Node3D"]
 
@@ -12,3 +16,11 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70789, 0)
 
 [node name="LayerUI" parent="." instance=ExtResource("3_d0eja")]
+
+[node name="UpgradesMenu" parent="." instance=ExtResource("4_d1641")]
+
+[node name="5_UpgradeArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.807475, 0, -10.4259)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="5_UpgradeArea3D"]
+shape = SubResource("SphereShape3D_e6pr4")
