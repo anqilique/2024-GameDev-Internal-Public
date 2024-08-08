@@ -18,6 +18,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70789, 0)
 [node name="LayerUI" parent="." instance=ExtResource("3_d0eja")]
 
 [node name="UpgradesMenu" parent="." instance=ExtResource("4_d1641")]
+visible = false
 
 [node name="5_UpgradeArea3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.807475, 0, -10.4259)
