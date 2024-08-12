@@ -36,9 +36,9 @@ texture_progress = SubResource("GradientTexture2D_8hx5h")
 
 [node name="Mask" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 15.0
+offset_left = 261.0
 offset_top = -1.0
-offset_right = 55.0
+offset_right = 301.0
 offset_bottom = 39.0
 
 [node name="Label" type="Label" parent="Mask"]

@@ -12,6 +12,7 @@ func _ready():
 	hide_menu()
 
 func show_menu(location):
+	print(PlayerVars.broken_masks)
 	if PlayerVars.broken_masks.size() > 3: return
 	
 	position = location  # Go to mouse position.
@@ -25,7 +26,10 @@ func hide_menu():
 	hide()
 	
 	# Update the current mask.
-	if PlayerVars.current_mask != change_mask_to:
+	if (
+		PlayerVars.current_mask != change_mask_to
+		and change_mask_to not in PlayerVars.broken_masks
+	):
 		PlayerVars.current_mask = change_mask_to
 	
 	""" Update Player Health """
@@ -36,7 +40,7 @@ func hide_menu():
 		PlayerVars.max_health = PlayerVars.base_max_health + mask_data.max_health_bonus
 	
 func mask_selected(button):
-	change_mask_to = button
+	if button not in PlayerVars.broken_masks: change_mask_to = button
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,8 +48,15 @@ func _process(delta):
 		Input.is_action_just_pressed(SHORTCUT)
 		and PlayerVars.current_health > 0
 		):
-		var get_mouse_pos = get_global_mouse_position()
-		show_menu(get_mouse_pos)
+		
+		# Check there is the correct number of available masks left.
+		available_masks = []
+		for mask in PlayerVars.masks.keys():
+			if mask not in PlayerVars.broken_masks: available_masks.append(mask)
+			else: get_node(str(mask)).hide()
+			
+			var get_mouse_pos = get_global_mouse_position()
+			show_menu(get_mouse_pos)
 	
 	elif (
 		Input.is_action_just_released(SHORTCUT)
@@ -53,13 +64,6 @@ func _process(delta):
 		):
 		
 		hide_menu()
-	
-	# Check there is the correct number of available masks left.
-	if available_masks.size() != PlayerVars.masks.keys().size() - PlayerVars.broken_masks.size():
-		available_masks = []
-		for mask in PlayerVars.masks.keys():
-			if mask not in PlayerVars.broken_masks: available_masks.append(mask)
-			else: get_node(str(mask)).hide()
 
 """
 Mask Button Signals

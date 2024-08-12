@@ -7,6 +7,8 @@ func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	player.change_visibility("hide")
 	
+	print(PlayerVars.current_mask, PlayerVars.broken_masks)
+	
 	if PlayerVars.current_mask not in PlayerVars.broken_masks:
 		PlayerVars.broken_masks.append(PlayerVars.current_mask)
 	
@@ -18,15 +20,17 @@ func exit():
 	player.change_visibility("show")
 	
 	# If all masks are broken --> Respawn without progress.
+	print(PlayerVars.broken_masks, " <-- Broken")
+	
 	if PlayerVars.broken_masks.size() == 5:
-		PlayerVars.current_mask = 5
-		PlayerVars.broken_masks = []
+		pass
 		
 	else:  # Else --> Switch to next available mask.
 		if PlayerVars.current_mask in PlayerVars.broken_masks:
 			for mask in PlayerVars.masks.keys():
 				if mask not in PlayerVars.broken_masks:
 					PlayerVars.current_mask = mask
+		print(PlayerVars.current_mask, " <-- NEW")
 	
 	PlayerVars.current_health = PlayerVars.max_health
 	
