@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://fsfbswxgtst5"]
+[gd_scene load_steps=7 format=3 uid="uid://fsfbswxgtst5"]
 
+[ext_resource type="Script" path="res://scripts/camp.gd" id="1_adogj"]
 [ext_resource type="PackedScene" uid="uid://d1o062mq0l8yx" path="res://scenes/environment/camp_environment.tscn" id="1_kmjdd"]
 [ext_resource type="PackedScene" uid="uid://b0euaykfx2xia" path="res://scenes/player/player_basic.tscn" id="2_a2cx2"]
 [ext_resource type="PackedScene" uid="uid://dj6ga5g6jywsx" path="res://scenes/gui/layer_ui.tscn" id="3_d0eja"]
@@ -9,6 +10,7 @@
 radius = 3.4096
 
 [node name="Camp" type="Node3D"]
+script = ExtResource("1_adogj")
 
 [node name="Environment" parent="." instance=ExtResource("1_kmjdd")]
 
