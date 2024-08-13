@@ -1,5 +1,9 @@
 extends Node
 
+
+# Battle related variables.
+var live_enemies = 0
+
 # Movement related variables.
 var base_speed = 12
 

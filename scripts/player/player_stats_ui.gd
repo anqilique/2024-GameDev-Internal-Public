@@ -11,6 +11,8 @@ func update_health(current, maximum):
 	var tween = get_tree().create_tween()
 	tween.tween_property(bar, "value", current, 0.25).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(bar, "max_value", maximum, 0.25).set_trans(Tween.TRANS_LINEAR)
+	
+	tween.bind_node(self)
 
 func update_mask(current):
 	$Mask/Label.text = "M" + str(current)

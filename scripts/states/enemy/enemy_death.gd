@@ -41,3 +41,4 @@ func enter():
 	Free the Enemy Node
 	"""
 	enemy.queue_free()
+	PlayerVars.live_enemies -= 1

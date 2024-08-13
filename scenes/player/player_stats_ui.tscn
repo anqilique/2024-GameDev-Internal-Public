@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/player/player_stats_ui.gd" id="1_ksy8e"]
 
-[sub_resource type="Gradient" id="Gradient_gu1ve"]
+[sub_resource type="Gradient" id="Gradient_emtv5"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8hx5h"]
-gradient = SubResource("Gradient_gu1ve")
+gradient = SubResource("Gradient_emtv5")
 
 [node name="PlayerStatsUI" type="Control"]
 layout_mode = 3

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://do6yixnrxxhv4"]
+
+[ext_resource type="Script" path="res://scripts/gui/wave_stats.gd" id="1_708pg"]
+
+[sub_resource type="Gradient" id="Gradient_gu1ve"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_idnnk"]
+gradient = SubResource("Gradient_gu1ve")
+
+[node name="WaveStats" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_708pg")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 432.0
+offset_top = 623.0
+offset_right = 874.0
+offset_bottom = 663.0
+scale = Vector2(0.568985, 0.313264)
+fill_mode = 6
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+texture_progress = SubResource("GradientTexture2D_idnnk")
