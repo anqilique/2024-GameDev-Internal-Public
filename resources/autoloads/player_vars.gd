@@ -2,7 +2,9 @@ extends Node
 
 
 # Battle related variables.
+var wave = 0
 var live_enemies = 0
+var starting_waves = [[1, 0], [2, 1], [2, 2], [2, 4]]
 
 # Movement related variables.
 var base_speed = 12

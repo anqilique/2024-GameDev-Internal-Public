@@ -16,14 +16,27 @@ offset_bottom = 40.0
 script = ExtResource("1_708pg")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
 offset_left = 432.0
 offset_top = 623.0
 offset_right = 874.0
 offset_bottom = 663.0
 scale = Vector2(0.568985, 0.313264)
+max_value = 1.0
+value = 1.0
 fill_mode = 6
 nine_patch_stretch = true
 stretch_margin_left = 10
 stretch_margin_top = 10
 stretch_margin_right = 10
 texture_progress = SubResource("GradientTexture2D_idnnk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 591.0
+offset_right = 683.0
+offset_bottom = 631.0
+text = "Wave 1 | 1 Remaing Enemies"
+horizontal_alignment = 1
+vertical_alignment = 1

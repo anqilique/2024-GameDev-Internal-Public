@@ -19,18 +19,26 @@ func exit():
 	print("--> Exiting death state.")
 	player.change_visibility("show")
 	
-	# If all masks are broken --> Respawn without progress.
 	print(PlayerVars.broken_masks, " <-- Broken")
 	
-	if PlayerVars.broken_masks.size() == 5:
-		pass
+	# If mask has been broken.
+	if PlayerVars.current_mask in PlayerVars.broken_masks:
+		PlayerVars.current_mask = 0
 		
-	else:  # Else --> Switch to next available mask.
-		if PlayerVars.current_mask in PlayerVars.broken_masks:
-			for mask in PlayerVars.masks.keys():
-				if mask not in PlayerVars.broken_masks:
-					PlayerVars.current_mask = mask
-		print(PlayerVars.current_mask, " <-- NEW")
+		# Attempt to switch to next available mask.
+		for mask in PlayerVars.masks.keys():
+			if mask not in PlayerVars.broken_masks:
+				PlayerVars.current_mask = mask
+	
+	# If can not find an available mask, respawn without progress.
+	if PlayerVars.current_mask not in PlayerVars.masks.keys():
+		PlayerVars.wave = 1
+		PlayerVars.broken_masks = []
+		PlayerVars.current_mask = 5
+		
+		player.get_parent().reset_scene()
+		
+		print("<-- RELOADED -->")
 	
 	PlayerVars.current_health = PlayerVars.max_health
 	

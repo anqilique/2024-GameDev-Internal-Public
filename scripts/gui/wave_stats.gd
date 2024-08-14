@@ -5,13 +5,14 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bar.max_value = main_scene.enemies_spawned
+	update_bar_values(PlayerVars.live_enemies, main_scene.enemies_spawned)
 
-func update_bar_values(value, max_value):
-	bar.max_value = max_value
-	bar.value = value
-
+func update_bar_values(current, maximum):
+	bar.max_value = maximum
+	bar.value = current
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if bar.max_value != main_scene.enemies_spawned or bar.value != PlayerVars.live_enemies:
+	if [PlayerVars.live_enemies, main_scene.enemies_spawned] != [bar.value, bar.max_value]:
 		update_bar_values(PlayerVars.live_enemies, main_scene.enemies_spawned)
+		$Label.text = "Wave %d | %d Remaining Enemies" % [PlayerVars.wave, PlayerVars.live_enemies]
