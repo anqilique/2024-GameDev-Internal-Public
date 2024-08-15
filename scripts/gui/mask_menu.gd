@@ -12,7 +12,6 @@ func _ready():
 	hide_menu()
 
 func show_menu(location):
-	print(PlayerVars.broken_masks)
 	if PlayerVars.broken_masks.size() > 3: return
 	
 	position = location  # Go to mouse position.
@@ -48,11 +47,13 @@ func _process(delta):
 		Input.is_action_just_pressed(SHORTCUT)
 		and PlayerVars.current_health > 0
 		):
-		
+
 		# Check there is the correct number of available masks left.
 		available_masks = []
 		for mask in PlayerVars.masks.keys():
-			if mask not in PlayerVars.broken_masks: available_masks.append(mask)
+			if mask not in PlayerVars.broken_masks:
+				available_masks.append(mask)
+				get_node(str(mask)).show()
 			else: get_node(str(mask)).hide()
 			
 			var get_mouse_pos = get_global_mouse_position()

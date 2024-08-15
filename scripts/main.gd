@@ -37,7 +37,9 @@ func reset_scene():
 
 func spawn_enemies(free_old, how_many_passive, how_many_chaser):
 	enemies_spawned = 0
-		
+	
+	print(get_tree().get_nodes_in_group("Enemies"))
+	
 	if free_old:
 		for old_enemy in get_tree().get_nodes_in_group("Enemies"):
 			old_enemy.queue_free()

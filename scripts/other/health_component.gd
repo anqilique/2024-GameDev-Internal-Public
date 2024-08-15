@@ -9,12 +9,9 @@ func damage(attack: Attack):
 	var state_machine = get_parent().get_node("StateMachine")
 	health -= attack.attack_damage
 	
-	print("	-->	", health, " / ", max_health)
-	
 	# If player, update the global variables as well.
 	if get_parent().name == "Player":
 		PlayerVars.current_health = health
-		print(PlayerVars.current_health)
 	
 	if health <= 0:  # If health is less than 1, parent node 'dies'.
 		var death_state = ""

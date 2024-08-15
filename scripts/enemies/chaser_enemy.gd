@@ -29,7 +29,6 @@ func check_can_chase(player):
 			
 			# Only chase if there are no objects between enemy and player.
 			if colliding_with.name == "Player":
-				print("Switching to Chase State! I DO see you!")
 				$StateMachine.on_child_transition($StateMachine.current_state, "EnemyChase")
 
 
@@ -70,7 +69,6 @@ func _on_vision_3d_body_entered(body):
 func _on_vision_3d_body_exited(body):  # If player goes out of range, back to idle.
 	if body.name == "Player"and $StateMachine.current_state.name != "EnemyIdle":
 		if body.get_node("StateMachine").current_state.name != "PlayerDeath":
-			print("Switching to Chase State! I DON'T see you!")
 			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
 
 func _on_navigation_agent_3d_target_reached():
@@ -79,7 +77,6 @@ func _on_navigation_agent_3d_target_reached():
 func _on_hitbox_3d_body_entered(body):
 	if body.name == "Player":  # If player in range and alive.
 		if body.get_node("StateMachine").current_state.name != "PlayerDeath":
-			print("Switching to Attack State!")
 			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
 
 func _on_hitbox_3d_body_exited(body):

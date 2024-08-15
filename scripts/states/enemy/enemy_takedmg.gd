@@ -11,8 +11,6 @@ func enter():
 	
 	var recovery_timer = enemy.get_node("RecoveryTimer")
 	recovery_timer.start()
-	
-	print("Ouch Damage!")
 
 
 func _on_recovery_timer_timeout():

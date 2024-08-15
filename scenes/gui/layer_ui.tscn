@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj6ga5g6jywsx"]
+[gd_scene load_steps=7 format=3 uid="uid://dj6ga5g6jywsx"]
 
 [ext_resource type="PackedScene" uid="uid://u4ppq1nm1588" path="res://scenes/player/player_stats_ui.tscn" id="1_layb4"]
 [ext_resource type="PackedScene" uid="uid://drnnxrowmy8qp" path="res://scenes/gui/pause_menu.tscn" id="1_yowio"]
 [ext_resource type="PackedScene" uid="uid://crhc0gakiboc" path="res://scenes/gui/mask_menu.tscn" id="3_tk8e1"]
 [ext_resource type="PackedScene" uid="uid://1v2ut2p7b0le" path="res://scenes/gui/death_menu.tscn" id="4_e06va"]
 [ext_resource type="PackedScene" uid="uid://do6yixnrxxhv4" path="res://scenes/gui/wave_stats.tscn" id="5_6ykd6"]
+[ext_resource type="PackedScene" uid="uid://4tg1cqk8d18s" path="res://scenes/gui/load_screen.tscn" id="6_r0kj8"]
 
 [node name="LayerUI" type="CanvasLayer"]
 
@@ -17,4 +18,7 @@
 [node name="MaskMenu" parent="." instance=ExtResource("3_tk8e1")]
 
 [node name="DeathMenu" parent="." instance=ExtResource("4_e06va")]
+visible = false
+
+[node name="LoadScreen" parent="." instance=ExtResource("6_r0kj8")]
 visible = false
