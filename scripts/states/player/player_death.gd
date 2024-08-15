@@ -28,24 +28,21 @@ func exit():
 		for mask in PlayerVars.masks.keys():
 			if mask not in PlayerVars.broken_masks:
 				PlayerVars.current_mask = mask
+				PlayerVars.respawn_with_progress = true
 	
 	# If can not find an available mask, respawn without progress.
 	if PlayerVars.current_mask in PlayerVars.broken_masks:
 		PlayerVars.wave = 0
 		PlayerVars.broken_masks = []
 		PlayerVars.current_mask = 5
+		PlayerVars.respawn_with_progress = false
 		
-		player.get_parent().reset_scene()
-		
-		print("<-- RELOADED -->")
-		print(PlayerVars.broken_masks)
+	print("<-- RESPAWNING --> ", PlayerVars.respawn_with_progress)
 	
 	PlayerVars.current_health = PlayerVars.max_health
 	
 	var health_comp = player.get_node("HealthComponent")
 	health_comp.health = PlayerVars.current_health
 	health_comp.max_health = PlayerVars.max_health
-	
-	print(get_parent().current_state)
 	
 	player.global_position = Vector3(0, 4.8, 0)

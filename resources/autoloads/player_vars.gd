@@ -1,6 +1,8 @@
 extends Node
 
 
+var respawn_with_progress = true
+
 # Battle related variables.
 var wave = 0
 var live_enemies = 0

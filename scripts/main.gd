@@ -5,7 +5,7 @@ extends Node3D
 
 const ENEMY_SPAWN_Y = 3
 
-var tutorial_waves = PlayerVars.starting_waves
+var tutorial_waves = []
 var spawn_count = [1, 0]
 var enemies_spawned = 0
 
@@ -15,11 +15,12 @@ func _ready():
 	PlayerVars.current_mask = 5
 	PlayerVars.current_health = PlayerVars.starting_health
 	
-	spawn_enemies(false, spawn_count[0], spawn_count[1])
+	for item in PlayerVars.starting_waves:
+		tutorial_waves.append(item)
+	
+	spawn_enemies(spawn_count[0], spawn_count[1])
 
 func update_spawn_count():
-	print(spawn_count, tutorial_waves)
-	
 	if tutorial_waves != []:
 		if spawn_count in tutorial_waves:
 			tutorial_waves.erase(spawn_count)
@@ -30,19 +31,8 @@ func update_spawn_count():
 			spawn_count[0] += 1
 			spawn_count[1] += 1
 
-func reset_scene():
-	tutorial_waves = PlayerVars.starting_waves
-	update_spawn_count()
-	spawn_enemies(true, spawn_count[0], spawn_count[1])
-
-func spawn_enemies(free_old, how_many_passive, how_many_chaser):
+func spawn_enemies(how_many_passive, how_many_chaser):
 	enemies_spawned = 0
-	
-	print(get_tree().get_nodes_in_group("Enemies"))
-	
-	if free_old:
-		for old_enemy in get_tree().get_nodes_in_group("Enemies"):
-			old_enemy.queue_free()
 	
 	for n in range(how_many_passive):  # Spawn passive enemies.
 		var new_enemy = passive_enemy_scene.instantiate()
@@ -75,6 +65,26 @@ func spawn_enemies(free_old, how_many_passive, how_many_chaser):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if PlayerVars.live_enemies == 0 and get_tree().get_nodes_in_group("Enemies") == []:
-		update_spawn_count()
-		spawn_enemies(false, spawn_count[0], spawn_count[1])
+	if PlayerVars.live_enemies != get_tree().get_nodes_in_group("Enemies").size():
+		PlayerVars.live_enemies = get_tree().get_nodes_in_group("Enemies").size()
+	
+	var update_spawn = true
+	
+	if not PlayerVars.respawn_with_progress:
+			print(PlayerVars.live_enemies, get_tree().get_nodes_in_group("Enemies"))
+			if PlayerVars.live_enemies != 0:
+				for old_enemy in get_tree().get_nodes_in_group("Enemies"):
+					old_enemy.queue_free()
+					print(old_enemy.name)
+			
+			tutorial_waves = []
+			for item in PlayerVars.starting_waves:
+				tutorial_waves.append(item)
+			print(tutorial_waves)
+			
+			update_spawn = false
+			PlayerVars.respawn_with_progress = true
+	
+	if PlayerVars.live_enemies == 0:
+		if update_spawn: update_spawn_count()
+		spawn_enemies(spawn_count[0], spawn_count[1])

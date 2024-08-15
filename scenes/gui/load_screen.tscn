@@ -16,6 +16,7 @@ script = ExtResource("1_lb8ph")
 wait_time = 2.0
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 435.0
 offset_top = 308.0
 offset_right = 754.0

@@ -21,7 +21,6 @@ func update_mask(current):
 func _process(_delta):
 	
 	 # If the local node values don't match the global ones...
-	
 	if (
 		PlayerVars.current_health != bar.value
 		or PlayerVars.max_health != bar.max_value
