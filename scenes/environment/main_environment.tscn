@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://clyq3u2h0solb"]
+[gd_scene load_steps=14 format=3 uid="uid://clyq3u2h0solb"]
 
 [ext_resource type="MeshLibrary" uid="uid://c6kr5uh0nuc7m" path="res://resources/vs_blocks.tres" id="1_4jhyl"]
 
@@ -33,13 +33,32 @@ adjustment_color_correction = SubResource("GradientTexture1D_gb8r3")
 [sub_resource type="NavigationMesh" id="NavigationMesh_lxktq"]
 vertices = PackedVector3Array(-17.0374, 2.62909, -19.1391, -17.0374, 2.62909, 23.1109, 33.2126, 2.62909, 23.1109, 33.2126, 2.62909, -19.1391)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
-agent_height = 1.6
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a148f"]
 size = Vector2(200, 200)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxkic"]
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_up08g"]
+albedo_color = Color(1, 0.466667, 0.454902, 1)
+emission_enabled = true
+emission = Color(1, 0.12549, 0.0705882, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_joar2"]
+material = SubResource("StandardMaterial3D_up08g")
+
+[sub_resource type="Curve" id="Curve_hyxnd"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 24.1758), 0.0, 0.0, 0, 0, Vector2(1, -147.253), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_wamwo"]
+max_value = 0.5
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.455056, 0.0714285), 0.183379, 0.183379, 0, 0, Vector2(0.646067, 0.148352), -0.122253, -0.122253, 0, 0, Vector2(1, 0.0879121), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [node name="Environment" type="Node3D"]
 
@@ -115,3 +134,21 @@ omni_range = 7.56416
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_a148f")
 surface_material_override/0 = SubResource("StandardMaterial3D_gxkic")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13136, 0)
+cast_shadow = 0
+gi_mode = 2
+amount = 10
+explosiveness = 0.25
+randomness = 0.5
+lifetime_randomness = 0.2
+mesh = SubResource("BoxMesh_joar2")
+emission_shape = 3
+emission_box_extents = Vector3(15, 1, 15)
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+linear_accel_curve = SubResource("Curve_hyxnd")
+scale_amount_curve = SubResource("Curve_wamwo")

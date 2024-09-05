@@ -28,7 +28,7 @@ albedo_texture = ExtResource("1_pn3hx")
 [sub_resource type="BoxMesh" id="BoxMesh_u78wt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3jbml"]
-radius = 6.15245
+radius = 21.4649
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 4
@@ -68,7 +68,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Vision3D"]
-transform = Transform3D(1.29038, 0, 0, 0, 1.29038, 0, 0, 0, 1.29038, -0.000732422, 0.114807, -1.83705)
+transform = Transform3D(1.29038, 0, 0, 0, 1.29038, 0, 0, 0, 1.29038, -0.000732422, 0.114807, -1.12516)
 shape = SubResource("SphereShape3D_3jbml")
 
 [node name="VisionRayCast3D" type="RayCast3D" parent="."]

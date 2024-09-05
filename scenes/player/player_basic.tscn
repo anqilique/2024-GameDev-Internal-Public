@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0euaykfx2xia"]
+[gd_scene load_steps=23 format=3 uid="uid://b0euaykfx2xia"]
 
 [ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="1_cel2k"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_q6key"]
@@ -14,6 +14,13 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e035s"]
 radius = 0.603641
 height = 2.31034
+
+[sub_resource type="BoxMesh" id="BoxMesh_40b8l"]
+
+[sub_resource type="Curve" id="Curve_16tpm"]
+max_value = 0.5
+_data = [Vector2(0, 0.192308), 0.0, 0.0, 0, 0, Vector2(0.516854, 0.137363), 0.0, 0.0, 0, 0, Vector2(0.97191, 0.0989011), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sp38"]
 resource_name = "Material"
@@ -391,6 +398,18 @@ script = ExtResource("1_q6key")
 shape = SubResource("CapsuleShape3D_e035s")
 
 [node name="Rig" type="Node3D" parent="."]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Rig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.221853, 0.679837)
+visible = false
+amount = 15
+lifetime = 0.3
+explosiveness = 0.1
+local_coords = true
+mesh = SubResource("BoxMesh_40b8l")
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.1, 0.5)
+scale_amount_curve = SubResource("Curve_16tpm")
 
 [node name="player_basic" type="Node3D" parent="Rig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, -1.08333, 0)

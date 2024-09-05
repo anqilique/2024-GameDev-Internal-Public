@@ -20,7 +20,7 @@ func _ready():
 	bar.max_value = component_max_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var component_current_health = get_parent().get_node("HealthComponent").health
 	var component_max_health = get_parent().get_node("HealthComponent").max_health
 	

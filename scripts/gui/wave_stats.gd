@@ -12,7 +12,7 @@ func update_bar_values(current, maximum):
 	bar.value = current
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if [PlayerVars.live_enemies, main_scene.enemies_spawned] != [bar.value, bar.max_value]:
 		update_bar_values(PlayerVars.live_enemies, main_scene.enemies_spawned)
 		$Label.text = "Wave %d | %d Remaining Enemies" % [PlayerVars.wave, PlayerVars.live_enemies]

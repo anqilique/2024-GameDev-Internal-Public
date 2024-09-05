@@ -42,7 +42,7 @@ func mask_selected(button):
 	if button not in PlayerVars.broken_masks: change_mask_to = button
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if (
 		Input.is_action_just_pressed(SHORTCUT)
 		and PlayerVars.current_health > 0

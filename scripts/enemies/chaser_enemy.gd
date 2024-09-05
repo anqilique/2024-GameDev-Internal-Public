@@ -17,7 +17,7 @@ func reset_statetimer():
 	$StateTimer.wait_time = time_in_state
 	$StateTimer.start()
 
-func check_can_chase(player):
+func check_can_chase(_player):
 	# If the enemy is not already chasing the player...
 	if (
 		$StateMachine.current_state.name != "EnemyChase"
