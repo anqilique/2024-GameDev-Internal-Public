@@ -9,6 +9,8 @@ func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	rig_animator = player.get_node("Rig/player_basic/AnimationPlayer")
 	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
+	
+	player.get_node("Rig/PlayerMesh/AnimationPlayer").play("move")
 
 func exit():
 	pass
@@ -18,7 +20,7 @@ func update(_delta):
 
 func physics_update(_delta):
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
+	if Input.is_action_pressed("ui_accept") and player.is_on_floor():
 		get_parent().on_child_transition(self, "PlayerJump")
 
 	# Get the input direction and handle the movement/deceleration.

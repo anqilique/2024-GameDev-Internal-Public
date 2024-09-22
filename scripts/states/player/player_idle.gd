@@ -9,6 +9,8 @@ func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	rig_animator = player.get_node("Rig/player_basic/AnimationPlayer")
 	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
+	
+	player.get_node("Rig/PlayerMesh/AnimationPlayer").play("idle")
 
 func update(_delta):
 	if (  # If any of the horizontal movement keys are pressed.

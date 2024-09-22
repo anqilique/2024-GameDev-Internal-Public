@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://b0euaykfx2xia"]
+[gd_scene load_steps=29 format=3 uid="uid://b0euaykfx2xia"]
 
 [ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="1_cel2k"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_q6key"]
+[ext_resource type="PackedScene" uid="uid://8yvka8035c2" path="res://scenes/player/player_mesh.tscn" id="2_hkhd7"]
 [ext_resource type="Script" path="res://scripts/states/player/player_idle.gd" id="2_un224"]
 [ext_resource type="Script" path="res://scripts/states/player/player_move.gd" id="3_41ft3"]
 [ext_resource type="Script" path="res://scripts/states/player/player_jump.gd" id="4_ny2lo"]
@@ -11,9 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/other/hurtbox_component.tscn" id="8_hheba"]
 [ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="9_1csif"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e035s"]
-radius = 0.603641
-height = 2.31034
+[sub_resource type="SphereShape3D" id="SphereShape3D_aby6m"]
+radius = 0.573512
 
 [sub_resource type="BoxMesh" id="BoxMesh_40b8l"]
 
@@ -21,6 +21,102 @@ height = 2.31034
 max_value = 0.5
 _data = [Vector2(0, 0.192308), 0.0, 0.0, 0, 0, Vector2(0.516854, 0.137363), 0.0, 0.0, 0, 0, Vector2(0.97191, 0.0989011), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="Animation" id="Animation_kpo3f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/PlayerMesh:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1, -1, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rig/PlayerMesh:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.138424, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a3tgn"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/PlayerMesh:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1, -1, -1), Vector3(-1.0885, -1.0885, -1.0885)]
+}
+
+[sub_resource type="Animation" id="Animation_bsa3y"]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/PlayerMesh:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1, -1, -1), Vector3(-1.1, -1.1, -1.1), Vector3(-1, -1, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_y3gkf"]
+resource_name = "move"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/PlayerMesh:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1, -1, -1), Vector3(-1.0885, -1.0885, -1.0885)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rig/PlayerMesh:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.138424, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w2wda"]
+_data = {
+"RESET": SubResource("Animation_kpo3f"),
+"idle": SubResource("Animation_a3tgn"),
+"jump": SubResource("Animation_bsa3y"),
+"move": SubResource("Animation_y3gkf")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sp38"]
 resource_name = "Material"
@@ -395,7 +491,7 @@ collision_layer = 2
 script = ExtResource("1_q6key")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_e035s")
+shape = SubResource("SphereShape3D_aby6m")
 
 [node name="Rig" type="Node3D" parent="."]
 
@@ -411,8 +507,18 @@ emission_shape = 3
 emission_box_extents = Vector3(0.5, 0.1, 0.5)
 scale_amount_curve = SubResource("Curve_16tpm")
 
+[node name="PlayerMesh" parent="Rig" instance=ExtResource("2_hkhd7")]
+transform = Transform3D(1, 1.50996e-07, 0, -1.50996e-07, 1, 0, 0, 0, -1, 0, 0.138424, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rig/PlayerMesh"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_w2wda")
+}
+
 [node name="player_basic" type="Node3D" parent="Rig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, -1.08333, 0)
+visible = false
 
 [node name="Armature" type="Node3D" parent="Rig/player_basic"]
 
@@ -514,6 +620,7 @@ libraries = {
 
 [node name="Hitbox3D" type="Area3D" parent="Rig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.511523, 0)
+visible = false
 collision_layer = 2
 collision_mask = 4
 
@@ -522,7 +629,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0382074, 0.467363, -0.6495
 shape = SubResource("BoxShape3D_8gwhc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.690049, 0.723762, 0, -0.723762, 0.690049, -4.34436e-07, 13.082, 8.73972)
+transform = Transform3D(1, 0, 0, 0, 0.676298, 0.736628, 0, -0.736628, 0.676298, -4.34436e-07, 13.1844, 10.2316)
 current = true
 fov = 65.0
 near = 5.0
@@ -567,9 +674,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.419496, 0.053235)
-light_color = Color(0.964706, 0.396078, 0.27451, 1)
-light_energy = 4.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49647, -1.04613)
 omni_range = 5.11108
 
 [connection signal="animation_finished" from="Rig/player_basic/AnimationPlayer" to="StateMachine/PlayerAttack" method="_on_animation_player_animation_finished"]

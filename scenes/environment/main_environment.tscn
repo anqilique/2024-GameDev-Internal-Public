@@ -35,7 +35,7 @@ vertices = PackedVector3Array(-17.0374, 2.62909, -19.1391, -17.0374, 2.62909, 23
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a148f"]
-size = Vector2(200, 200)
+size = Vector2(500, 500)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxkic"]
 albedo_color = Color(0, 0, 0, 1)
