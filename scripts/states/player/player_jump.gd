@@ -8,6 +8,8 @@ var player
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	player.get_node("Rig/PlayerMesh/AnimationPlayer").play("jump")
+	
+	player.get_node("Rig/CPUParticles3D").emitting = false
 
 func physics_update(_delta):
 	# Handle jump.

@@ -497,7 +497,6 @@ shape = SubResource("SphereShape3D_aby6m")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Rig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.221853, 0.679837)
-visible = false
 amount = 15
 lifetime = 0.3
 explosiveness = 0.1

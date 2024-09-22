@@ -11,6 +11,7 @@ func enter():
 	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
 	
 	player.get_node("Rig/PlayerMesh/AnimationPlayer").play("move")
+	player.get_node("Rig/CPUParticles3D").emitting = true
 
 func exit():
 	pass
