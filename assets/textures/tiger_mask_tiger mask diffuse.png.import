@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkvlj708nidu5"
-path.s3tc="res://.godot/imported/dragon_mask_dragon mask diffuse.png-2d4b1ef88cc008d58db8e5a07b063573.s3tc.ctex"
+uid="uid://byp774n2bvdrn"
+path.s3tc="res://.godot/imported/tiger_mask_tiger mask diffuse.png-da5b1931a03f8f76da66bd709e71084b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/blender/dragon_mask_dragon mask diffuse.png"
-dest_files=["res://.godot/imported/dragon_mask_dragon mask diffuse.png-2d4b1ef88cc008d58db8e5a07b063573.s3tc.ctex"]
+source_file="res://assets/textures/tiger_mask_tiger mask diffuse.png"
+dest_files=["res://.godot/imported/tiger_mask_tiger mask diffuse.png-da5b1931a03f8f76da66bd709e71084b.s3tc.ctex"]
 
 [params]
 

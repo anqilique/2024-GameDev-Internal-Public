@@ -1,10 +1,10 @@
 [gd_scene load_steps=22 format=3 uid="uid://8yvka8035c2"]
 
-[ext_resource type="Texture2D" uid="uid://dkvlj708nidu5" path="res://assets/blender/dragon_mask_dragon mask diffuse.png" id="1_0h0x3"]
-[ext_resource type="Texture2D" uid="uid://cxlp2jcfyqbvg" path="res://assets/blender/bird_mask_bird mask diffuse.png" id="2_rsenu"]
-[ext_resource type="Texture2D" uid="uid://bwgetthjotjnr" path="res://assets/blender/qilin_mask_qilin mask diffuse.png" id="3_oq04h"]
-[ext_resource type="Texture2D" uid="uid://byp774n2bvdrn" path="res://assets/blender/tiger_mask_tiger mask diffuse.png" id="4_ihv4v"]
-[ext_resource type="Texture2D" uid="uid://chk6qkbccsd7q" path="res://assets/blender/turtle_mask_turtle mask diffuse.png" id="5_88oij"]
+[ext_resource type="Texture2D" uid="uid://dkvlj708nidu5" path="res://assets/textures/dragon_mask_dragon mask diffuse.png" id="1_0h0x3"]
+[ext_resource type="Texture2D" uid="uid://cxlp2jcfyqbvg" path="res://assets/textures/bird_mask_bird mask diffuse.png" id="2_rsenu"]
+[ext_resource type="Texture2D" uid="uid://bwgetthjotjnr" path="res://assets/textures/qilin_mask_qilin mask diffuse.png" id="3_oq04h"]
+[ext_resource type="Texture2D" uid="uid://byp774n2bvdrn" path="res://assets/textures/tiger_mask_tiger mask diffuse.png" id="4_ihv4v"]
+[ext_resource type="Texture2D" uid="uid://chk6qkbccsd7q" path="res://assets/textures/turtle_mask_turtle mask diffuse.png" id="5_88oij"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urn5n"]
 resource_name = "Material"

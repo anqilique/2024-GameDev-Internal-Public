@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy647rmnxm6up"
-path.s3tc="res://.godot/imported/sword_sword diffuse.png-94f69951eeee59a4b02f6e4a69c26987.s3tc.ctex"
+uid="uid://bwgetthjotjnr"
+path.s3tc="res://.godot/imported/qilin_mask_qilin mask diffuse.png-978bd728db7e190b50213ec3196a50a4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/blender/sword_sword diffuse.png"
-dest_files=["res://.godot/imported/sword_sword diffuse.png-94f69951eeee59a4b02f6e4a69c26987.s3tc.ctex"]
+source_file="res://assets/textures/qilin_mask_qilin mask diffuse.png"
+dest_files=["res://.godot/imported/qilin_mask_qilin mask diffuse.png-978bd728db7e190b50213ec3196a50a4.s3tc.ctex"]
 
 [params]
 

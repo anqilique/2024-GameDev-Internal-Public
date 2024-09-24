@@ -7,7 +7,7 @@ var mask_data
 
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
-	rig_animator = player.get_node("Rig/player_basic/AnimationPlayer")
+	rig_animator = player.get_node("AnimationPlayer")
 	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
 	
 	player.get_node("AnimationPlayer").play("idle")
@@ -35,7 +35,7 @@ func physics_update(_delta):
 	player.velocity.x = move_toward(player.velocity.x, 0, movement_speed)
 	player.velocity.z = move_toward(player.velocity.z, 0, movement_speed)
 	
-	if rig_animator.current_animation != "idle ":
-		rig_animator.play("idle ")
+	if rig_animator.current_animation != "idle":
+		rig_animator.play("idle")
 	
 	player.move_and_slide()

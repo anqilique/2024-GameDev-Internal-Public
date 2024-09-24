@@ -57,7 +57,7 @@ func handle_look_direction():
 
 
 func _on_recovery_timer_timeout():
-	if $Rig/player_basic/AnimationPlayer.current_animation == "attack":
+	if $AnimationPlayer.current_animation == "attack":
 		go_to_state("PlayerAttack")
 		
 	if $StateMachine.current_state.name == "PlayerTakeDMG": go_to_state("PlayerIdle")

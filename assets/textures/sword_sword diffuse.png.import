@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chk6qkbccsd7q"
-path.s3tc="res://.godot/imported/turtle_mask_turtle mask diffuse.png-b7c48d2c846abf54f5a3eb52af194e63.s3tc.ctex"
+uid="uid://dy647rmnxm6up"
+path.s3tc="res://.godot/imported/sword_sword diffuse.png-21171c87f072c8aabddea329d5930b8d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/blender/turtle_mask_turtle mask diffuse.png"
-dest_files=["res://.godot/imported/turtle_mask_turtle mask diffuse.png-b7c48d2c846abf54f5a3eb52af194e63.s3tc.ctex"]
+source_file="res://assets/textures/sword_sword diffuse.png"
+dest_files=["res://.godot/imported/sword_sword diffuse.png-21171c87f072c8aabddea329d5930b8d.s3tc.ctex"]
 
 [params]
 

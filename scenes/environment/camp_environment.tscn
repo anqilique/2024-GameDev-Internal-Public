@@ -1,11 +1,11 @@
 [gd_scene load_steps=32 format=3 uid="uid://d1o062mq0l8yx"]
 
 [ext_resource type="MeshLibrary" uid="uid://c6kr5uh0nuc7m" path="res://resources/vs_blocks.tres" id="1_7wply"]
-[ext_resource type="Texture2D" uid="uid://cxlp2jcfyqbvg" path="res://assets/blender/bird_mask_bird mask diffuse.png" id="2_b2m16"]
-[ext_resource type="Texture2D" uid="uid://dkvlj708nidu5" path="res://assets/blender/dragon_mask_dragon mask diffuse.png" id="3_fmgap"]
-[ext_resource type="Texture2D" uid="uid://byp774n2bvdrn" path="res://assets/blender/tiger_mask_tiger mask diffuse.png" id="4_cpn8u"]
-[ext_resource type="Texture2D" uid="uid://bwgetthjotjnr" path="res://assets/blender/qilin_mask_qilin mask diffuse.png" id="5_aems7"]
-[ext_resource type="Texture2D" uid="uid://chk6qkbccsd7q" path="res://assets/blender/turtle_mask_turtle mask diffuse.png" id="6_e2iwc"]
+[ext_resource type="Texture2D" uid="uid://cxlp2jcfyqbvg" path="res://assets/textures/bird_mask_bird mask diffuse.png" id="2_b2m16"]
+[ext_resource type="Texture2D" uid="uid://dkvlj708nidu5" path="res://assets/textures/dragon_mask_dragon mask diffuse.png" id="3_fmgap"]
+[ext_resource type="Texture2D" uid="uid://byp774n2bvdrn" path="res://assets/textures/tiger_mask_tiger mask diffuse.png" id="4_cpn8u"]
+[ext_resource type="Texture2D" uid="uid://bwgetthjotjnr" path="res://assets/textures/qilin_mask_qilin mask diffuse.png" id="5_aems7"]
+[ext_resource type="Texture2D" uid="uid://chk6qkbccsd7q" path="res://assets/textures/turtle_mask_turtle mask diffuse.png" id="6_e2iwc"]
 
 [sub_resource type="Gradient" id="Gradient_aaay6"]
 offsets = PackedFloat32Array(0, 0.773973)
