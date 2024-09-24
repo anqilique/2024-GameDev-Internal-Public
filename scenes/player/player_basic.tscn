@@ -76,6 +76,58 @@ tracks/4/keys = {
 "values": [Vector3(0.877998, 0.362084, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_fjf2g"]
+resource_name = "attack-1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/Weapon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rig/Weapon/player_sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.166667, 0.333333, 0.4, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0637974, -0.0862491, 2.50624), Vector3(-0.106465, 0.00349066, 1.5708), Vector3(-0.106465, 1.731, 1.5708), Vector3(-0.106465, 2.65142, 1.5708), Vector3(-0.106465, 2.98964, 1.5708), Vector3(-0.106465, -2.72914, 1.5708), Vector3(-0.106465, -2.99621, 1.5708), Vector3(-0.106465, -3.12732, 1.5708)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rig/Weapon/player_sword:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.877998, 0.362084, 0), Vector3(0.877998, 0.362084, -0.27014), Vector3(0.538289, 0.362084, -0.544397), Vector3(0.00496411, 0.362084, -0.544397)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rig/PlayerMesh:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.3, 0.366667, 0.4, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.00929719, 0), Vector3(0, 0.391715, 0), Vector3(0, 0.618694, 0), Vector3(0, 0.618694, 0), Vector3(0, 0.290455, 0), Vector3(0, -0.00929719, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_a3tgn"]
 resource_name = "idle"
 loop_mode = 1
@@ -171,58 +223,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_fjf2g"]
-resource_name = "attack-1"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rig/Weapon:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Rig/Weapon/player_sword:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.166667, 0.333333, 0.4, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.0637974, -0.0862491, 2.50624), Vector3(-0.106465, 0.00349066, 1.5708), Vector3(-0.106465, 1.731, 1.5708), Vector3(-0.106465, 2.65142, 1.5708), Vector3(-0.106465, 2.98964, 1.5708), Vector3(-0.106465, -2.72914, 1.5708), Vector3(-0.106465, -2.99621, 1.5708), Vector3(-0.106465, -3.12732, 1.5708)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Rig/Weapon/player_sword:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.877998, 0.362084, 0), Vector3(0.877998, 0.362084, -0.27014), Vector3(0.538289, 0.362084, -0.544397), Vector3(0.00496411, 0.362084, -0.544397)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Rig/PlayerMesh:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.233333, 0.3, 0.366667, 0.4, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -0.00929719, 0), Vector3(0, 0.391715, 0), Vector3(0, 0.618694, 0), Vector3(0, 0.618694, 0), Vector3(0, 0.290455, 0), Vector3(0, -0.00929719, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w2wda"]
@@ -683,7 +683,7 @@ scale_amount_curve = SubResource("Curve_16tpm")
 visible = false
 
 [node name="player_sword" type="MeshInstance3D" parent="Rig/Weapon"]
-transform = Transform3D(-0.798609, -0.595679, -0.085967, 0.592256, -0.803223, 0.0637541, -0.107028, 1.08033e-07, 0.994256, 0.877998, 0.362084, 0)
+transform = Transform3D(-0.798611, -0.595676, -0.085967, 0.592254, -0.803225, 0.0637541, -0.107028, 4.91738e-07, 0.994256, 0.877998, 0.362084, 0)
 mesh = SubResource("ArrayMesh_4d3hg")
 skeleton = NodePath("")
 
