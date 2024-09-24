@@ -10,7 +10,7 @@ func enter():
 	rig_animator = player.get_node("Rig/player_basic/AnimationPlayer")
 	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
 	
-	player.get_node("Rig/PlayerMesh/AnimationPlayer").play("idle")
+	player.get_node("AnimationPlayer").play("idle")
 	player.get_node("Rig/CPUParticles3D").emitting = false
 
 func update(_delta):

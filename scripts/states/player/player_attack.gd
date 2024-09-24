@@ -4,26 +4,39 @@ class_name PlayerAttack
 @export var attack_cooldown : float
 
 var player
+var animator
 var rig_animator
 var mask_data
 
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
+	animator = player.get_node("AnimationPlayer")
 	rig_animator = player.get_node("Rig/player_basic/AnimationPlayer")
 	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
+	
+	if (
+		Input.is_action_pressed("ui_left") or 
+		Input.is_action_pressed("ui_right") or
+		Input.is_action_pressed("ui_up") or
+		Input.is_action_pressed("ui_down")
+	):
+		get_parent().on_child_transition(self, "PlayerMove")
 	
 	# If not already attacking, start an attack.
 	if rig_animator.current_animation != "attack":
 			rig_animator.play("attack")
+	
+	if "attack" not in animator.current_animation:
+		player.get_node("AnimationPlayer").play("attack-1")
 
 func update(_delta):
 	if (  # If any of the horizontal movement keys are pressed.
 		Input.is_action_pressed("ui_left") or 
 		Input.is_action_pressed("ui_right") or
 		Input.is_action_pressed("ui_up") or
-		Input.is_action_pressed("ui_down") or
+		Input.is_action_pressed("ui_down") and
 		
-		# Or if mouse is released.
+		# And if mouse is released.
 		Input.is_action_just_released("ui_left_mouse_button")
 	):
 		get_parent().on_child_transition(self, "PlayerMove")
@@ -42,7 +55,8 @@ func physics_update(_delta):
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "attack":
+	if "attack" in anim_name:
+		
 		# If the player is dead, do not follow through with the attack.
 		if player.get_node("StateMachine").current_state.name == "PlayerDeath": return
 		
@@ -58,3 +72,6 @@ func _on_animation_player_animation_finished(anim_name):
 	# Attack again if the player is still holding the mouse down.
 	if Input.is_action_pressed("ui_left_mouse_button"):
 		rig_animator.play("attack")
+		animator.play("attack-1")
+	else:
+		get_parent().on_child_transition(self, "PlayerIdle")
