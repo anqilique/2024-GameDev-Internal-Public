@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chk6qkbccsd7q"
-path.s3tc="res://.godot/imported/turtle_mask_turtle mask diffuse.png-3a68b2371215a62e0c5aab9971f11c34.s3tc.ctex"
+path.s3tc="res://.godot/imported/tortoise_mask_tortoise mask diffuse.png-584605e41fe1dba84abc41459adb0ece.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/textures/turtle_mask_turtle mask diffuse.png"
-dest_files=["res://.godot/imported/turtle_mask_turtle mask diffuse.png-3a68b2371215a62e0c5aab9971f11c34.s3tc.ctex"]
+source_file="res://assets/textures/tortoise_mask_tortoise mask diffuse.png"
+dest_files=["res://.godot/imported/tortoise_mask_tortoise mask diffuse.png-584605e41fe1dba84abc41459adb0ece.s3tc.ctex"]
 
 [params]
 

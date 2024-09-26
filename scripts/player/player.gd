@@ -17,6 +17,21 @@ func change_visibility(set_to):
 		set_collision_layer(2)  # Original Layer
 		$Rig.show()
 
+func check_mask(current_mask):
+	
+	current_mask = str(current_mask)
+	
+	var mask_handler = "Rig/PlayerMesh/MeshMasks"
+	var current_mask_node = mask_handler + "/" + current_mask
+	
+	if not get_node(current_mask_node).is_visible():
+		get_node(current_mask_node).show()
+	
+		for mask in get_node(mask_handler).get_children():
+			if mask.name != current_mask: mask.hide()
+	
+	else: return
+
 func go_to_state(new_state):
 	if $StateMachine.current_state.name not in [new_state, "PlayerDeath"]:
 		$StateMachine.on_child_transition($StateMachine.current_state, new_state)
@@ -26,6 +41,8 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ui_left_mouse_button"):
 		go_to_state("PlayerAttack")
+	
+	check_mask(PlayerVars.current_mask)
 	
 	# Add the gravity.
 	if not is_on_floor():
