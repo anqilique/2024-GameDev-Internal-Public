@@ -13,29 +13,31 @@ func enter():
 	Enemy Drops Health
 	"""
 	
-	var new_health_drop = health_collectable_scene.instantiate()
-	
-	new_health_drop.position = enemy.position
-	new_health_drop.position.y += 2
-	
-	new_health_drop.add_to_group("Health Collectables")
-	
-	# Spawn the health collectable.
-	enemy.add_sibling(new_health_drop)
+	for i in range(3):
+		var new_health_drop = health_collectable_scene.instantiate()
+		
+		new_health_drop.position = enemy.position
+		new_health_drop.position.y += 2
+		
+		new_health_drop.add_to_group("Health Collectables")
+		
+		# Spawn the health collectable.
+		enemy.add_sibling(new_health_drop)
 	
 	"""
 	Enemy Drops Essence
 	"""
 	
-	var new_essence_drop = essence_collectable_scene.instantiate()
-	
-	new_essence_drop.position = enemy.position
-	new_essence_drop.position.y += 3  # Don't spawn on top of health collectable.
-	
-	new_essence_drop.add_to_group("Essence Collectables")
-	
-	# Spawn the essence collectable.
-	enemy.add_sibling(new_essence_drop)
+	for i in range(5):
+		var new_essence_drop = essence_collectable_scene.instantiate()
+		
+		new_essence_drop.position = enemy.position
+		new_essence_drop.position.y += 3  # Don't spawn on top of health collectable.
+		
+		new_essence_drop.add_to_group("Essence Collectables")
+		
+		# Spawn the essence collectable.
+		enemy.add_sibling(new_essence_drop)
 	
 	"""
 	Free the Enemy Node

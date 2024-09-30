@@ -9,7 +9,7 @@ var live_enemies = 0
 var starting_waves = [[1, 0], [2, 1], [2, 2], [2, 4]]
 
 # Movement related variables.
-var base_speed = 12
+var base_speed = 14
 
 var jump_velocity = 8
 var jump_max_count = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx75c8mg74i2t"]
+[gd_scene load_steps=10 format=3 uid="uid://dx75c8mg74i2t"]
 
 [ext_resource type="Script" path="res://scripts/other/collectables.gd" id="1_cpoj3"]
 
@@ -10,9 +10,11 @@
 albedo_color = Color(0.145098, 0.454902, 1, 1)
 emission_enabled = true
 emission = Color(0.0980392, 0.427451, 1, 1)
-emission_energy_multiplier = 2.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjl7i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2e052"]
+radius = 4.8187
 
 [sub_resource type="Animation" id="Animation_uwq4y"]
 length = 0.001
@@ -104,9 +106,18 @@ collision_mask = 2
 transform = Transform3D(0.549245, 0, 0, 0, 0.549245, 0, 0, 0, 0.549245, 0, 0.0289761, 0)
 shape = SubResource("BoxShape3D_rjl7i")
 
+[node name="MoveArea3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveArea3D"]
+shape = SubResource("SphereShape3D_2e052")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_kpvyu")
 }
 
 [connection signal="body_entered" from="CollectArea3D" to="." method="_on_collect_area_3d_body_entered"]
+[connection signal="body_entered" from="MoveArea3D" to="." method="_on_move_area_3d_body_entered"]
+[connection signal="body_exited" from="MoveArea3D" to="." method="_on_move_area_3d_body_exited"]
