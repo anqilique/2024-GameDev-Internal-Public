@@ -5,21 +5,21 @@
 [sub_resource type="Gradient" id="Gradient_4oj0l"]
 offsets = PackedFloat32Array(0, 0.773973)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gb8r3"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1maxh"]
 gradient = SubResource("Gradient_4oj0l")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qp2s8"]
 sky_top_color = Color(0.0313726, 0.0901961, 0.0784314, 1)
-sky_horizon_color = Color(0.196078, 0.309804, 0.435294, 1)
+sky_horizon_color = Color(0.0476179, 0.095965, 0.149208, 1)
 sky_curve = 0.077645
 
-[sub_resource type="Sky" id="Sky_n4wfi"]
+[sub_resource type="Sky" id="Sky_jlge5"]
 sky_material = SubResource("ProceduralSkyMaterial_qp2s8")
 
 [sub_resource type="Environment" id="Environment_4f7j7"]
 background_mode = 2
 background_energy_multiplier = 1.48
-sky = SubResource("Sky_n4wfi")
+sky = SubResource("Sky_jlge5")
 ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 3
@@ -28,7 +28,7 @@ glow_enabled = true
 glow_bloom = 1.0
 adjustment_enabled = true
 adjustment_contrast = 1.08
-adjustment_color_correction = SubResource("GradientTexture1D_gb8r3")
+adjustment_color_correction = SubResource("GradientTexture1D_1maxh")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_lxktq"]
 vertices = PackedVector3Array(-17.0374, 2.62909, -19.1391, -17.0374, 2.62909, 23.1109, 33.2126, 2.62909, 23.1109, 33.2126, 2.62909, -19.1391)
@@ -40,14 +40,14 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxkic"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_up08g"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4k1k"]
 albedo_color = Color(1, 0.466667, 0.454902, 1)
 emission_enabled = true
 emission = Color(1, 0.12549, 0.0705882, 1)
 emission_energy_multiplier = 2.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_joar2"]
-material = SubResource("StandardMaterial3D_up08g")
+material = SubResource("StandardMaterial3D_a4k1k")
 
 [sub_resource type="Curve" id="Curve_hyxnd"]
 min_value = -200.0

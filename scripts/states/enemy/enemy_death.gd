@@ -13,7 +13,7 @@ func enter():
 	Enemy Drops Health
 	"""
 	
-	for i in range(3):
+	for i in range(5):
 		var new_health_drop = health_collectable_scene.instantiate()
 		
 		new_health_drop.position = enemy.position
