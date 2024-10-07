@@ -18,10 +18,16 @@ func reset_statetimer():
 	$StateTimer.start()
 
 func check_can_chase(_player):
-	# If the enemy is not already chasing the player...
+	
 	if (
-		$StateMachine.current_state.name != "EnemyChase"
+		# If the enemy is not already chasing the player or being hit...
+		$StateMachine.current_state.name not in ["EnemyChase", "EnemyTakeDMG"]
+		
+		# And the enemy is not already mid-attack.
 		and $StateMachine.current_state.name != "EnemyAttack"
+		
+		# And if enemy is not recovering from a hit.
+		and $RecoveryTimer.is_stopped()
 	):
 		# Check if there is anything colliding with the raycast.
 		if $VisionRayCast3D.is_colliding():

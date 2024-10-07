@@ -6,7 +6,7 @@ var respawn_with_progress = true
 # Battle related variables.
 var wave = 0
 var live_enemies = 0
-var starting_waves = [[1, 0], [2, 1], [2, 2], [2, 4]]
+var starting_waves = [[1, 0], [2, 2], [4, 6]]
 
 # Movement related variables.
 var base_speed = 14

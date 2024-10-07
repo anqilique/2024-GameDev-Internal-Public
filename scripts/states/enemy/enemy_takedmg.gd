@@ -3,19 +3,29 @@ class_name EnemyTakeDMG
 
 const DAMAGED_SPEED = 0.08
 const SPEED = 0.1
+const JUMP_VELOCITY = 4.5
 
 var enemy
+var player
+var velocity
 
 func enter():
 	enemy = get_parent().get_parent()
+	player = get_node("/root/Main/Player")
 	
 	var recovery_timer = enemy.get_node("RecoveryTimer")
 	recovery_timer.start()
+	
+	enemy.velocity = (enemy.global_transform.origin - player.global_transform.origin).normalized()
+	enemy.velocity *= 10
+	enemy.velocity.y = 5
 
 
 func _on_recovery_timer_timeout():
 	var state_machine = enemy.get_node("StateMachine")
 	var hitbox
+	
+	velocity = Vector3.ZERO
 		
 	# Hitboxes differ between enemy types. Get right one.
 	if enemy.has_node("Rig/Hitbox3D"):
