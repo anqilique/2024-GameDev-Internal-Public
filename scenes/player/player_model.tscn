@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw6n55qr5jcg8"]
-
-[ext_resource type="PackedScene" uid="uid://bi55kwag16u7c" path="res://assets/blender/player_basic.glb" id="1_er06r"]
-
-[node name="player_basic" instance=ExtResource("1_er06r")]

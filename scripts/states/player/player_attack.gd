@@ -8,7 +8,7 @@ var animator
 var mask_data
 
 func enter():
-	player = get_tree().get_first_node_in_group("Player")
+	player = get_node("/root/Main/Player")
 	animator = player.get_node("AnimationPlayer")
 	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
 	

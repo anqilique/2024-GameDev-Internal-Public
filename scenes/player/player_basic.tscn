@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b0euaykfx2xia"]
+[gd_scene load_steps=27 format=4 uid="uid://b0euaykfx2xia"]
 
 [ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="1_cel2k"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_q6key"]
@@ -235,7 +235,10 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aby6m"]
-radius = 0.573512
+radius = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5so8"]
+size = Vector3(4.84603, 1.89258, 5.16504)
 
 [sub_resource type="BoxMesh" id="BoxMesh_40b8l"]
 
@@ -286,7 +289,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5tcwn")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8gwhc"]
-size = Vector3(3.62103, 1.31697, 3.00153)
+size = Vector3(3.62103, 2.12377, 3.537)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -299,6 +302,14 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_aby6m")
+
+[node name="Hurtbox3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016407, 0.79251, -0.0993631)
+shape = SubResource("BoxShape3D_a5so8")
 
 [node name="Rig" type="Node3D" parent="."]
 
@@ -331,7 +342,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rig/Hitbox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00161707, 1.14928, -1.00076)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00161707, 1.09706, -1.2685)
 shape = SubResource("BoxShape3D_8gwhc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -376,7 +387,7 @@ offset_bottom = 645.0
 text = "State: PlayerIdle"
 
 [node name="RecoveryTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 one_shot = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
