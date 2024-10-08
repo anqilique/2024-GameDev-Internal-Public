@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 const HEALTH_BONUS = 6
 const ESSENCE_BONUS = 2
+const EXPERIENCE_BONUS = 1
 
 @export var move_speed = 15
 
@@ -40,12 +41,18 @@ func collect_essence():
 	PlayerVars.essence += ESSENCE_BONUS
 
 
+func collect_experience():
+	PlayerVars.current_exp += EXPERIENCE_BONUS
+	
+
+
 func _on_collect_area_3d_body_entered(body):
 	if body.name == "Player":  # Collectable only by the player.
 		
 		# Get the right type of collectable effects.
 		if is_in_group("Health Collectables"): collect_health()
 		elif is_in_group("Essence Collectables"): collect_essence()
+		elif is_in_group("Experience Collectables"): collect_experience()
 		
 		queue_free()
 

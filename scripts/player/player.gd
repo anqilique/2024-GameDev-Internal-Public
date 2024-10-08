@@ -6,6 +6,14 @@ var ray_end = Vector3()
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func handle_exp():
+	# Handle excess experience
+	PlayerVars.current_exp -= PlayerVars.max_exp
+	PlayerVars.level += 1
+	
+	# Increase the exp required to next level
+	PlayerVars.max_exp = PlayerVars.level * 4
+
 func _ready():
 	pass
 
@@ -37,6 +45,9 @@ func go_to_state(new_state):
 		$StateMachine.on_child_transition($StateMachine.current_state, new_state)
 
 func _physics_process(delta):
+	# If player has enough exp to level up...
+	if PlayerVars.current_exp >= PlayerVars.max_exp: handle_exp()
+	
 	handle_look_direction()
 	
 	if Input.is_action_just_pressed("ui_left_mouse_button"):

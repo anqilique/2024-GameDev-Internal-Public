@@ -5,6 +5,8 @@ var enemy
 
 @export var health_collectable_scene : PackedScene
 @export var essence_collectable_scene : PackedScene
+@export var exp_collectable_scene : PackedScene
+
 
 func enter():
 	enemy = get_parent().get_parent()
@@ -38,6 +40,20 @@ func enter():
 		
 		# Spawn the essence collectable.
 		enemy.add_sibling(new_essence_drop)
+	
+	"""
+	Enemy Drops Experience
+	"""
+	
+	var new_exp_drop = exp_collectable_scene.instantiate()
+		
+	new_exp_drop.position = enemy.position
+	new_exp_drop.position.y += 3  # Don't spawn on top of health collectable.
+	
+	new_exp_drop.add_to_group("Experience Collectables")
+	
+	# Spawn the essence collectable.
+	enemy.add_sibling(new_exp_drop)
 	
 	"""
 	Free the Enemy Node

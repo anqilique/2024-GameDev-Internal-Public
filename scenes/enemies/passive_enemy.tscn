@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8tchusbfdues"]
+[gd_scene load_steps=20 format=3 uid="uid://c8tchusbfdues"]
 
 [ext_resource type="Texture2D" uid="uid://cthh1rh7bq4hj" path="res://assets/textures/red.png" id="1_i5jk6"]
 [ext_resource type="Script" path="res://scripts/enemies/passive_enemy.gd" id="1_w8y0b"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dwo8g0e354tel" path="res://scenes/gui/health_bar.tscn" id="11_0ja2b"]
 [ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="11_iq8m5"]
 [ext_resource type="PackedScene" uid="uid://dx75c8mg74i2t" path="res://scenes/other/essence_collectable.tscn" id="11_y51lk"]
+[ext_resource type="PackedScene" uid="uid://itnceq78dgby" path="res://scenes/other/experience_collectable.tscn" id="12_ifqwi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ixml"]
 
@@ -24,7 +25,7 @@ albedo_texture = ExtResource("1_i5jk6")
 [sub_resource type="BoxMesh" id="BoxMesh_i81ob"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qc4uw"]
-size = Vector3(1.21436, 1.22961, 1.50586)
+size = Vector3(1.21436, 1.22961, 1.1958)
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 4
@@ -51,7 +52,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -0.25293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -0.0979005)
 shape = SubResource("BoxShape3D_qc4uw")
 
 [node name="HealthBar" parent="." instance=ExtResource("11_0ja2b")]
@@ -78,6 +79,7 @@ script = ExtResource("7_pi5ua")
 script = ExtResource("8_wceyh")
 health_collectable_scene = ExtResource("10_f2ir2")
 essence_collectable_scene = ExtResource("11_y51lk")
+exp_collectable_scene = ExtResource("12_ifqwi")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("10_ecmtm")]
 health_component = NodePath("../HealthComponent")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c30yqjvqjoy4u"]
+[gd_scene load_steps=22 format=3 uid="uid://c30yqjvqjoy4u"]
 
 [ext_resource type="Script" path="res://scripts/enemies/chaser_enemy.gd" id="1_k40bd"]
 [ext_resource type="Texture2D" uid="uid://d3dtrws4chvpm" path="res://assets/textures/purple.png" id="1_pn3hx"]
@@ -14,11 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://d3g8tgfu6ecju" path="res://scenes/other/health_collectable.tscn" id="11_pnel6"]
 [ext_resource type="PackedScene" uid="uid://dx75c8mg74i2t" path="res://scenes/other/essence_collectable.tscn" id="12_4yoa5"]
 [ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="12_jko6h"]
+[ext_resource type="PackedScene" uid="uid://itnceq78dgby" path="res://scenes/other/experience_collectable.tscn" id="13_jf5ii"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_23usq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g1hmr"]
-size = Vector3(1.21436, 1.22961, 1.50586)
+size = Vector3(1.21436, 1.22961, 1.24805)
 
 [sub_resource type="BoxMesh" id="BoxMesh_enggn"]
 
@@ -49,7 +50,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rig/Hitbox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -0.25293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -0.124024)
 shape = SubResource("BoxShape3D_g1hmr")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Rig"]
@@ -99,6 +100,7 @@ script = ExtResource("6_rq73r")
 script = ExtResource("7_np0au")
 health_collectable_scene = ExtResource("11_pnel6")
 essence_collectable_scene = ExtResource("12_4yoa5")
+exp_collectable_scene = ExtResource("13_jf5ii")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("11_h36sy")]
 health_component = NodePath("../HealthComponent")

@@ -37,3 +37,9 @@ var attack_damage = 25
 
 # Currency related variables.
 var essence = 0
+
+# Experience related variables.
+var level = 1
+var current_exp = 0
+var max_exp = 2
+var req_exp = max_exp - current_exp

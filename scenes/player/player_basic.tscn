@@ -78,7 +78,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_fjf2g"]
 resource_name = "attack-1"
-length = 0.5
+length = 0.45
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -86,7 +86,7 @@ tracks/0/path = NodePath("Rig/Weapon:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.433333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -380,6 +380,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HealthComponent" parent="." instance=ExtResource("9_1csif")]
 
 [node name="StateLabel" type="Label" parent="."]
+visible = false
 offset_left = 23.0
 offset_top = 615.0
 offset_right = 173.0

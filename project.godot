@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GameDevInternal_2024"
 config/tags=PackedStringArray("school")
-run/main_scene="res://scenes/gui/full_menus/main_menu.tscn"
+run/main_scene="res://scenes/gui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
