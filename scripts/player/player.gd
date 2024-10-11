@@ -13,6 +13,10 @@ func handle_exp():
 	
 	# Increase the exp required to next level
 	PlayerVars.max_exp = PlayerVars.level * 4
+	
+	# Show upgrades menu.
+	#get_node("/root/Main/LayerUI/UpgradesMenu").show()
+	#get_tree().paused = true
 
 func _ready():
 	pass

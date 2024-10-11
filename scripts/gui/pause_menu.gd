@@ -49,4 +49,4 @@ func _on_options_button_pressed():
 
 func _on_exit_pressed():
 	switch_to_pause(false)
-	get_tree().change_scene_to_file("res://scenes/gui/full_menus/main_menu.tscn")
+	LoadHandler.load_scene("res://scenes/gui/main_menu.tscn")

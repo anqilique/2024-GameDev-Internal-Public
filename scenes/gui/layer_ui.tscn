@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crhc0gakiboc" path="res://scenes/gui/mask_menu.tscn" id="3_tk8e1"]
 [ext_resource type="PackedScene" uid="uid://1v2ut2p7b0le" path="res://scenes/gui/death_menu.tscn" id="4_e06va"]
 [ext_resource type="PackedScene" uid="uid://do6yixnrxxhv4" path="res://scenes/gui/wave_stats.tscn" id="5_6ykd6"]
-[ext_resource type="PackedScene" uid="uid://4tg1cqk8d18s" path="res://scenes/gui/load_screen.tscn" id="6_r0kj8"]
+[ext_resource type="PackedScene" uid="uid://dsv7ebrcq8qv5" path="res://scenes/gui/upgrades_menu.tscn" id="5_bix63"]
 
 [node name="LayerUI" type="CanvasLayer"]
 
@@ -17,8 +17,9 @@
 
 [node name="MaskMenu" parent="." instance=ExtResource("3_tk8e1")]
 
-[node name="DeathMenu" parent="." instance=ExtResource("4_e06va")]
+[node name="UpgradesMenu" parent="." instance=ExtResource("5_bix63")]
+process_mode = 3
 visible = false
 
-[node name="LoadScreen" parent="." instance=ExtResource("6_r0kj8")]
+[node name="DeathMenu" parent="." instance=ExtResource("4_e06va")]
 visible = false

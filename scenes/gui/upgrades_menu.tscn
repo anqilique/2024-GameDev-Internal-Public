@@ -1,27 +1,62 @@
-[gd_scene format=3 uid="uid://dsv7ebrcq8qv5"]
+[gd_scene load_steps=3 format=3 uid="uid://dsv7ebrcq8qv5"]
 
-[node name="UpgradesMenu" type="CanvasLayer"]
+[ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="1_he67t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8h06i"]
+shader = ExtResource("1_he67t")
+shader_parameter/blur = 0.5
+
+[node name="UpgradesMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="BlurBG" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8h06i")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.313726)
 
 [node name="UpgradePanel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 31.0
-offset_top = 33.0
+offset_top = 52.0
 offset_right = 792.0
-offset_bottom = 525.0
+offset_bottom = 502.0
 
 [node name="PlayerStatsPanel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 821.0
-offset_top = 33.0
+offset_top = 52.0
 offset_right = 1119.0
-offset_bottom = 525.0
+offset_bottom = 502.0
 
 [node name="ActivityPanel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 353.0
-offset_top = 551.0
+offset_top = 531.0
 offset_right = 1119.0
-offset_bottom = 608.0
+offset_bottom = 588.0
 
 [node name="ExitButton" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 32.0
-offset_top = 551.0
+offset_top = 531.0
 offset_right = 330.0
-offset_bottom = 608.0
+offset_bottom = 588.0
