@@ -29,7 +29,7 @@ func update(_delta):
 					var hurtbox = body.get_node("HurtboxComponent")
 					var attack = Attack.new()
 					# Attack the player's hurtbox.
-					attack.attack_damage = 10
+					attack.attack_damage = randi_range(2, 8)
 					hurtbox.damage(attack)
 					
 					# Start cooldown timer.
