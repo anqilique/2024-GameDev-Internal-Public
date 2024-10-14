@@ -15,7 +15,7 @@ func enter():
 	Enemy Drops Health
 	"""
 	
-	for i in range(5):
+	for i in randi_range(2, 3):
 		var new_health_drop = health_collectable_scene.instantiate()
 		
 		new_health_drop.position = enemy.position
@@ -30,7 +30,7 @@ func enter():
 	Enemy Drops Essence
 	"""
 	
-	for i in range(5):
+	for i in randi_range(4, 6):
 		var new_essence_drop = essence_collectable_scene.instantiate()
 		
 		new_essence_drop.position = enemy.position

@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const HEALTH_BONUS = 6
+const HEALTH_BONUS = 12
 const ESSENCE_BONUS = 2
 const EXPERIENCE_BONUS = 1
 

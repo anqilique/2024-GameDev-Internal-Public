@@ -66,10 +66,10 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.455056, 0.0714285), 0.183379, 
 point_count = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4u7rk"]
-size = Vector3(49.4477, 4.73798, 1)
+size = Vector3(49.4477, 9.05271, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7j856"]
-size = Vector3(1, 4.20209, 40.1094)
+size = Vector3(1, 8.6528, 40.1094)
 
 [node name="Environment" type="Node3D"]
 
@@ -168,17 +168,17 @@ scale_amount_curve = SubResource("Curve_wamwo")
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661674, 1.71512, -18.083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661674, 3.87248, -18.083)
 shape = SubResource("BoxShape3D_4u7rk")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661674, 1.71512, 22.8521)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661674, 4.04571, 22.8521)
 shape = SubResource("BoxShape3D_4u7rk")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.145, 2.01044, 2.438)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.145, 4.2358, 2.438)
 shape = SubResource("BoxShape3D_7j856")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5388, 2.01044, 2.438)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5388, 4.1111, 2.438)
 shape = SubResource("BoxShape3D_7j856")

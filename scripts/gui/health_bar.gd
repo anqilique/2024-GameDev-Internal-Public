@@ -1,13 +1,15 @@
 extends Node3D
 
 @onready var bar = $SubViewport/TextureProgressBar
+var tween
 
 func update_health(current, maximum):
-	var tween = get_tree().create_tween()
-	tween.tween_property(bar, "value", current, 0.25).set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(bar, "max_value", maximum, 0.25).set_trans(Tween.TRANS_LINEAR)
-	
-	tween.bind_node(self)
+	if not tween or not tween.is_running():
+		tween = get_tree().create_tween()
+		tween.tween_property(bar, "value", current, 0.25).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(bar, "max_value", maximum, 0.25).set_trans(Tween.TRANS_LINEAR)
+		
+		tween.bind_node(self)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
