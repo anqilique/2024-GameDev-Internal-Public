@@ -1,7 +1,7 @@
 extends State
 class_name PlayerTakeDMG
 
-const SLOW_MULTIPLIER = 0.5
+const SLOW_MULTIPLIER = 0.8
 
 var player
 var enemy

@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3g8tgfu6ecju"]
+[gd_scene load_steps=10 format=3 uid="uid://d3g8tgfu6ecju"]
 
 [ext_resource type="Script" path="res://scripts/other/collectables.gd" id="1_s0a7i"]
-[ext_resource type="Texture2D" uid="uid://cthh1rh7bq4hj" path="res://assets/textures/red.png" id="2_8ytlc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_43xol"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_t3l8o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dhs2"]
-albedo_texture = ExtResource("2_8ytlc")
+albedo_color = Color(1, 0, 0.207843, 1)
 emission_enabled = true
 emission = Color(0.815686, 0, 0, 1)
 

@@ -93,3 +93,8 @@ func _on_recovery_timer_timeout():
 		go_to_state("PlayerAttack")
 		
 	if $StateMachine.current_state.name == "PlayerTakeDMG": go_to_state("PlayerIdle")
+
+
+func _on_bleed_timer_timeout() -> void:
+	#PlayerVars.current_health -= 5
+	$BleedTimer.start()

@@ -1,13 +1,13 @@
 extends Control
 
-@onready var bar = $TextureProgressBar
+@onready var wavebar = $TextureProgressBar
 @onready var main_scene = get_parent().get_parent()
 var tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bar.value = PlayerVars.live_enemies
-	bar.max_value = main_scene.enemies_spawned
+	wavebar.value = PlayerVars.live_enemies
+	wavebar.max_value = main_scene.enemies_spawned
 
 func update_bar(bar, current, maximum):
 	if not tween or not tween.is_running():
@@ -19,7 +19,7 @@ func update_bar(bar, current, maximum):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if [PlayerVars.live_enemies, main_scene.enemies_spawned] != [bar.value, bar.max_value]:
-		update_bar(bar, PlayerVars.live_enemies, main_scene.enemies_spawned)
+	if [PlayerVars.live_enemies, main_scene.enemies_spawned] != [wavebar.value, wavebar.max_value]:
+		update_bar(wavebar, PlayerVars.live_enemies, main_scene.enemies_spawned)
 		
 		$Label.text = "Wave %d | %d Remaining Enemies" % [PlayerVars.wave, PlayerVars.live_enemies]

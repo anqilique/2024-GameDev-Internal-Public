@@ -1,6 +1,5 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8tchusbfdues"]
+[gd_scene load_steps=19 format=3 uid="uid://c8tchusbfdues"]
 
-[ext_resource type="Texture2D" uid="uid://cthh1rh7bq4hj" path="res://assets/textures/red.png" id="1_i5jk6"]
 [ext_resource type="Script" path="res://scripts/enemies/passive_enemy.gd" id="1_w8y0b"]
 [ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="3_kq0uh"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_idle.gd" id="4_ub4h8"]
@@ -20,7 +19,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_7qjmc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpxb8"]
-albedo_texture = ExtResource("1_i5jk6")
+albedo_color = Color(1, 0, 0.207843, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_i81ob"]
 

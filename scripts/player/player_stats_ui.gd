@@ -43,9 +43,6 @@ func _process(_delta):
 		or PlayerVars.max_exp != expbar.max_value
 	):
 		update_bar(expbar, PlayerVars.current_exp, PlayerVars.max_exp)
-		print(expbar, PlayerVars.current_exp, PlayerVars.max_exp)
-	
-	elif tween: tween.kill()
 	
 	
 	# Update labels

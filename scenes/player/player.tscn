@@ -1,17 +1,17 @@
 [gd_scene load_steps=27 format=4 uid="uid://b0euaykfx2xia"]
 
-[ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="1_cel2k"]
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_q6key"]
-[ext_resource type="PackedScene" uid="uid://8yvka8035c2" path="res://scenes/player/player_mesh.tscn" id="2_hkhd7"]
-[ext_resource type="Texture2D" uid="uid://dy647rmnxm6up" path="res://assets/textures/sword_sword diffuse.png" id="2_rosfj"]
-[ext_resource type="Script" path="res://scripts/states/player/player_idle.gd" id="2_un224"]
-[ext_resource type="Script" path="res://scripts/states/player/player_move.gd" id="3_41ft3"]
-[ext_resource type="Script" path="res://scripts/states/player/player_jump.gd" id="4_ny2lo"]
-[ext_resource type="Script" path="res://scripts/states/player/player_takedmg.gd" id="5_ve8hb"]
-[ext_resource type="Script" path="res://scripts/states/player/player_death.gd" id="6_5hq85"]
-[ext_resource type="Script" path="res://scripts/states/player/player_attack.gd" id="7_4eqrt"]
-[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/other/hurtbox_component.tscn" id="8_hheba"]
-[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="9_1csif"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_mcn12"]
+[ext_resource type="Texture2D" uid="uid://dy647rmnxm6up" path="res://assets/textures/sword_sword diffuse.png" id="2_xufim"]
+[ext_resource type="PackedScene" uid="uid://8yvka8035c2" path="res://scenes/player/player_mesh.tscn" id="3_080qv"]
+[ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="4_i152s"]
+[ext_resource type="Script" path="res://scripts/states/player/player_idle.gd" id="5_jsb7w"]
+[ext_resource type="Script" path="res://scripts/states/player/player_move.gd" id="6_fgw5b"]
+[ext_resource type="Script" path="res://scripts/states/player/player_jump.gd" id="7_yj113"]
+[ext_resource type="Script" path="res://scripts/states/player/player_takedmg.gd" id="8_7ejx0"]
+[ext_resource type="Script" path="res://scripts/states/player/player_death.gd" id="9_64t47"]
+[ext_resource type="Script" path="res://scripts/states/player/player_attack.gd" id="10_n3y1o"]
+[ext_resource type="PackedScene" uid="uid://d3lnabkpjpnrw" path="res://scenes/other/hurtbox_component.tscn" id="11_n5ubf"]
+[ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="12_s2kf4"]
 
 [sub_resource type="Animation" id="Animation_kpo3f"]
 length = 0.001
@@ -251,7 +251,7 @@ point_count = 3
 resource_name = "Material"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_rosfj")
+albedo_texture = ExtResource("2_xufim")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5tcwn"]
@@ -293,7 +293,7 @@ size = Vector3(3.62103, 2.12377, 3.537)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
-script = ExtResource("1_q6key")
+script = ExtResource("1_mcn12")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -333,7 +333,7 @@ transform = Transform3D(-0.798611, -0.595676, -0.085967, 0.592254, -0.803225, 0.
 mesh = SubResource("ArrayMesh_4d3hg")
 skeleton = NodePath("")
 
-[node name="PlayerMesh" parent="Rig" instance=ExtResource("2_hkhd7")]
+[node name="PlayerMesh" parent="Rig" instance=ExtResource("3_080qv")]
 transform = Transform3D(1, 1.50996e-07, 0, -1.50996e-07, 1, 0, 0, 0, -1, 0, 0.138424, 0)
 
 [node name="Hitbox3D" type="Area3D" parent="Rig"]
@@ -353,31 +353,31 @@ near = 5.0
 far = 60.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("1_cel2k")
+script = ExtResource("4_i152s")
 initial_state = NodePath("PlayerIdle")
 
 [node name="PlayerIdle" type="Node" parent="StateMachine"]
-script = ExtResource("2_un224")
+script = ExtResource("5_jsb7w")
 
 [node name="PlayerMove" type="Node" parent="StateMachine"]
-script = ExtResource("3_41ft3")
+script = ExtResource("6_fgw5b")
 
 [node name="PlayerJump" type="Node" parent="StateMachine"]
-script = ExtResource("4_ny2lo")
+script = ExtResource("7_yj113")
 
 [node name="PlayerTakeDMG" type="Node" parent="StateMachine"]
-script = ExtResource("5_ve8hb")
+script = ExtResource("8_7ejx0")
 
 [node name="PlayerDeath" type="Node" parent="StateMachine"]
-script = ExtResource("6_5hq85")
+script = ExtResource("9_64t47")
 
 [node name="PlayerAttack" type="Node" parent="StateMachine"]
-script = ExtResource("7_4eqrt")
+script = ExtResource("10_n3y1o")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_hheba")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("11_n5ubf")]
 health_component = NodePath("../HealthComponent")
 
-[node name="HealthComponent" parent="." instance=ExtResource("9_1csif")]
+[node name="HealthComponent" parent="." instance=ExtResource("12_s2kf4")]
 
 [node name="StateLabel" type="Label" parent="."]
 visible = false
@@ -391,6 +391,11 @@ text = "State: PlayerIdle"
 wait_time = 0.25
 one_shot = true
 
+[node name="BleedTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49647, -1.04613)
 light_energy = 0.5
@@ -398,3 +403,4 @@ omni_range = 5.11108
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/PlayerAttack" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]
+[connection signal="timeout" from="BleedTimer" to="." method="_on_bleed_timer_timeout"]

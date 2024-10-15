@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://c30yqjvqjoy4u"]
+[gd_scene load_steps=21 format=3 uid="uid://c30yqjvqjoy4u"]
 
 [ext_resource type="Script" path="res://scripts/enemies/chaser_enemy.gd" id="1_k40bd"]
-[ext_resource type="Texture2D" uid="uid://d3dtrws4chvpm" path="res://assets/textures/purple.png" id="1_pn3hx"]
 [ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="2_shc54"]
 [ext_resource type="Script" path="res://scripts/states/enemy/enemy_idle.gd" id="3_gxmvj"]
 [ext_resource type="PackedScene" uid="uid://dwo8g0e354tel" path="res://scenes/gui/health_bar.tscn" id="3_vtwhl"]
@@ -24,7 +23,7 @@ size = Vector3(1.21436, 1.22961, 1.24805)
 [sub_resource type="BoxMesh" id="BoxMesh_enggn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xnju"]
-albedo_texture = ExtResource("1_pn3hx")
+albedo_color = Color(0.627451, 0.133333, 0.984314, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_u78wt"]
 

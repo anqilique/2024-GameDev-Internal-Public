@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c8tchusbfdues" path="res://scenes/enemies/passive_enemy.tscn" id="3_qiinr"]
 [ext_resource type="PackedScene" uid="uid://dj6ga5g6jywsx" path="res://scenes/gui/layer_ui.tscn" id="3_wax13"]
 [ext_resource type="PackedScene" uid="uid://c30yqjvqjoy4u" path="res://scenes/enemies/chaser_enemy.tscn" id="3_wf5i2"]
-[ext_resource type="PackedScene" uid="uid://b0euaykfx2xia" path="res://scenes/player/player_basic.tscn" id="5_suwd0"]
+[ext_resource type="PackedScene" uid="uid://b0euaykfx2xia" path="res://scenes/player/player.tscn" id="5_suwd0"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_rko6x")
