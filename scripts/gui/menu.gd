@@ -40,3 +40,7 @@ func _on_credits_button_pressed() -> void:
 	else:
 		hide_panels()
 		$Panels/CreditsPanel.show()
+
+
+func _on_button_down() -> void:
+	AudioHandler.play_sound("Click")

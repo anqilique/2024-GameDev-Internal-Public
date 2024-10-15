@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var bar = $SubViewport/TextureProgressBar
+@onready var bar = $SubViewport/CanvasLayer/TextureProgressBar
 var tween
 
 func update_health(current, maximum):

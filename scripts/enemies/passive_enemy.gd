@@ -22,6 +22,20 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
+	if $StateMachine.current_state.name == "EnemyIdle":
+		if $AnimationPlayer.is_playing():
+			$AnimationPlayer.play("RESET")
+			$AnimationPlayer.stop()
+			
+			if $Rig/CPUParticles3D.emitting:
+				$Rig/CPUParticles3D.emitting = false
+			
+	elif not $AnimationPlayer.is_playing():
+			$AnimationPlayer.play("move")
+			
+			if not $Rig/CPUParticles3D.emitting:
+				$Rig/CPUParticles3D.emitting = true
+	
 	move_and_slide()
 
 func go_to_new_state(current_state):  # Switch between idling/wandering.

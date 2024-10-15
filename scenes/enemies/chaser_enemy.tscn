@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c30yqjvqjoy4u"]
+[gd_scene load_steps=25 format=3 uid="uid://c30yqjvqjoy4u"]
 
 [ext_resource type="Script" path="res://scripts/enemies/chaser_enemy.gd" id="1_k40bd"]
 [ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="2_shc54"]
@@ -15,6 +15,68 @@
 [ext_resource type="PackedScene" uid="uid://dw85pq25vevqj" path="res://scenes/other/health_component.tscn" id="12_jko6h"]
 [ext_resource type="PackedScene" uid="uid://itnceq78dgby" path="res://scenes/other/experience_collectable.tscn" id="13_jf5ii"]
 
+[sub_resource type="Animation" id="Animation_107xp"]
+resource_name = "move"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/CSGMesh3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.25, 0), Vector3(0, 0, 0), Vector3(0, -0.175, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rig/CSGMesh3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r6byx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/CSGMesh3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rig/CSGMesh3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ki6m3"]
+_data = {
+"RESET": SubResource("Animation_r6byx"),
+"move": SubResource("Animation_107xp")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_23usq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g1hmr"]
@@ -25,7 +87,13 @@ size = Vector3(1.21436, 1.22961, 1.24805)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xnju"]
 albedo_color = Color(0.627451, 0.133333, 0.984314, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_u78wt"]
+[sub_resource type="BoxMesh" id="BoxMesh_p55ef"]
+material = SubResource("StandardMaterial3D_5xnju")
+
+[sub_resource type="Curve" id="Curve_l500e"]
+max_value = 0.5
+_data = [Vector2(0, 0.192308), 0.0, 0.0, 0, 0, Vector2(0.539326, 0.291209), 0.0, 0.0, 0, 0, Vector2(1, 0.313187), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3jbml"]
 radius = 16.6683
@@ -38,6 +106,12 @@ statetimer_min = 0.2
 statetimer_max = 2.0
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ki6m3")
+}
+autoplay = "move"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_23usq")
@@ -53,12 +127,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.114807, -0.12
 shape = SubResource("BoxShape3D_g1hmr")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Rig"]
+transform = Transform3D(0.738932, 0, -1.29199e-07, 0, 0.738932, 0, 1.29199e-07, 0, 0.738932, 0, 0, 0)
 mesh = SubResource("BoxMesh_enggn")
 material = SubResource("StandardMaterial3D_5xnju")
 
-[node name="FrontIndicatorMesh" type="CSGMesh3D" parent="Rig"]
-transform = Transform3D(0.367728, 0, 0, 0, 0.224498, 0, 0, 0, 0.210745, 0, 0.2, -0.538)
-mesh = SubResource("BoxMesh_u78wt")
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Rig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.162813, 0.306184)
+emitting = false
+amount = 5
+randomness = 0.2
+local_coords = true
+mesh = SubResource("BoxMesh_p55ef")
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.25, 1)
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0.2, 0)
+tangential_accel_min = -2.0
+tangential_accel_max = -2.0
+scale_amount_curve = SubResource("Curve_l500e")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_vtwhl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

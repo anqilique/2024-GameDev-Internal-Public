@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8tchusbfdues"]
+[gd_scene load_steps=23 format=3 uid="uid://c8tchusbfdues"]
 
 [ext_resource type="Script" path="res://scripts/enemies/passive_enemy.gd" id="1_w8y0b"]
 [ext_resource type="Script" path="res://scripts/other/state_machine.gd" id="3_kq0uh"]
@@ -14,6 +14,67 @@
 [ext_resource type="PackedScene" uid="uid://dx75c8mg74i2t" path="res://scenes/other/essence_collectable.tscn" id="11_y51lk"]
 [ext_resource type="PackedScene" uid="uid://itnceq78dgby" path="res://scenes/other/experience_collectable.tscn" id="12_ifqwi"]
 
+[sub_resource type="Animation" id="Animation_kov23"]
+resource_name = "move"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/CSGMesh3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.55334, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rig/CSGMesh3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.8, 0.8, 0.8), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0fjeq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig/CSGMesh3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rig/CSGMesh3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.8, 0.8, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hv65d"]
+_data = {
+"RESET": SubResource("Animation_0fjeq"),
+"move": SubResource("Animation_kov23")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ixml"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7qjmc"]
@@ -21,7 +82,13 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpxb8"]
 albedo_color = Color(1, 0, 0.207843, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_i81ob"]
+[sub_resource type="BoxMesh" id="BoxMesh_8v8tx"]
+material = SubResource("StandardMaterial3D_lpxb8")
+
+[sub_resource type="Curve" id="Curve_ab86o"]
+max_value = 0.5
+_data = [Vector2(0, 0.302198), 0.0, 0.0, 0, 0, Vector2(0.516854, 0.137363), 0.0, 0.0, 0, 0, Vector2(0.97191, 0.0989011), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qc4uw"]
 size = Vector3(1.21436, 1.22961, 1.1958)
@@ -30,8 +97,13 @@ size = Vector3(1.21436, 1.22961, 1.1958)
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_w8y0b")
-statetimer_min = 0.05
+statetimer_min = 0.5
 statetimer_max = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hv65d")
+}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_3ixml")
@@ -39,12 +111,21 @@ shape = SubResource("BoxShape3D_3ixml")
 [node name="Rig" type="Node3D" parent="."]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Rig"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 mesh = SubResource("BoxMesh_7qjmc")
 material = SubResource("StandardMaterial3D_lpxb8")
 
-[node name="FrontIndicatorMesh" type="CSGMesh3D" parent="Rig"]
-transform = Transform3D(0.367728, 0, 0, 0, 0.224498, 0, 0, 0, 0.210745, 0, 0.2, -0.538)
-mesh = SubResource("BoxMesh_i81ob")
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Rig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.237601, 0.679837)
+emitting = false
+amount = 10
+explosiveness = 0.1
+local_coords = true
+mesh = SubResource("BoxMesh_8v8tx")
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.1, 0.5)
+gravity = Vector3(0, -1, 0)
+scale_amount_curve = SubResource("Curve_ab86o")
 
 [node name="Hitbox3D" type="Area3D" parent="."]
 collision_layer = 4

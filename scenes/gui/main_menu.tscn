@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmj6hdnd3extu"]
+[gd_scene load_steps=20 format=3 uid="uid://bmj6hdnd3extu"]
 
 [ext_resource type="MeshLibrary" uid="uid://c6kr5uh0nuc7m" path="res://resources/vs_blocks.tres" id="1_anaje"]
 [ext_resource type="Script" path="res://scripts/gui/menu.gd" id="2_57c24"]
+[ext_resource type="Texture2D" uid="uid://pesx5l6xetfh" path="res://assets/larger.png" id="3_41lc4"]
+[ext_resource type="Texture2D" uid="uid://c28rsuw083hl" path="res://assets/musicOn.png" id="4_mwfd6"]
 
 [sub_resource type="Gradient" id="Gradient_a5jv2"]
 colors = PackedColorArray(1.05286e-08, 0, 0.0951881, 1, 0.864449, 0.854046, 0.554361, 1)
@@ -293,27 +295,38 @@ Attack - Click and Hold [Left Mouse Button]
 Pause - [P]"
 
 [node name="SettingsPanel" type="Panel" parent="UI/Panels"]
-visible = false
 layout_mode = 0
 offset_left = 349.0
-offset_top = 351.0
+offset_top = 339.0
 offset_right = 1105.0
 offset_bottom = 614.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panels/SettingsPanel"]
 layout_mode = 0
 offset_left = 19.0
-offset_top = 6.0
+offset_top = 7.0
 offset_right = 735.0
-offset_bottom = 551.0
+offset_bottom = 266.0
 theme_override_font_sizes/normal_font_size = 25
 text = "Settings
 
-Toggle Fullscreen
+		Toggle Fullscreen
 
-Sound Effects
+		Sound Effects
 
-Background Music"
+		Background Music"
+
+[node name="Larger" type="Sprite2D" parent="UI/Panels/SettingsPanel"]
+position = Vector2(558, 99)
+texture = ExtResource("3_41lc4")
+
+[node name="MusicOn" type="Sprite2D" parent="UI/Panels/SettingsPanel"]
+position = Vector2(557, 165)
+texture = ExtResource("4_mwfd6")
+
+[node name="MusicOn2" type="Sprite2D" parent="UI/Panels/SettingsPanel"]
+position = Vector2(557, 231)
+texture = ExtResource("4_mwfd6")
 
 [node name="CreditsPanel" type="Panel" parent="UI/Panels"]
 visible = false
@@ -332,7 +345,7 @@ offset_bottom = 551.0
 theme_override_font_sizes/normal_font_size = 25
 text = "Credits
 
-Sound Effects and Audio -
+Audio and UI Icons - Kenney
 
 Everything  Else - Angelique Hulot"
 
@@ -342,7 +355,11 @@ libraries = {
 }
 autoplay = "camera_patrol"
 
+[connection signal="button_down" from="UI/Buttons/PlayButton" to="UI" method="_on_button_down"]
 [connection signal="pressed" from="UI/Buttons/PlayButton" to="UI" method="_on_play_button_pressed"]
+[connection signal="button_down" from="UI/Buttons/ControlsButton" to="UI" method="_on_button_down"]
 [connection signal="pressed" from="UI/Buttons/ControlsButton" to="UI" method="_on_controls_button_pressed"]
+[connection signal="button_down" from="UI/Buttons/SettingsButton" to="UI" method="_on_button_down"]
 [connection signal="pressed" from="UI/Buttons/SettingsButton" to="UI" method="_on_settings_button_pressed"]
+[connection signal="button_down" from="UI/Buttons/CreditsButton" to="UI" method="_on_button_down"]
 [connection signal="pressed" from="UI/Buttons/CreditsButton" to="UI" method="_on_credits_button_pressed"]

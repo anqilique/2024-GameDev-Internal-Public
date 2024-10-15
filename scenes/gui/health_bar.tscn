@@ -23,7 +23,9 @@ script = ExtResource("1_6hi2x")
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(250, 12)
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="SubViewport"]
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="SubViewport/CanvasLayer"]
 offset_right = 442.0
 offset_bottom = 40.0
 scale = Vector2(0.568985, 0.313264)

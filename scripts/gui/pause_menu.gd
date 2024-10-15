@@ -25,6 +25,8 @@ func handle_ui_visibility(hide_list, show_list):
 				node.show()
 
 func switch_to_pause(pause_game):
+	AudioHandler.play_sound("Click")
+	
 	if pause_game:
 		$WhenPaused.show()
 		get_tree().paused = true
@@ -50,3 +52,7 @@ func _on_options_button_pressed():
 func _on_exit_pressed():
 	switch_to_pause(false)
 	LoadHandler.load_scene("res://scenes/gui/main_menu.tscn")
+
+
+func _on_button_down() -> void:
+	AudioHandler.play_sound("Click")
