@@ -43,3 +43,6 @@ var level = 1
 var current_exp = 0
 var max_exp = 2
 var req_exp = max_exp - current_exp
+
+# Score related variables.
+var lifetime = 0

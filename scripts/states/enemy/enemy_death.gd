@@ -30,7 +30,7 @@ func enter():
 	Enemy Drops Essence
 	"""
 	
-	for i in randi_range(4, 6):
+	for i in randi_range(1, 4):
 		var new_essence_drop = essence_collectable_scene.instantiate()
 		
 		new_essence_drop.position = enemy.position

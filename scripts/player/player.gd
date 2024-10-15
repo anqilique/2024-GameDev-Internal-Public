@@ -34,7 +34,6 @@ func change_visibility(set_to):
 
 
 func check_mask(current_mask):
-	
 	current_mask = str(current_mask)
 	
 	var mask_handler = "Rig/PlayerMesh/MeshMasks"
@@ -99,9 +98,15 @@ func _on_recovery_timer_timeout():
 	if $AnimationPlayer.current_animation == "attack":
 		go_to_state("PlayerAttack")
 		
-	if $StateMachine.current_state.name == "PlayerTakeDMG": go_to_state("PlayerIdle")
+	if $StateMachine.current_state.name == "PlayerTakeDMG":
+		go_to_state("PlayerIdle")
 
 
 func _on_bleed_timer_timeout() -> void:
 	#PlayerVars.current_health -= 5
 	$BleedTimer.start()
+
+
+func _on_life_timer_timeout() -> void:
+	PlayerVars.lifetime += 1
+	$LifeTimer.start()

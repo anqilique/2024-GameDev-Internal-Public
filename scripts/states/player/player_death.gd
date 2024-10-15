@@ -3,6 +3,14 @@ class_name PlayerDeath
 
 var player
 
+
+func calculate_score():
+	var score = PlayerVars.lifetime
+	score *= PlayerVars.level
+	
+	score *= (5 - len(PlayerVars.broken_masks)) / 5
+
+
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	player.change_visibility("hide")

@@ -13,7 +13,6 @@ func hide_screen():
 	pause_menu.show()
 	hide()
 
-
 func handle_respawn(with_progress):
 	if with_progress:
 		var state_machine = get_parent().get_parent().get_node("Player/StateMachine")

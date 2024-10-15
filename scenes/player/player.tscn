@@ -345,6 +345,11 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00161707, 1.09706, -1.2685)
 shape = SubResource("BoxShape3D_8gwhc")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49647, -1.04613)
+light_energy = 0.5
+omni_range = 5.11108
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.676298, 0.736628, 0, -0.736628, 0.676298, -4.34436e-07, 13.1844, 10.2316)
 current = true
@@ -396,11 +401,11 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49647, -1.04613)
-light_energy = 0.5
-omni_range = 5.11108
+[node name="LifeTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/PlayerAttack" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]
 [connection signal="timeout" from="BleedTimer" to="." method="_on_bleed_timer_timeout"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

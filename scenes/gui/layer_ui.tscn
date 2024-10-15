@@ -13,9 +13,9 @@
 
 [node name="PlayerStats" parent="." instance=ExtResource("1_layb4")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("1_yowio")]
-
 [node name="MaskMenu" parent="." instance=ExtResource("3_tk8e1")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_yowio")]
 
 [node name="UpgradesMenu" parent="." instance=ExtResource("5_bix63")]
 process_mode = 3

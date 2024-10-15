@@ -295,6 +295,7 @@ Attack - Click and Hold [Left Mouse Button]
 Pause - [P]"
 
 [node name="SettingsPanel" type="Panel" parent="UI/Panels"]
+visible = false
 layout_mode = 0
 offset_left = 349.0
 offset_top = 339.0
@@ -357,25 +358,24 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("4_mwfd6")
 
 [node name="CreditsPanel" type="Panel" parent="UI/Panels"]
-visible = false
 layout_mode = 0
 offset_left = 349.0
-offset_top = 420.0
+offset_top = 411.0
 offset_right = 1105.0
 offset_bottom = 614.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panels/CreditsPanel"]
 layout_mode = 0
 offset_left = 19.0
-offset_top = 6.0
+offset_top = 10.0
 offset_right = 735.0
-offset_bottom = 551.0
+offset_bottom = 194.0
 theme_override_font_sizes/normal_font_size = 25
 text = "Credits
 
-Audio and UI Icons - Kenney
+		Audio and UI Icons					Kenney
 
-Everything  Else - Angelique Hulot"
+		Everything  Else							Angelique Hulot"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

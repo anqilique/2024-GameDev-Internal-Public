@@ -38,14 +38,14 @@ color = Color(0, 0, 0, 0.313726)
 [node name="UpgradePanel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 31.0
-offset_top = 52.0
+offset_top = 69.0
 offset_right = 792.0
 offset_bottom = 502.0
 
 [node name="PlayerStatsPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 821.0
-offset_top = 52.0
+offset_top = 68.0
 offset_right = 1119.0
 offset_bottom = 502.0
 
