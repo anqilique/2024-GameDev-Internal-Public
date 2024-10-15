@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 PlayerVars="*res://resources/autoloads/player_vars.gd"
 LoadHandler="*res://resources/autoloads/load_handler.gd"
 AudioHandler="*res://resources/audio_handler.tscn"
+Settings="*res://resources/autoloads/settings.gd"
 
 [display]
 

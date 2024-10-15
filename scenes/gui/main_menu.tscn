@@ -221,7 +221,7 @@ offset_top = 261.0
 offset_right = 449.0
 offset_bottom = 375.0
 theme_override_font_sizes/normal_font_size = 80
-text = "Title"
+text = "TITLE"
 
 [node name="Buttons" type="Control" parent="UI"]
 anchors_preset = 0
@@ -235,7 +235,7 @@ offset_top = 377.0
 offset_right = 230.0
 offset_bottom = 420.0
 theme_override_font_sizes/font_size = 25
-text = "Play"
+text = "PLAY"
 
 [node name="ControlsButton" type="Button" parent="UI/Buttons"]
 layout_mode = 0
@@ -244,7 +244,7 @@ offset_top = 443.0
 offset_right = 230.0
 offset_bottom = 486.0
 theme_override_font_sizes/font_size = 25
-text = "Controls"
+text = "CONTROLS"
 
 [node name="SettingsButton" type="Button" parent="UI/Buttons"]
 layout_mode = 0
@@ -253,7 +253,7 @@ offset_top = 510.0
 offset_right = 230.0
 offset_bottom = 553.0
 theme_override_font_sizes/font_size = 25
-text = "Settings"
+text = "SETTINGS"
 
 [node name="CreditsButton" type="Button" parent="UI/Buttons"]
 layout_mode = 0
@@ -262,7 +262,7 @@ offset_top = 572.0
 offset_right = 230.0
 offset_bottom = 615.0
 theme_override_font_sizes/font_size = 25
-text = "Credits"
+text = "CREDITS"
 
 [node name="Panels" type="Control" parent="UI"]
 anchors_preset = 0
@@ -316,16 +316,44 @@ text = "Settings
 
 		Background Music"
 
-[node name="Larger" type="Sprite2D" parent="UI/Panels/SettingsPanel"]
-position = Vector2(558, 99)
+[node name="FullScreen" type="CheckButton" parent="UI/Panels/SettingsPanel"]
+layout_mode = 0
+offset_left = 597.0
+offset_top = 82.0
+offset_right = 641.0
+offset_bottom = 106.0
+scale = Vector2(1.5, 1.5)
+tooltip_text = "Causes lag!"
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Panels/SettingsPanel/FullScreen"]
+position = Vector2(-26, 11.3333)
+scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("3_41lc4")
 
-[node name="MusicOn" type="Sprite2D" parent="UI/Panels/SettingsPanel"]
-position = Vector2(557, 165)
+[node name="SFX" type="CheckButton" parent="UI/Panels/SettingsPanel"]
+layout_mode = 0
+offset_left = 597.0
+offset_top = 146.0
+offset_right = 641.0
+offset_bottom = 170.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Panels/SettingsPanel/SFX"]
+position = Vector2(-26.6667, 10.6667)
+scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("4_mwfd6")
 
-[node name="MusicOn2" type="Sprite2D" parent="UI/Panels/SettingsPanel"]
-position = Vector2(557, 231)
+[node name="BGM" type="CheckButton" parent="UI/Panels/SettingsPanel"]
+layout_mode = 0
+offset_left = 597.0
+offset_top = 212.0
+offset_right = 641.0
+offset_bottom = 236.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Panels/SettingsPanel/BGM"]
+position = Vector2(-26.6667, 10.6667)
+scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("4_mwfd6")
 
 [node name="CreditsPanel" type="Panel" parent="UI/Panels"]
@@ -363,3 +391,9 @@ autoplay = "camera_patrol"
 [connection signal="pressed" from="UI/Buttons/SettingsButton" to="UI" method="_on_settings_button_pressed"]
 [connection signal="button_down" from="UI/Buttons/CreditsButton" to="UI" method="_on_button_down"]
 [connection signal="pressed" from="UI/Buttons/CreditsButton" to="UI" method="_on_credits_button_pressed"]
+[connection signal="button_down" from="UI/Panels/SettingsPanel/FullScreen" to="UI" method="_on_button_down"]
+[connection signal="pressed" from="UI/Panels/SettingsPanel/FullScreen" to="UI" method="_on_full_screen_pressed"]
+[connection signal="button_down" from="UI/Panels/SettingsPanel/SFX" to="UI" method="_on_button_down"]
+[connection signal="pressed" from="UI/Panels/SettingsPanel/SFX" to="UI" method="_on_sfx_pressed"]
+[connection signal="button_down" from="UI/Panels/SettingsPanel/BGM" to="UI" method="_on_button_down"]
+[connection signal="pressed" from="UI/Panels/SettingsPanel/BGM" to="UI" method="_on_bgm_pressed"]

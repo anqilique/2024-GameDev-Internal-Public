@@ -80,21 +80,12 @@ shortcut = SubResource("Shortcut_jmluo")
 shortcut_in_tooltip = false
 text = "Resume"
 
-[node name="OptionsButton" type="Button" parent="WhenPaused"]
-layout_mode = 0
-offset_left = 1066.0
-offset_top = 96.0
-offset_right = 1136.0
-offset_bottom = 127.0
-scale = Vector2(1.13437, 1.13437)
-text = "Options"
-
 [node name="Exit" type="Button" parent="WhenPaused"]
 layout_mode = 0
 offset_left = 1066.0
-offset_top = 140.0
+offset_top = 97.0
 offset_right = 1136.0
-offset_bottom = 171.0
+offset_bottom = 128.0
 scale = Vector2(1.13437, 1.13437)
 text = "Exit"
 
@@ -114,8 +105,6 @@ texture_normal = ExtResource("1_o60lo")
 
 [connection signal="button_down" from="WhenPaused/ResumeButton" to="." method="_on_button_down"]
 [connection signal="pressed" from="WhenPaused/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="button_down" from="WhenPaused/OptionsButton" to="." method="_on_button_down"]
-[connection signal="pressed" from="WhenPaused/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="button_down" from="WhenPaused/Exit" to="." method="_on_button_down"]
 [connection signal="pressed" from="WhenPaused/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

@@ -19,6 +19,8 @@ func enter():
 	enemy.velocity = (enemy.global_transform.origin - player.global_transform.origin).normalized()
 	enemy.velocity *= 10
 	enemy.velocity.y = 5
+	
+	AudioHandler.play_sound("Impact")
 
 
 func _on_recovery_timer_timeout():
