@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bmj6hdnd3extu"]
+[gd_scene load_steps=21 format=3 uid="uid://bmj6hdnd3extu"]
 
 [ext_resource type="MeshLibrary" uid="uid://c6kr5uh0nuc7m" path="res://resources/vs_blocks.tres" id="1_anaje"]
 [ext_resource type="Script" path="res://scripts/gui/menu.gd" id="2_57c24"]
 [ext_resource type="Texture2D" uid="uid://pesx5l6xetfh" path="res://assets/larger.png" id="3_41lc4"]
+[ext_resource type="Theme" uid="uid://d2qcf23k5150" path="res://resources/main_theme.tres" id="3_ghmx4"]
 [ext_resource type="Texture2D" uid="uid://c28rsuw083hl" path="res://assets/musicOn.png" id="4_mwfd6"]
 
 [sub_resource type="Gradient" id="Gradient_a5jv2"]
@@ -234,6 +235,7 @@ offset_left = 38.0
 offset_top = 377.0
 offset_right = 230.0
 offset_bottom = 420.0
+theme = ExtResource("3_ghmx4")
 theme_override_font_sizes/font_size = 25
 text = "PLAY"
 
@@ -243,6 +245,7 @@ offset_left = 38.0
 offset_top = 443.0
 offset_right = 230.0
 offset_bottom = 486.0
+theme = ExtResource("3_ghmx4")
 theme_override_font_sizes/font_size = 25
 text = "CONTROLS"
 
@@ -252,6 +255,7 @@ offset_left = 38.0
 offset_top = 510.0
 offset_right = 230.0
 offset_bottom = 553.0
+theme = ExtResource("3_ghmx4")
 theme_override_font_sizes/font_size = 25
 text = "SETTINGS"
 
@@ -261,6 +265,7 @@ offset_left = 38.0
 offset_top = 572.0
 offset_right = 230.0
 offset_bottom = 615.0
+theme = ExtResource("3_ghmx4")
 theme_override_font_sizes/font_size = 25
 text = "CREDITS"
 
@@ -276,6 +281,7 @@ offset_left = 349.0
 offset_top = 281.0
 offset_right = 1105.0
 offset_bottom = 614.0
+theme = ExtResource("3_ghmx4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panels/ControlsPanel"]
 layout_mode = 0
@@ -301,6 +307,7 @@ offset_left = 349.0
 offset_top = 339.0
 offset_right = 1105.0
 offset_bottom = 614.0
+theme = ExtResource("3_ghmx4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panels/SettingsPanel"]
 layout_mode = 0
@@ -325,6 +332,7 @@ offset_right = 641.0
 offset_bottom = 106.0
 scale = Vector2(1.5, 1.5)
 tooltip_text = "Causes lag!"
+theme = ExtResource("3_ghmx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/Panels/SettingsPanel/FullScreen"]
 position = Vector2(-26, 11.3333)
@@ -338,6 +346,7 @@ offset_top = 146.0
 offset_right = 641.0
 offset_bottom = 170.0
 scale = Vector2(1.5, 1.5)
+theme = ExtResource("3_ghmx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/Panels/SettingsPanel/SFX"]
 position = Vector2(-26.6667, 10.6667)
@@ -351,6 +360,7 @@ offset_top = 212.0
 offset_right = 641.0
 offset_bottom = 236.0
 scale = Vector2(1.5, 1.5)
+theme = ExtResource("3_ghmx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/Panels/SettingsPanel/BGM"]
 position = Vector2(-26.6667, 10.6667)
@@ -363,6 +373,7 @@ offset_left = 349.0
 offset_top = 411.0
 offset_right = 1105.0
 offset_bottom = 614.0
+theme = ExtResource("3_ghmx4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panels/CreditsPanel"]
 layout_mode = 0

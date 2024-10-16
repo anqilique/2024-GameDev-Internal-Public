@@ -20,7 +20,7 @@ func enter():
 		player.velocity = (player.global_transform.origin - enemy.global_transform.origin).normalized()
 		player.velocity *= 5
 		player.velocity.y = 5
-	
+
 
 func physics_update(_delta):  # Allow the player to move, but slower.
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")

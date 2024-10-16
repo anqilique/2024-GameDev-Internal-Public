@@ -4,9 +4,12 @@
 
 [resource]
 script = ExtResource("1_d37es")
-beast = "Vermillion Bird"
-direction = "South"
-season = "Summer"
-time_of_day = "Midday"
-element = "Fire"
-number = "2"
+beast = "White Tiger"
+direction = "West"
+season = "Autumn"
+time_of_day = "Dusk"
+element = "Metal"
+max_health_bonus = 5
+base_health_bonus = 0
+movement_speed_bonus = 5
+attack_damage_bonus = 10

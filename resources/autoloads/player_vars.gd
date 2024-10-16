@@ -9,7 +9,7 @@ var live_enemies = 0
 var starting_waves = [[1, 0], [2, 2], [4, 6]]
 
 # Movement related variables.
-var base_speed = 14
+var base_speed = 10
 
 var jump_velocity = 8
 var jump_max_count = 1
@@ -33,7 +33,7 @@ var base_max_health = 100
 var starting_health = 100
 
 # Attack related variables.
-var attack_damage = 25
+var attack_damage = 15
 
 # Currency related variables.
 var essence = 0

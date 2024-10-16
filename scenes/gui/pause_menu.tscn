@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://drnnxrowmy8qp"]
+[gd_scene load_steps=10 format=3 uid="uid://drnnxrowmy8qp"]
 
 [ext_resource type="Script" path="res://scripts/gui/pause_menu.gd" id="1_5dvra"]
 [ext_resource type="Texture2D" uid="uid://bbn85d5rmmavq" path="res://assets/pause.png" id="1_o60lo"]
 [ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="2_ui8wc"]
+[ext_resource type="Theme" uid="uid://d2qcf23k5150" path="res://resources/main_theme.tres" id="3_gnm3y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lms3w"]
 shader = ExtResource("2_ui8wc")
@@ -72,10 +73,11 @@ color = Color(0, 0, 0, 0.360784)
 [node name="ResumeButton" type="Button" parent="WhenPaused"]
 layout_mode = 0
 offset_left = 1066.0
-offset_top = 51.0
+offset_top = 54.0
 offset_right = 1136.0
-offset_bottom = 82.0
+offset_bottom = 85.0
 scale = Vector2(1.13437, 1.13437)
+theme = ExtResource("3_gnm3y")
 shortcut = SubResource("Shortcut_jmluo")
 shortcut_in_tooltip = false
 text = "Resume"
@@ -83,10 +85,11 @@ text = "Resume"
 [node name="Exit" type="Button" parent="WhenPaused"]
 layout_mode = 0
 offset_left = 1066.0
-offset_top = 97.0
+offset_top = 100.0
 offset_right = 1136.0
 offset_bottom = 128.0
 scale = Vector2(1.13437, 1.13437)
+theme = ExtResource("3_gnm3y")
 text = "Exit"
 
 [node name="PauseButton" type="TextureButton" parent="."]

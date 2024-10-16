@@ -4,9 +4,12 @@
 
 [resource]
 script = ExtResource("1_wpoic")
-beast = "Dragon"
-direction = "East"
-season = "Spring"
-time_of_day = "Dawn"
-element = "Wood"
-number = "1"
+beast = "Vermillion Bird"
+direction = "South"
+season = "Summer"
+time_of_day = "Midday"
+element = "Fire"
+max_health_bonus = -5
+base_health_bonus = 0
+movement_speed_bonus = 20
+attack_damage_bonus = 5
