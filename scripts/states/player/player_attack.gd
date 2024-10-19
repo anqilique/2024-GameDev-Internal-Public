@@ -10,7 +10,7 @@ var mask_data
 func enter():
 	player = get_node("/root/Main/Player")
 	animator = player.get_node("AnimationPlayer")
-	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
+	mask_data = MaskVars.get_mask_from_num()
 	
 	if not (
 		Input.is_action_pressed("ui_left") or 
@@ -39,7 +39,7 @@ func physics_update(_delta):
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		get_parent().on_child_transition(self, "PlayerJump")
 	
-	var movement_speed = PlayerVars.base_speed + mask_data.movement_speed_bonus
+	var movement_speed = PlayerVars.base_speed + mask_data["movement_speed_bonus"]
 	
 	player.velocity.x = move_toward(player.velocity.x, 0, movement_speed)
 	player.velocity.z = move_toward(player.velocity.z, 0, movement_speed)
@@ -59,7 +59,7 @@ func _on_animation_player_animation_finished(anim_name):
 				var hurtbox = body.get_node("HurtboxComponent")
 				var attack = Attack.new()
 				
-				attack.attack_damage = PlayerVars.attack_damage + mask_data.attack_damage_bonus
+				attack.attack_damage = PlayerVars.attack_damage + mask_data["attack_damage_bonus"]
 				hurtbox.damage(attack)
 	
 	# Attack again if the player is still holding the mouse down.

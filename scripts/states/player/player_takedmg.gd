@@ -10,7 +10,7 @@ var mask_data
 func enter():
 	player = get_node("/root/Main/Player")
 	player.get_node("RecoveryTimer").start()  # Time spent in this state.
-	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
+	mask_data = MaskVars.get_mask_from_num()
 	
 	var colliders = player.get_node("Hurtbox3D").get_overlapping_bodies()
 	
@@ -25,7 +25,7 @@ func enter():
 func physics_update(_delta):  # Allow the player to move, but slower.
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	var movement_speed = PlayerVars.base_speed + mask_data.movement_speed_bonus
+	var movement_speed = PlayerVars.base_speed + mask_data["movement_speed_bonus"]
 	
 	if player.get_node("RecoveryTimer").is_stopped():
 		player.velocity.x = direction.x * movement_speed * SLOW_MULTIPLIER

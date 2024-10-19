@@ -8,7 +8,7 @@ var available_masks
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	change_mask_to = PlayerVars.current_mask
-	available_masks = PlayerVars.masks.keys()
+	available_masks = PlayerVars.masks
 	hide_menu()
 
 func show_menu(location):
@@ -33,10 +33,10 @@ func hide_menu():
 	
 	""" Update Player Health """
 	
-	var mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
+	var mask_data = MaskVars.get_mask_from_num()
 	
-	if PlayerVars.max_health != PlayerVars.base_max_health + mask_data.max_health_bonus:
-		PlayerVars.max_health = PlayerVars.base_max_health + mask_data.max_health_bonus
+	if PlayerVars.max_health != PlayerVars.base_max_health + mask_data["max_health_bonus"]:
+		PlayerVars.max_health = PlayerVars.base_max_health + mask_data["max_health_bonus"]
 	
 func mask_selected(button):
 	if button not in PlayerVars.broken_masks: change_mask_to = button
@@ -50,7 +50,7 @@ func _process(_delta):
 
 		# Check there is the correct number of available masks left.
 		available_masks = []
-		for mask in PlayerVars.masks.keys():
+		for mask in PlayerVars.masks:
 			if mask not in PlayerVars.broken_masks:
 				available_masks.append(mask)
 				get_node(str(mask)).show()

@@ -103,10 +103,14 @@ func _on_recovery_timer_timeout():
 
 
 func _on_bleed_timer_timeout() -> void:
-	#PlayerVars.current_health -= 5
+	PlayerVars.current_health -= len(get_tree().get_nodes_in_group("Enemies"))
+	
+	if PlayerVars.current_health <= 0:
+		go_to_state("PlayerDeath")
+
 	$BleedTimer.start()
 
 
 func _on_life_timer_timeout() -> void:
-	PlayerVars.lifetime += 1
+	PlayerVars.lifetime += 5
 	$LifeTimer.start()

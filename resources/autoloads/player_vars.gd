@@ -6,10 +6,10 @@ var respawn_with_progress = true
 # Battle related variables.
 var wave = 0
 var live_enemies = 0
-var starting_waves = [[1, 0], [2, 2], [4, 6]]
+var starting_waves = [[1, 0], [1, 1], [2, 1], [4, 2]]
 
 # Movement related variables.
-var base_speed = 10
+var base_speed = 8
 
 var jump_velocity = 8
 var jump_max_count = 1
@@ -17,13 +17,7 @@ var jump_max_count = 1
 # Mask related variables.
 var broken_masks = []
 var current_mask = 5
-var masks = {  # Code No. : "File Path"
-	1 : "res://resources/masks/dragon_mask.tres",
-	2 : "res://resources/masks/bird_mask.tres",
-	3 : "res://resources/masks/tiger_mask.tres",
-	4 : "res://resources/masks/tortoise_mask.tres",
-	5 : "res://resources/masks/qilin_mask.tres"
-}
+var masks = [1, 2, 3, 4, 5]
 
 # Health related variables.
 var current_health = 100

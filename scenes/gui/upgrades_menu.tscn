@@ -44,14 +44,14 @@ offset_right = 792.0
 offset_bottom = 502.0
 theme = ExtResource("3_lwbje")
 
-[node name="Label" type="Label" parent="UpgradePanel"]
+[node name="Title" type="Label" parent="UpgradePanel"]
 layout_mode = 0
 offset_left = 29.0
 offset_top = 21.0
-offset_right = 310.0
+offset_right = 313.0
 offset_bottom = 55.0
 theme_override_font_sizes/font_size = 24
-text = "New Upgrades Available"
+text = "Base Upgrades Available"
 
 [node name="BaseHealth" type="Button" parent="UpgradePanel"]
 layout_mode = 0
@@ -61,7 +61,7 @@ offset_right = 220.0
 offset_bottom = 123.0
 theme = ExtResource("3_lwbje")
 theme_override_font_sizes/font_size = 20
-text = "Base Health +10"
+text = "Base Health"
 
 [node name="BaseSpeed" type="Button" parent="UpgradePanel"]
 layout_mode = 0
@@ -71,7 +71,7 @@ offset_right = 448.0
 offset_bottom = 123.0
 theme = ExtResource("3_lwbje")
 theme_override_font_sizes/font_size = 20
-text = "Base Speed +10"
+text = "Base Speed"
 
 [node name="BaseDamage" type="Button" parent="UpgradePanel"]
 layout_mode = 0
@@ -81,7 +81,66 @@ offset_right = 677.0
 offset_bottom = 123.0
 theme = ExtResource("3_lwbje")
 theme_override_font_sizes/font_size = 20
-text = "Base Damage +10"
+text = "Base Damage"
+
+[node name="Title2" type="Label" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 179.0
+offset_right = 359.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 24
+text = "Mask  Upgrades Available >>"
+
+[node name="MaskUpgrades" type="Button" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 168.0
+offset_right = 608.0
+offset_bottom = 226.0
+tooltip_text = "Toggle to Switch Mask"
+theme = ExtResource("3_lwbje")
+theme_override_font_sizes/font_size = 24
+text = "Mask of Balance"
+
+[node name="MaskHealth" type="Button" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 254.0
+offset_right = 220.0
+offset_bottom = 305.0
+theme = ExtResource("3_lwbje")
+theme_override_font_sizes/font_size = 20
+text = "Mask Health"
+
+[node name="MaskSpeed" type="Button" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 254.0
+offset_right = 448.0
+offset_bottom = 305.0
+theme = ExtResource("3_lwbje")
+theme_override_font_sizes/font_size = 20
+text = "Mask Speed"
+
+[node name="MaskDamage" type="Button" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 254.0
+offset_right = 677.0
+offset_bottom = 305.0
+theme = ExtResource("3_lwbje")
+theme_override_font_sizes/font_size = 20
+text = "Mask Damage"
+
+[node name="Footer" type="Label" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 395.0
+offset_right = 701.0
+offset_bottom = 423.0
+theme_override_font_sizes/font_size = 16
+text = "Each Upgrade Adds +LVL to Stats. Upgrade base stats or that of each individual mask."
 
 [node name="PlayerStatsPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -132,7 +191,7 @@ offset_right = 752.0
 offset_bottom = 48.0
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "[center]Last Exchange: Upgrade Base Health = 100 → 110"
+text = "[center]"
 
 [node name="ReturnButton" type="Button" parent="."]
 layout_mode = 0
@@ -144,4 +203,15 @@ theme = ExtResource("3_lwbje")
 theme_override_font_sizes/font_size = 24
 text = "RETURN"
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(11, 11)
+
+[connection signal="pressed" from="UpgradePanel/BaseHealth" to="." method="_on_base_health_pressed"]
+[connection signal="pressed" from="UpgradePanel/BaseSpeed" to="." method="_on_base_speed_pressed"]
+[connection signal="pressed" from="UpgradePanel/BaseDamage" to="." method="_on_base_damage_pressed"]
+[connection signal="pressed" from="UpgradePanel/MaskUpgrades" to="." method="_on_mask_upgrades_pressed"]
+[connection signal="pressed" from="UpgradePanel/MaskHealth" to="." method="_on_mask_health_pressed"]
+[connection signal="pressed" from="UpgradePanel/MaskSpeed" to="." method="_on_mask_speed_pressed"]
+[connection signal="pressed" from="UpgradePanel/MaskDamage" to="." method="_on_mask_damage_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

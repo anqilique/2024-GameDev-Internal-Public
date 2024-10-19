@@ -8,7 +8,7 @@ var mask_data
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	rig_animator = player.get_node("AnimationPlayer")
-	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
+	mask_data = MaskVars.get_mask_from_num()
 	
 	player.get_node("AnimationPlayer").play("move")
 	player.get_node("Rig/CPUParticles3D").emitting = true
@@ -28,7 +28,7 @@ func physics_update(_delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	var movement_speed = PlayerVars.base_speed + mask_data.movement_speed_bonus
+	var movement_speed = PlayerVars.base_speed + mask_data["movement_speed_bonus"]
 	
 	if direction:  # Move in that direction.
 		player.velocity.x = direction.x * movement_speed

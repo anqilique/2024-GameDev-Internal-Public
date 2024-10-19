@@ -33,7 +33,7 @@ func exit():
 	# If mask has been broken.
 	if PlayerVars.current_mask in PlayerVars.broken_masks:
 		# Attempt to switch to next available mask.
-		for mask in PlayerVars.masks.keys():
+		for mask in PlayerVars.masks:
 			if mask not in PlayerVars.broken_masks:
 				PlayerVars.current_mask = mask
 				PlayerVars.respawn_with_progress = true

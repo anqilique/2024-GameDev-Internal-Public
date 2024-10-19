@@ -8,7 +8,7 @@ var mask_data
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	rig_animator = player.get_node("AnimationPlayer")
-	mask_data = load(PlayerVars.masks[PlayerVars.current_mask])
+	mask_data = MaskVars.get_mask_from_num()
 	
 	player.get_node("AnimationPlayer").play("idle")
 	player.get_node("Rig/CPUParticles3D").emitting = false
@@ -29,7 +29,7 @@ func physics_update(_delta):
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		get_parent().on_child_transition(self, "PlayerJump")
 	
-	var movement_speed = PlayerVars.base_speed + mask_data.movement_speed_bonus
+	var movement_speed = PlayerVars.base_speed + mask_data["movement_speed_bonus"]
 	
 	# Slow the player down once if they're not jumping.
 	player.velocity.x = move_toward(player.velocity.x, 0, movement_speed)
