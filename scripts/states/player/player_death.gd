@@ -5,10 +5,11 @@ var player
 
 
 func calculate_score():
-	var score = PlayerVars.lifetime
-	score *= PlayerVars.level
+	PlayerVars.score = PlayerVars.lifetime
+	PlayerVars.score *= PlayerVars.level
 	
-	score *= (5 - len(PlayerVars.broken_masks)) / 5
+	if len(PlayerVars.broken_masks) != 5:
+		PlayerVars.score *= (5 - len(PlayerVars.broken_masks))
 
 
 func enter():
@@ -19,6 +20,8 @@ func enter():
 	
 	if PlayerVars.current_mask not in PlayerVars.broken_masks:
 		PlayerVars.broken_masks.append(PlayerVars.current_mask)
+	
+	calculate_score()
 	
 	var main_scene = player.get_parent()
 	main_scene.get_node("LayerUI/DeathMenu").show_screen()

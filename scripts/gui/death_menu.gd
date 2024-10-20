@@ -1,4 +1,5 @@
 extends Control
+
 var pause_menu
 
 func _ready():
@@ -6,6 +7,9 @@ func _ready():
 	hide()
 
 func show_screen():
+	$ScoreLabel.text = "[center]%d" % PlayerVars.score
+	$TipBox.text = "[center]~ TIP ~\n\n%s" % Settings.tips.pick_random()
+	
 	pause_menu.hide()
 	show()
 

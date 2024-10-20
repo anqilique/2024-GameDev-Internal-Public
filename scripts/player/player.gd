@@ -112,5 +112,5 @@ func _on_bleed_timer_timeout() -> void:
 
 
 func _on_life_timer_timeout() -> void:
-	PlayerVars.lifetime += 5
+	PlayerVars.lifetime += 1
 	$LifeTimer.start()

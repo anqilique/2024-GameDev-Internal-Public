@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://u4ppq1nm1588"]
+[gd_scene load_steps=5 format=3 uid="uid://u4ppq1nm1588"]
 
 [ext_resource type="Script" path="res://scripts/player/player_stats_ui.gd" id="1_ksy8e"]
+[ext_resource type="Theme" uid="uid://d2qcf23k5150" path="res://resources/main_theme.tres" id="2_rea8q"]
 
-[sub_resource type="Gradient" id="Gradient_emtv5"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ufyn"]
+bg_color = Color(0, 0, 0, 0.45098)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8hx5h"]
-gradient = SubResource("Gradient_emtv5")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_277md"]
+bg_color = Color(0.984314, 0.647059, 0.0392157, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="PlayerStatsUI" type="Control"]
 layout_mode = 3
@@ -36,19 +45,17 @@ offset_left = 27.0
 offset_right = 67.0
 offset_bottom = 40.0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Health"]
+[node name="ProgressBar" type="ProgressBar" parent="Health"]
 layout_mode = 0
 offset_left = 41.0
 offset_top = 13.0
 offset_right = 483.0
 offset_bottom = 53.0
 scale = Vector2(0.568985, 0.313264)
+theme = ExtResource("2_rea8q")
+step = 0.5
 value = 80.0
-nine_patch_stretch = true
-stretch_margin_left = 10
-stretch_margin_top = 10
-stretch_margin_right = 10
-texture_progress = SubResource("GradientTexture2D_8hx5h")
+show_percentage = false
 
 [node name="EXP" type="Control" parent="."]
 anchors_preset = 0
@@ -65,18 +72,16 @@ text = "LVL 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="EXP"]
+[node name="ProgressBar" type="ProgressBar" parent="EXP"]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 37.0
 offset_right = 510.0
 offset_bottom = 77.0
 scale = Vector2(0.568985, 0.313264)
-max_value = 2.0
+theme = ExtResource("2_rea8q")
+theme_override_styles/background = SubResource("StyleBoxFlat_7ufyn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_277md")
 step = 0.1
-value = 1.0
-nine_patch_stretch = true
-stretch_margin_left = 10
-stretch_margin_top = 10
-stretch_margin_right = 10
-texture_progress = SubResource("GradientTexture2D_8hx5h")
+value = 80.0
+show_percentage = false

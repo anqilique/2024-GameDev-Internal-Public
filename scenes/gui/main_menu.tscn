@@ -216,6 +216,7 @@ grow_vertical = 2
 script = ExtResource("2_57c24")
 
 [node name="TitleLabel" type="RichTextLabel" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 30.0
 offset_top = 261.0

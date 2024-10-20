@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d2qcf23k5150"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://d2qcf23k5150"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcp8f"]
 bg_color = Color(0.0807834, 0.0807833, 0.0807833, 1)
@@ -39,6 +39,20 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug7ky"]
+bg_color = Color(0, 0, 0, 0.45098)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwlcl"]
+bg_color = Color(0.87451, 0.14902, 0.137255, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [resource]
 Button/colors/font_color = Color(0.920995, 0.920995, 0.920995, 1)
 Button/styles/focus = SubResource("StyleBoxFlat_vcp8f")
@@ -48,3 +62,5 @@ Button/styles/pressed = SubResource("StyleBoxFlat_y32xb")
 CheckButton/styles/focus = SubResource("StyleBoxEmpty_firgh")
 CheckButton/styles/normal = SubResource("StyleBoxEmpty_0uxts")
 Panel/styles/panel = SubResource("StyleBoxFlat_56tjd")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ug7ky")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_rwlcl")

@@ -72,25 +72,25 @@ color = Color(0, 0, 0, 0.360784)
 
 [node name="ResumeButton" type="Button" parent="WhenPaused"]
 layout_mode = 0
-offset_left = 1066.0
+offset_left = 1030.0
 offset_top = 54.0
-offset_right = 1136.0
-offset_bottom = 85.0
-scale = Vector2(1.13437, 1.13437)
+offset_right = 1143.0
+offset_bottom = 104.0
 theme = ExtResource("3_gnm3y")
+theme_override_font_sizes/font_size = 24
 shortcut = SubResource("Shortcut_jmluo")
 shortcut_in_tooltip = false
-text = "Resume"
+text = "RESUME"
 
 [node name="Exit" type="Button" parent="WhenPaused"]
 layout_mode = 0
-offset_left = 1066.0
-offset_top = 100.0
-offset_right = 1136.0
-offset_bottom = 128.0
-scale = Vector2(1.13437, 1.13437)
+offset_left = 1032.0
+offset_top = 115.0
+offset_right = 1142.0
+offset_bottom = 159.0
 theme = ExtResource("3_gnm3y")
-text = "Exit"
+theme_override_font_sizes/font_size = 24
+text = "EXIT"
 
 [node name="PauseButton" type="TextureButton" parent="."]
 layout_mode = 1

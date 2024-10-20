@@ -30,7 +30,7 @@ var starting_health = 100
 var attack_damage = 15
 
 # Currency related variables.
-var essence = 0
+var essence = 10
 
 # Experience related variables.
 var level = 1
@@ -40,3 +40,4 @@ var req_exp = max_exp - current_exp
 
 # Score related variables.
 var lifetime = 0
+var score = 0

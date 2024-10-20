@@ -1,7 +1,7 @@
 extends Control
 
-@onready var healthbar = $Health/TextureProgressBar
-@onready var expbar = $EXP/TextureProgressBar
+@onready var healthbar = $Health/ProgressBar
+@onready var expbar = $EXP/ProgressBar
 
 var tween
 

@@ -6,6 +6,12 @@ var white = "FFFFFF"
 var green = "1ED462"
 var yellow = "FFC933"
 
+var tips = [
+	"Pretend this is an actual tip.",
+	"Red dies easily.",
+	"Low health? Prioritise upgrading it.",
+	"Words words words",
+]
 
 var current_window_mode = DisplayServer.window_get_mode()
 
