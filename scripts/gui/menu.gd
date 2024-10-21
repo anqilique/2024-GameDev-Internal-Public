@@ -11,7 +11,7 @@ func _ready():
 	Settings.current_window_mode = DisplayServer.window_get_mode()
 	
 	$Panels/SettingsPanel/SFX.button_pressed = Settings.play_sound_effects
-	$Panels/SettingsPanel/BGM.button_pressed = Settings.play_background_music
+	$Panels/SettingsPanel/BGM.button_pressed = Settings.play_background_audio
 
 	if Settings.current_window_mode != FULLSCREEN_MODE:
 		$Panels/SettingsPanel/FullScreen.button_pressed = false
@@ -86,11 +86,11 @@ func _on_sfx_pressed() -> void:
 
 
 func _on_bgm_pressed() -> void:
-	if Settings.play_background_music:
-		Settings.play_background_music = false
+	if Settings.play_background_audio:
+		Settings.play_background_audio = false
 		$Panels/SettingsPanel/BGM/Sprite2D.texture = music_disabled_icon
 	else:
-		Settings.play_background_music = true
+		Settings.play_background_audio = true
 		$Panels/SettingsPanel/BGM/Sprite2D.texture = music_enabled_icon
 	
-	$Panels/SettingsPanel/BGM.button_pressed = Settings.play_background_music
+	$Panels/SettingsPanel/BGM.button_pressed = Settings.play_background_audio

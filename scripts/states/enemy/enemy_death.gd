@@ -11,6 +11,8 @@ var enemy
 func enter():
 	enemy = get_parent().get_parent()
 	
+	AudioHandler.play_sound("EnemyDeath")
+	
 	"""
 	Enemy Drops Health
 	"""

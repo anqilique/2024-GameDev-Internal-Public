@@ -84,6 +84,8 @@ func handle_mask_resource():
 func handle_upgrade(type, attribute):
 	var new_exchange_label
 	
+	AudioHandler.play_sound("Upgrade")
+	
 	match type:
 		"base" :  # If upgrading base stats.
 			
@@ -153,6 +155,8 @@ func _on_mask_upgrades_pressed() -> void:
 func _on_return_button_pressed() -> void:
 	get_tree().paused = false
 	hide()
+	
+	AudioHandler.play_sound("Click")
 
 
 func _on_base_health_pressed() -> void:

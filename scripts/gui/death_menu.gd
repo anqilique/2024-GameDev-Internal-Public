@@ -38,8 +38,10 @@ func handle_respawn(with_progress):
 
 
 func _on_quit_button_pressed():
+	AudioHandler.play_sound("Click")
 	LoadHandler.load_scene("res://scenes/gui/main_menu.tscn")
 
 
 func _on_respawn_button_pressed():
+	AudioHandler.play_sound("Click")
 	handle_respawn(PlayerVars.respawn_with_progress)

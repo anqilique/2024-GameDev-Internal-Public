@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://bmj6hdnd3extu"]
 
-[ext_resource type="MeshLibrary" uid="uid://c6kr5uh0nuc7m" path="res://resources/vs_blocks.tres" id="1_anaje"]
+[ext_resource type="MeshLibrary" uid="uid://c6kr5uh0nuc7m" path="res://resources/blocks.tres" id="1_anaje"]
 [ext_resource type="Script" path="res://scripts/gui/menu.gd" id="2_57c24"]
 [ext_resource type="Texture2D" uid="uid://pesx5l6xetfh" path="res://assets/larger.png" id="3_41lc4"]
 [ext_resource type="Theme" uid="uid://d2qcf23k5150" path="res://resources/main_theme.tres" id="3_ghmx4"]

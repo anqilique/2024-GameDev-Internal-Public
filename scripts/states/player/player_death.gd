@@ -14,6 +14,8 @@ func calculate_score():
 
 
 func enter():
+	AudioHandler.play_sound("PlayerDeath")
+	
 	player = get_tree().get_first_node_in_group("Player")
 	player.change_visibility("hide")
 	

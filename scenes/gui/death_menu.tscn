@@ -76,6 +76,7 @@ text = "[center]
 You Have Died"
 
 [node name="ScoreText" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 210.0
 offset_top = 217.0
 offset_right = 541.0

@@ -17,4 +17,4 @@ var current_window_mode = DisplayServer.window_get_mode()
 
 var play_sound_effects = true
 
-var play_background_music = true
+var play_background_audio = true

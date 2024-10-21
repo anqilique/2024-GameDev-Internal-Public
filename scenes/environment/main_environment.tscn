@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://clyq3u2h0solb"]
 
-[ext_resource type="MeshLibrary" uid="uid://c6kr5uh0nuc7m" path="res://resources/vs_blocks.tres" id="1_4jhyl"]
+[ext_resource type="MeshLibrary" uid="uid://c6kr5uh0nuc7m" path="res://resources/blocks.tres" id="1_4jhyl"]
 
 [sub_resource type="Gradient" id="Gradient_enub0"]
 colors = PackedColorArray(1.05286e-08, 0, 0.0951881, 1, 0.926583, 0.922492, 0.731776, 1)

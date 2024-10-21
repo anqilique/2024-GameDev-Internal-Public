@@ -15,6 +15,9 @@ func _ready():  # Randomize velocities.
 	velocity.y = randf_range(0, 1)
 	velocity.x = randf_range(-4, 4)
 	velocity.z = randf_range(-4, 4)
+	
+	var drop_sound = ["CollectableOne", "CollectableTwo"].pick_random()
+	AudioHandler.play_sound(drop_sound)
 
 func _physics_process(delta):
 	# Add the gravity.

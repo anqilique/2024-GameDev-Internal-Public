@@ -8,6 +8,8 @@ var enemy
 var mask_data
 
 func enter():
+	AudioHandler.play_sound("Impact2")
+	
 	player = get_node("/root/Main/Player")
 	player.get_node("RecoveryTimer").start()  # Time spent in this state.
 	mask_data = MaskVars.get_mask_from_num()
