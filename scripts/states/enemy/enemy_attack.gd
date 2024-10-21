@@ -5,29 +5,34 @@ class_name EnemyAttack
 
 var enemy
 
+
 func enter():
 	enemy = get_parent().get_parent()
 	enemy.get_node("AttackTimer").wait_time = attack_cooldown
+
 
 func update(_delta):
 	if enemy.get_node("AttackTimer").is_stopped():  # If not on cooldown.
 		
 		var hitbox
+		# Hitboxes differ between enemy types. Get the right one.
 		
-		# Hitboxes differ between enemy types. Get right one.
 		if enemy.has_node("Rig/Hitbox3D"):
 			hitbox = enemy.get_node("Rig/Hitbox3D")
 		else:
 			hitbox = enemy.get_node("Hitbox3D")
 		
+		# Find the bodies within range.
 		for body in hitbox.get_overlapping_bodies():
 			
 			# If the player is detected.
 			if body.has_node("HurtboxComponent") and body.name == "Player":
+				
 				# And if the player is not dead.
 				if body.get_node("StateMachine").current_state.name != "PlayerDeath":
 					var hurtbox = body.get_node("HurtboxComponent")
 					var attack = Attack.new()
+					
 					# Attack the player's hurtbox.
 					attack.attack_damage = randi_range(2, 8)
 					hurtbox.damage(attack)

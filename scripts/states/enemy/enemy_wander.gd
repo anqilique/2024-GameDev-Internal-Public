@@ -17,7 +17,7 @@ var movement_dict = {
 func enter():
 	enemy = get_parent().get_parent()
 	direction = movement_dict.keys().pick_random()
-	
+
 
 func physics_update(_delta):
 	# Move in the random direction previously chosen.
@@ -25,7 +25,7 @@ func physics_update(_delta):
 		enemy.velocity.z += SPEED * movement_dict[direction]
 	elif direction in ["LEFT", "RIGHT"]:
 		enemy.velocity.x += SPEED * movement_dict[direction]
-		
+	
 	enemy.look_at(enemy.global_transform.origin + enemy.velocity)
 	
 	for node in ["Rig", "CollisionShape3D"]:  # Look in movement direction.

@@ -3,6 +3,7 @@ extends Node3D
 @onready var bar = $SubViewport/CanvasLayer/TextureProgressBar
 var tween
 
+
 func update_health(current, maximum):
 	if not tween or not tween.is_running():
 		tween = get_tree().create_tween()

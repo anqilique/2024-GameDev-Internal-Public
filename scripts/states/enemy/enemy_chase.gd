@@ -9,10 +9,11 @@ var moving
 
 var nav_agent
 
+
 func enter():
-	enemy = get_parent().get_parent()
-	
+	enemy = get_parent().get_parent()	
 	nav_agent = enemy.get_node("NavigationAgent3D")
+
 
 func exit():
 	# Slow down to a velocity of zero.
@@ -21,8 +22,10 @@ func exit():
 	
 	enemy.move_and_slide()
 
+
 func update(_delta):  # Target the player's location.
 	nav_agent.set_target_position(player.global_transform.origin)
+
 
 func physics_update(_delta):
 	player = get_tree().get_first_node_in_group("Player")
