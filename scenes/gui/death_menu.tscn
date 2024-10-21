@@ -62,6 +62,7 @@ bbcode_enabled = true
 text = "[center]New High Score!"
 
 [node name="MaskText" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 52.0
 offset_top = 381.0
 offset_right = 690.0

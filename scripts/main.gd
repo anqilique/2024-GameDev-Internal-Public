@@ -61,8 +61,6 @@ func spawn_enemies(how_many_passive, how_many_chaser):
 		enemies_spawned += 1
 	
 	PlayerVars.live_enemies = enemies_spawned
-	
-	PlayerVars.wave = clamp(PlayerVars.wave, 1, 100)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -72,6 +70,8 @@ func _process(_delta):
 	var update_spawn = true
 	
 	if not PlayerVars.respawn_with_progress:
+		PlayerVars.reset_to_defaults()
+		
 		for old_enemy in get_tree().get_nodes_in_group("Enemies"):
 			old_enemy.queue_free()
 		
@@ -83,8 +83,9 @@ func _process(_delta):
 		PlayerVars.respawn_with_progress = true
 	
 	if PlayerVars.live_enemies == 0:
+		PlayerVars.wave += 1
+		
 		if update_spawn: update_spawn_count()
 		spawn_enemies(spawn_count[0], spawn_count[1])
-		
-		PlayerVars.wave += 1
-		PlayerVars.wave = clamp(PlayerVars.wave, 1, 100)
+	
+	PlayerVars.wave = clamp(PlayerVars.wave, 1, 100)

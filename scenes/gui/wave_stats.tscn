@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://do6yixnrxxhv4"]
+[gd_scene load_steps=3 format=3 uid="uid://do6yixnrxxhv4"]
 
 [ext_resource type="Script" path="res://scripts/gui/wave_stats.gd" id="1_708pg"]
-
-[sub_resource type="Gradient" id="Gradient_gu1ve"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_idnnk"]
-gradient = SubResource("Gradient_gu1ve")
+[ext_resource type="Theme" uid="uid://d2qcf23k5150" path="res://resources/main_theme.tres" id="2_prxhq"]
 
 [node name="WaveStats" type="Control"]
 layout_mode = 3
@@ -15,28 +10,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_708pg")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 432.0
-offset_top = 623.0
-offset_right = 874.0
-offset_bottom = 663.0
-scale = Vector2(0.568985, 0.313264)
-max_value = 1.0
-step = 0.1
-fill_mode = 6
-nine_patch_stretch = true
-stretch_margin_left = 10
-stretch_margin_top = 10
-stretch_margin_right = 10
-texture_progress = SubResource("GradientTexture2D_idnnk")
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 432.0
-offset_top = 591.0
-offset_right = 683.0
-offset_bottom = 631.0
+offset_left = 12.0
+offset_top = 587.0
+offset_right = 263.0
+offset_bottom = 627.0
 text = "Wave 1 | 1 Remaing Enemies"
-horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.682353)
+layout_mode = 0
+offset_left = 11.0
+offset_top = 623.0
+offset_right = 453.0
+offset_bottom = 663.0
+scale = Vector2(0.568985, 0.313264)
+theme = ExtResource("2_prxhq")
+max_value = 1.0
+step = 0.1
+value = 0.5
+show_percentage = false

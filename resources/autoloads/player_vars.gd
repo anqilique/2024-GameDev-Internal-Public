@@ -1,12 +1,12 @@
 extends Node
 
 
-var respawn_with_progress = true
+var respawn_with_progress = false
 
 # Battle related variables.
 var wave = 0
 var live_enemies = 0
-var starting_waves = [[0, 10], [1, 0], [1, 1], [2, 1], [1, 2], [2, 2], [3, 2], [4, 2]]
+var starting_waves = [[1, 0], [1, 1], [2, 1], [1, 2], [2, 2], [3, 2], [4, 2]]
 
 # Movement related variables.
 var base_speed = 8
@@ -15,7 +15,7 @@ var jump_velocity = 8
 var jump_max_count = 1
 
 # Mask related variables.
-var broken_masks = [1, 2, 3, 4]
+var broken_masks = []
 var current_mask = 5
 var masks = [1, 2, 3, 4, 5]
 
@@ -36,7 +36,6 @@ var essence = 10
 var level = 1
 var current_exp = 0
 var max_exp = 2
-var req_exp = max_exp - current_exp
 
 # Score related variables.
 var lifetime = 0
@@ -44,6 +43,8 @@ var score = 0
 
 
 func reset_to_defaults():
+	respawn_with_progress = false
+	
 	# Battle related variables.
 	wave = 0
 	live_enemies = 0
@@ -56,7 +57,7 @@ func reset_to_defaults():
 	jump_max_count = 1
 
 	# Mask related variables.
-	broken_masks = [1, 2, 3, 4]
+	broken_masks = []
 	current_mask = 5
 	masks = [1, 2, 3, 4, 5]
 
@@ -77,7 +78,6 @@ func reset_to_defaults():
 	level = 1
 	current_exp = 0
 	max_exp = 2
-	req_exp = max_exp - current_exp
 
 	# Score related variables.
 	lifetime = 0

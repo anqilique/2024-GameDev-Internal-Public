@@ -15,11 +15,11 @@
 
 [node name="MaskMenu" parent="." instance=ExtResource("3_tk8e1")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("1_yowio")]
-
 [node name="UpgradesMenu" parent="." instance=ExtResource("5_bix63")]
 process_mode = 3
 visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_yowio")]
 
 [node name="DeathMenu" parent="." instance=ExtResource("4_e06va")]
 visible = false

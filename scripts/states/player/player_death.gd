@@ -4,11 +4,11 @@ class_name PlayerDeath
 var player
 
 func calculate_score():
-	PlayerVars.score = PlayerVars.lifetime
+	PlayerVars.score = 0 + PlayerVars.lifetime
 	PlayerVars.score *= PlayerVars.level
 	
 	if len(PlayerVars.broken_masks) != 5:
-		PlayerVars.score *= (5 - len(PlayerVars.broken_masks))
+		PlayerVars.score += PlayerVars.score * (5 - len(PlayerVars.broken_masks))
 	
 	HandleScore.save_high_score(PlayerVars.score)
 
@@ -18,6 +18,7 @@ func enter():
 	
 	player = get_tree().get_first_node_in_group("Player")
 	player.change_visibility("hide")
+	player.get_node("LifeTimer").stop()
 	
 	print(PlayerVars.current_mask, PlayerVars.broken_masks)
 	
@@ -30,22 +31,18 @@ func enter():
 	main_scene.get_node("LayerUI/DeathMenu").show_screen()
 
 func exit():
-	print("--> Exiting death state.")
 	player.change_visibility("show")
 	
-	print(PlayerVars.current_mask, " <-- Current")
-	print(PlayerVars.broken_masks, " <-- Broken")
+	PlayerVars.respawn_with_progress = false
 	
-	# If mask has been broken.
-	if PlayerVars.current_mask in PlayerVars.broken_masks:
-		# Attempt to switch to next available mask.
-		for mask in PlayerVars.masks:
-			if mask not in PlayerVars.broken_masks:
-				PlayerVars.current_mask = mask
-				PlayerVars.respawn_with_progress = true
-	
+	# Attempt to switch to next available mask.
+	for mask in PlayerVars.masks:
+		if mask not in PlayerVars.broken_masks:
+			PlayerVars.current_mask = mask
+			PlayerVars.respawn_with_progress = true
+
 	# If can not find an available mask, respawn without progress.
-	if len(PlayerVars.broken_masks) == 5:
+	if not PlayerVars.respawn_with_progress:
 		PlayerVars.reset_to_defaults()
 		
 	print("<-- RESPAWNING --> ", PlayerVars.respawn_with_progress)

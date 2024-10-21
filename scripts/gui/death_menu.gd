@@ -71,6 +71,7 @@ func handle_respawn(with_progress):
 
 
 func _on_quit_button_pressed():
+	PlayerVars.reset_to_defaults()
 	AudioHandler.play_sound("Click")
 	LoadHandler.load_scene("res://scenes/gui/main_menu.tscn")
 

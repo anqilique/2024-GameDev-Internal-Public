@@ -46,7 +46,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwlcl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_isi3m"]
 bg_color = Color(0.87451, 0.14902, 0.137255, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -63,4 +63,4 @@ CheckButton/styles/focus = SubResource("StyleBoxEmpty_firgh")
 CheckButton/styles/normal = SubResource("StyleBoxEmpty_0uxts")
 Panel/styles/panel = SubResource("StyleBoxFlat_56tjd")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_ug7ky")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_rwlcl")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_isi3m")

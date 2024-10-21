@@ -1,6 +1,6 @@
 extends Control
 
-@onready var wavebar = $TextureProgressBar
+@onready var wavebar = $ProgressBar
 @onready var main_scene = get_parent().get_parent()
 var tween
 

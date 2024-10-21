@@ -44,5 +44,5 @@ func _process(_delta):
 	if bar.value == bar.max_value:
 		hide()
 	elif not is_visible() and $SetUpTimer.is_stopped():
-		show()
+		#show()  # Disabled due to janky visuals.
 		pass

@@ -13,7 +13,7 @@ var tips = [
 	"Health upgrades also heal you.",
 	"Sometimes it is smart to run.",
 	"Speed is good, but hard to control.",
-	"Remeber to maintain distance.",
+	"Remember to maintain distance.",
 	"Keep an eye on your health.",
 	"Right-click to change mask.",
 	"Each mask has different stats.",
