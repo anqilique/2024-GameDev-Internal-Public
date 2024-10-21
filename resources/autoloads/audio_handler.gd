@@ -8,7 +8,6 @@ func play_sound(node_name):
 
 func _process(_delta: float) -> void:
 	if Settings.play_background_audio:
-		
 		for node in [$AmbienceOne, $AmbienceTwo]:
 			if not node.is_playing():
 				node.play()
@@ -16,4 +15,4 @@ func _process(_delta: float) -> void:
 	elif not Settings.play_background_audio:
 		for node in [$AmbienceOne, $AmbienceTwo]:
 			if node.is_playing():
-				node.play()
+				node.stop()
