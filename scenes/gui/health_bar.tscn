@@ -41,3 +41,7 @@ texture_progress = SubResource("GradientTexture2D_ypa70")
 flip_v = true
 billboard = 1
 texture = SubResource("ViewportTexture_u06ju")
+
+[node name="SetUpTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true

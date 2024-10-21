@@ -11,6 +11,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	reset_statetimer()
 	$Rig/CPUParticles3D.emitting = true
+	
+	$HealthBar.hide()
+	
+	$HealthComponent.max_health = randi_range(80, 120)
+	$HealthComponent.health = $HealthComponent.max_health
+	$HealthBar.set_values()
 
 func reset_statetimer():
 	# Randomize the time the enemy spends wandering/idling.

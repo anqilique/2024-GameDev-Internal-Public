@@ -11,6 +11,15 @@ func update_health(current, maximum):
 		
 		tween.bind_node(self)
 
+
+func set_values():
+	var component_current_health = get_parent().get_node("HealthComponent").health
+	var component_max_health = get_parent().get_node("HealthComponent").max_health
+	
+	bar.value = component_current_health
+	bar.max_value = component_max_health
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var component_current_health = get_parent().get_node("HealthComponent").health
@@ -34,5 +43,5 @@ func _process(_delta):
 	
 	if bar.value == bar.max_value:
 		hide()
-	elif not is_visible():
+	elif not is_visible() and $SetUpTimer.is_stopped():
 		show()

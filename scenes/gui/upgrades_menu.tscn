@@ -133,14 +133,23 @@ theme = ExtResource("3_lwbje")
 theme_override_font_sizes/font_size = 20
 text = "Mask Damage"
 
-[node name="Footer" type="Label" parent="UpgradePanel"]
+[node name="Footer" type="RichTextLabel" parent="UpgradePanel"]
 layout_mode = 0
 offset_left = 29.0
 offset_top = 395.0
 offset_right = 701.0
 offset_bottom = 423.0
-theme_override_font_sizes/font_size = 16
-text = "Each Upgrade Adds +LVL to Stats. Upgrade base stats or that of each individual mask."
+bbcode_enabled = true
+text = "[center]Each Upgrade Adds +LVL to Stats. Upgrade base stats or that of each individual mask."
+
+[node name="CostFooter" type="RichTextLabel" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 362.0
+offset_right = 701.0
+offset_bottom = 390.0
+bbcode_enabled = true
+text = "[center]Upgrade Costs"
 
 [node name="PlayerStatsPanel" type="Panel" parent="."]
 layout_mode = 0

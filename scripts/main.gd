@@ -6,7 +6,7 @@ extends Node3D
 const ENEMY_SPAWN_Y = 3
 
 var tutorial_waves = []
-var spawn_count = [1, 0]
+var spawn_count = PlayerVars.starting_waves[0]
 var enemies_spawned = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -22,14 +22,14 @@ func _ready():
 
 func update_spawn_count():
 	if tutorial_waves != []:
-		if spawn_count in tutorial_waves:
-			tutorial_waves.erase(spawn_count)
-			
-			if tutorial_waves != []:
-				spawn_count = tutorial_waves[0]
-		else:
-			spawn_count[0] += 1
-			spawn_count[1] += 1
+		tutorial_waves.erase(tutorial_waves[0])
+		
+		if tutorial_waves != []:
+			spawn_count = tutorial_waves[0]
+		
+	else:
+		spawn_count[0] += 1
+		spawn_count[1] += 1
 
 func spawn_enemies(how_many_passive, how_many_chaser):
 	enemies_spawned = 0
@@ -71,16 +71,13 @@ func _process(_delta):
 	var update_spawn = true
 	
 	if not PlayerVars.respawn_with_progress:
-			print(PlayerVars.live_enemies, get_tree().get_nodes_in_group("Enemies"))
 			if PlayerVars.live_enemies != 0:
 				for old_enemy in get_tree().get_nodes_in_group("Enemies"):
 					old_enemy.queue_free()
-					print(old_enemy.name)
 			
 			tutorial_waves = []
 			for item in PlayerVars.starting_waves:
 				tutorial_waves.append(item)
-			print(tutorial_waves)
 			
 			update_spawn = false
 			PlayerVars.respawn_with_progress = true

@@ -9,6 +9,12 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
+	$HealthBar.hide()
+	
+	$HealthComponent.max_health = randi_range(30, 40)
+	$HealthComponent.health = $HealthComponent.max_health
+	$HealthBar.set_values()
+	
 	reset_statetimer()
 
 func reset_statetimer():  # Randomize time spent in state.

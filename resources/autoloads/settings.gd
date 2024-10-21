@@ -9,8 +9,8 @@ var yellow = "FFC933"
 var tips = [
 	"Pretend this is an actual tip.",
 	"Red dies easily.",
-	"Low health? Prioritise upgrading it.",
-	"Words words words",
+	"Low health? Prioritise upgrading it first.",
+	"Wordsss",
 ]
 
 var current_window_mode = DisplayServer.window_get_mode()

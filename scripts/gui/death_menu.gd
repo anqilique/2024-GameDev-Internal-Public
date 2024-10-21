@@ -7,8 +7,18 @@ func _ready():
 	hide()
 
 func show_screen():
+	if len(PlayerVars.broken_masks) < 5:
+		$RespawnButton.text = "RESPAWN"
+	else:
+		$RespawnButton.text = "RESTART"
+	
 	$ScoreLabel.text = "[center]%d" % PlayerVars.score
 	$TipBox.text = "[center]~ TIP ~\n\n%s" % Settings.tips.pick_random()
+	
+	if HandleScore.new_high_set:
+		$ScoreText.show()
+	else:
+		$ScoreText.hide()
 	
 	pause_menu.hide()
 	show()

@@ -276,10 +276,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ControlsPanel" type="Panel" parent="UI/Panels"]
-visible = false
 layout_mode = 0
 offset_left = 349.0
-offset_top = 281.0
+offset_top = 267.0
 offset_right = 1105.0
 offset_bottom = 614.0
 theme = ExtResource("3_ghmx4")
@@ -287,19 +286,19 @@ theme = ExtResource("3_ghmx4")
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panels/ControlsPanel"]
 layout_mode = 0
 offset_left = 19.0
-offset_top = 6.0
+offset_top = 13.0
 offset_right = 735.0
-offset_bottom = 551.0
+offset_bottom = 340.0
 theme_override_font_sizes/normal_font_size = 25
 text = "Controls
 
-Movement - [WASD] or Arrow Keys
+		Movement - [WASD] or Arrow Keys
 
-Jump - [SPACE] Key
+		Jump - [SPACE] Key
 
-Attack - Click and Hold [Left Mouse Button]
+		Attack - Click and Hold [Left Mouse Button]
 
-Pause - [P]"
+		Pause - [P]"
 
 [node name="SettingsPanel" type="Panel" parent="UI/Panels"]
 visible = false
@@ -369,6 +368,7 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("4_mwfd6")
 
 [node name="CreditsPanel" type="Panel" parent="UI/Panels"]
+visible = false
 layout_mode = 0
 offset_left = 349.0
 offset_top = 411.0

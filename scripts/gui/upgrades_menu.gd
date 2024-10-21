@@ -64,7 +64,7 @@ func update_player_stats_panel():
 
 
 func update_costs(update_text):
-	var cost_text = "[center]Upgrade Costs: Base = %d | Mask = %d Essence"
+	var cost_text = "[center]Upgrade Costs: Base = %d Essence | Mask = %d Essence"
 	upgrade_value = PlayerVars.level
 	
 	base_upgrade_cost = upgrade_value * 6
@@ -74,6 +74,7 @@ func update_costs(update_text):
 	
 	if update_text:
 		$ActivityPanel/RichTextLabel.text = cost_text
+		$UpgradePanel/CostFooter.text = cost_text
 
 
 func handle_mask_resource():
@@ -114,7 +115,14 @@ func handle_upgrade(type, attribute):
 	
 	PlayerVars.current_health = PlayerVars.base_max_health + MaskVars.get_mask_from_num()["max_health_bonus"]
 	
-	new_exchange_label = "[center]Last Exchange: Upgrade %s %s +%d" % [type, attribute, upgrade_value]
+	var attribute_text = ""
+	
+	match attribute:
+		"max_health_bonus" : attribute_text = "Health"
+		"movement_speed_bonus" : attribute_text = "Speed"
+		"attack_damage_bonus" : attribute_text = "Attack"
+	
+	new_exchange_label = "[center]Last Exchange: Upgrade %s %s +%d" % [type.capitalize(), attribute_text, upgrade_value]
 	$ActivityPanel/RichTextLabel.text = new_exchange_label
 	
 	update_player_stats_panel()

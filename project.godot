@@ -23,6 +23,7 @@ LoadHandler="*res://resources/autoloads/load_handler.gd"
 AudioHandler="*res://resources/audio_handler.tscn"
 Settings="*res://resources/autoloads/settings.gd"
 MaskVars="*res://resources/autoloads/mask_vars.gd"
+HandleScore="*res://resources/autoloads/handle_score.gd"
 
 [display]
 

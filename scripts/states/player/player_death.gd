@@ -3,13 +3,14 @@ class_name PlayerDeath
 
 var player
 
-
 func calculate_score():
 	PlayerVars.score = PlayerVars.lifetime
 	PlayerVars.score *= PlayerVars.level
 	
 	if len(PlayerVars.broken_masks) != 5:
 		PlayerVars.score *= (5 - len(PlayerVars.broken_masks))
+	
+	HandleScore.save_high_score(PlayerVars.score)
 
 
 func enter():

@@ -66,14 +66,25 @@ color = Color(0, 0, 0, 0.47451)
 layout_mode = 0
 offset_left = 790.0
 offset_top = 2.0
-offset_right = 1110.0
-offset_bottom = 90.0
+offset_right = 1121.0
+offset_bottom = 105.0
 theme = ExtResource("3_7nnmj")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center]
 You Have Died"
+
+[node name="ScoreText" type="RichTextLabel" parent="."]
+offset_left = 210.0
+offset_top = 217.0
+offset_right = 541.0
+offset_bottom = 320.0
+theme = ExtResource("3_7nnmj")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]New High Score!"
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
