@@ -48,6 +48,7 @@ func _on_resume_button_pressed():
 
 func _on_exit_pressed():
 	switch_to_pause(false)
+	PlayerVars.reset_to_defaults()
 	LoadHandler.load_scene("res://scenes/gui/main_menu.tscn")
 
 

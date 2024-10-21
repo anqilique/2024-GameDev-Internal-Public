@@ -21,5 +21,5 @@ func update_bar(bar, current, maximum):
 func _process(_delta):
 	if [PlayerVars.live_enemies, main_scene.enemies_spawned] != [wavebar.value, wavebar.max_value]:
 		update_bar(wavebar, PlayerVars.live_enemies, main_scene.enemies_spawned)
-		
+	
 		$Label.text = "Wave %d | %d Remaining Enemies" % [PlayerVars.wave, PlayerVars.live_enemies]

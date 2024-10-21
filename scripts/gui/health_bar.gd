@@ -45,3 +45,4 @@ func _process(_delta):
 		hide()
 	elif not is_visible() and $SetUpTimer.is_stopped():
 		show()
+		pass

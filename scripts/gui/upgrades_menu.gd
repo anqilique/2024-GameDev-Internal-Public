@@ -74,7 +74,7 @@ func update_costs(update_text):
 	
 	if update_text:
 		$ActivityPanel/RichTextLabel.text = cost_text
-		$UpgradePanel/CostFooter.text = cost_text
+		$UpgradePanel/CostText.text = cost_text
 
 
 func handle_mask_resource():
@@ -84,15 +84,15 @@ func handle_mask_resource():
 func handle_upgrade(type, attribute):
 	var new_exchange_label
 	
-	AudioHandler.play_sound("Upgrade")
-	
 	match type:
 		"base" :  # If upgrading base stats.
 			
 			if PlayerVars.essence < base_upgrade_cost:
 				$ActivityPanel/RichTextLabel.text = insufficient_essence_msg
+				AudioHandler.play_sound("Click")
 				return
 			
+			AudioHandler.play_sound("Upgrade")
 			PlayerVars.essence -= base_upgrade_cost
 			
 			match attribute:
@@ -104,8 +104,10 @@ func handle_upgrade(type, attribute):
 			
 			if PlayerVars.essence < mask_upgrade_cost:
 				$ActivityPanel/RichTextLabel.text = insufficient_essence_msg
+				AudioHandler.play_sound("Click")
 				return
 			
+			AudioHandler.play_sound("Upgrade")
 			PlayerVars.essence -= mask_upgrade_cost
 			
 			match current_mask_upgraded:
@@ -141,6 +143,8 @@ func _process(delta: float) -> void:
 
 
 func _on_mask_upgrades_pressed() -> void:
+	AudioHandler.play_sound("Click")
+	
 	if mask_index == 5:
 		mask_index = 1
 	else:

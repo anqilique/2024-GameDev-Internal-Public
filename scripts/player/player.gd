@@ -16,6 +16,7 @@ func handle_exp():
 	PlayerVars.max_exp = PlayerVars.level * 4
 	
 	# Show upgrades menu.
+	await get_tree().create_timer(0.8).timeout
 	get_node("/root/Main/LayerUI/UpgradesMenu").show()
 	get_tree().paused = true
 
@@ -55,7 +56,8 @@ func go_to_state(new_state):
 
 func _physics_process(delta):
 	# If player has enough exp to level up...
-	if PlayerVars.current_exp >= PlayerVars.max_exp: handle_exp()
+	if PlayerVars.current_exp >= PlayerVars.max_exp:
+		handle_exp()
 	
 	handle_look_direction()
 	

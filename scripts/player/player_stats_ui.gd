@@ -4,6 +4,7 @@ extends Control
 @onready var expbar = $EXP/ProgressBar
 
 var tween
+var last_mask_used = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +13,9 @@ func _ready():
 	
 	expbar.value = PlayerVars.current_exp
 	expbar.max_value = PlayerVars.max_exp
+	
+	update_mask(PlayerVars.current_mask)
+	update_level(PlayerVars.level)
 
 func update_bar(bar, current, maximum):
 	if not tween or not tween.is_running():
@@ -21,8 +25,20 @@ func update_bar(bar, current, maximum):
 		
 		tween.bind_node(self)
 
+
 func update_mask(current):
-	$Mask/Label.text = "M" + str(current)
+	var mask_name_text = ""
+	
+	match current:
+		1 : mask_name_text = "[color=%s]Mask of Swiftness" % Settings.blue
+		2 : mask_name_text = "[color=%s]Mask of Flight" % Settings.red
+		3 : mask_name_text = "[color=%s]Mask of Fury" % Settings.white
+		4 : mask_name_text = "[color=%s]Mask of Healing" % Settings.green
+		5 : mask_name_text = "[color=%s]Mask of Balance" % Settings.yellow
+	
+	$Mask/RichTextLabel.text = mask_name_text
+	last_mask_used = current
+
 
 func update_level(current):
 	$EXP/Label.text = "LVL " + str(current)
@@ -47,7 +63,7 @@ func _process(_delta):
 	
 	# Update labels
 	
-	if str(PlayerVars.current_mask) not in $Mask/Label.text:
+	if PlayerVars.current_mask != last_mask_used:
 		update_mask(PlayerVars.current_mask)
 	
 	if str(PlayerVars.level) not in $EXP/Label.text:

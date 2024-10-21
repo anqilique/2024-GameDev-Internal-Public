@@ -42,8 +42,8 @@ func spawn_enemies(how_many_passive, how_many_chaser):
 		var rand_z = randf_range(-16, 22)
 		new_enemy.position = Vector3(rand_x, ENEMY_SPAWN_Y, rand_z)
 		
-		new_enemy.add_to_group("Enemies")
 		add_child(new_enemy)
+		new_enemy.add_to_group("Enemies")
 		
 		enemies_spawned += 1
 	
@@ -61,7 +61,8 @@ func spawn_enemies(how_many_passive, how_many_chaser):
 		enemies_spawned += 1
 	
 	PlayerVars.live_enemies = enemies_spawned
-	PlayerVars.wave += 1
+	
+	PlayerVars.wave = clamp(PlayerVars.wave, 1, 100)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -71,17 +72,19 @@ func _process(_delta):
 	var update_spawn = true
 	
 	if not PlayerVars.respawn_with_progress:
-			if PlayerVars.live_enemies != 0:
-				for old_enemy in get_tree().get_nodes_in_group("Enemies"):
-					old_enemy.queue_free()
-			
-			tutorial_waves = []
-			for item in PlayerVars.starting_waves:
-				tutorial_waves.append(item)
-			
-			update_spawn = false
-			PlayerVars.respawn_with_progress = true
+		for old_enemy in get_tree().get_nodes_in_group("Enemies"):
+			old_enemy.queue_free()
+		
+		tutorial_waves = []
+		for item in PlayerVars.starting_waves:
+			tutorial_waves.append(item)
+		
+		update_spawn = false
+		PlayerVars.respawn_with_progress = true
 	
 	if PlayerVars.live_enemies == 0:
 		if update_spawn: update_spawn_count()
 		spawn_enemies(spawn_count[0], spawn_count[1])
+		
+		PlayerVars.wave += 1
+		PlayerVars.wave = clamp(PlayerVars.wave, 1, 100)

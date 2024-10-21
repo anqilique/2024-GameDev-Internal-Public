@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://crhc0gakiboc"]
+[gd_scene load_steps=7 format=3 uid="uid://crhc0gakiboc"]
 
 [ext_resource type="Script" path="res://scripts/gui/mask_menu.gd" id="1_tl3pa"]
 [ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="2_73chm"]
+[ext_resource type="Theme" uid="uid://d2qcf23k5150" path="res://resources/main_theme.tres" id="3_301my"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_13hil"]
 shader = ExtResource("2_73chm")
@@ -44,6 +45,15 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0.360784)
 
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 351.0
+offset_top = 6.0
+offset_right = 1061.0
+offset_bottom = 40.0
+theme = ExtResource("3_301my")
+bbcode_enabled = true
+text = "[color=00B3FF]Mask of Swiftness [color=FF415F]Mask of Flight [color=FFFFFF]Mask of Fury [color=1ED462]Mask of Healing [color=FFC933]Mask of Balance"
+
 [node name="1" type="Control" parent="."]
 layout_mode = 1
 anchor_left = -0.8
@@ -58,6 +68,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("3_301my")
 texture_normal = SubResource("GradientTexture2D_bvb5q")
 
 [node name="Label" type="Label" parent="1"]
@@ -66,7 +77,7 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 mouse_filter = 1
-text = "1"
+text = "O"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -92,8 +103,7 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 mouse_filter = 1
-text = "2
-"
+text = "O"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -120,7 +130,7 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 mouse_filter = 1
-text = "3"
+text = "O"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -146,8 +156,7 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 mouse_filter = 1
-text = "4
-"
+text = "O"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -173,7 +182,7 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 mouse_filter = 1
-text = "5"
+text = "O"
 horizontal_alignment = 1
 vertical_alignment = 1
 

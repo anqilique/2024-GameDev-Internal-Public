@@ -45,11 +45,8 @@ func exit():
 				PlayerVars.respawn_with_progress = true
 	
 	# If can not find an available mask, respawn without progress.
-	if PlayerVars.current_mask in PlayerVars.broken_masks:
-		PlayerVars.wave = 0
-		PlayerVars.broken_masks = []
-		PlayerVars.current_mask = 5
-		PlayerVars.respawn_with_progress = false
+	if len(PlayerVars.broken_masks) == 5:
+		PlayerVars.reset_to_defaults()
 		
 	print("<-- RESPAWNING --> ", PlayerVars.respawn_with_progress)
 	

@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.360784)
 
-[node name="ScoreLabel" type="RichTextLabel" parent="."]
+[node name="HighScore" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = -1.0
 offset_top = 48.0
@@ -48,6 +48,29 @@ offset_bottom = 240.0
 theme_override_font_sizes/normal_font_size = 132
 bbcode_enabled = true
 text = "[center]0"
+
+[node name="ScoreText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 217.0
+offset_right = 541.0
+offset_bottom = 320.0
+theme = ExtResource("3_7nnmj")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]New High Score!"
+
+[node name="MaskText" type="RichTextLabel" parent="."]
+offset_left = 52.0
+offset_top = 381.0
+offset_right = 690.0
+offset_bottom = 484.0
+theme = ExtResource("3_7nnmj")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]The Mask of Name Has Broken..."
 
 [node name="MenuPanel" type="ColorRect" parent="."]
 layout_mode = 1
@@ -67,25 +90,14 @@ layout_mode = 0
 offset_left = 790.0
 offset_top = 2.0
 offset_right = 1121.0
-offset_bottom = 105.0
+offset_bottom = 195.0
 theme = ExtResource("3_7nnmj")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]
-You Have Died"
-
-[node name="ScoreText" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 210.0
-offset_top = 217.0
-offset_right = 541.0
-offset_bottom = 320.0
-theme = ExtResource("3_7nnmj")
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "[center]New High Score!"
+text = "
+[p][center]You Have Died
+[p][center]For The Final Time"
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0

@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/player/player_stats_ui.gd" id="1_ksy8e"]
 [ext_resource type="Theme" uid="uid://d2qcf23k5150" path="res://resources/main_theme.tres" id="2_rea8q"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ufyn"]
-bg_color = Color(0, 0, 0, 0.45098)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2ap0"]
+bg_color = Color(0.423651, 0.423651, 0.423651, 0.45098)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -24,21 +24,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ksy8e")
 
-[node name="Mask" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 41.0
-offset_bottom = 39.0
-
-[node name="Label" type="Label" parent="Mask"]
-layout_mode = 0
-offset_right = 43.0
-offset_bottom = 40.0
-text = "M1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Health" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 27.0
@@ -47,9 +32,9 @@ offset_bottom = 40.0
 
 [node name="ProgressBar" type="ProgressBar" parent="Health"]
 layout_mode = 0
-offset_left = 41.0
+offset_left = 22.0
 offset_top = 13.0
-offset_right = 483.0
+offset_right = 464.0
 offset_bottom = 53.0
 scale = Vector2(0.568985, 0.313264)
 theme = ExtResource("2_rea8q")
@@ -57,12 +42,39 @@ step = 0.5
 value = 80.0
 show_percentage = false
 
+[node name="Label" type="Label" parent="Health"]
+modulate = Color(0.87451, 0.14902, 0.137255, 1)
+offset_left = -27.0
+offset_top = -2.0
+offset_right = 16.0
+offset_bottom = 38.0
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mask" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 39.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Mask"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 61.0
+offset_right = 319.0
+offset_bottom = 101.0
+bbcode_enabled = true
+text = "Mask of Name"
+
 [node name="EXP" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="EXP"]
+modulate = Color(0.984314, 0.647059, 0.0392157, 1)
 layout_mode = 0
 offset_left = 9.0
 offset_top = 23.0
@@ -80,7 +92,7 @@ offset_right = 510.0
 offset_bottom = 77.0
 scale = Vector2(0.568985, 0.313264)
 theme = ExtResource("2_rea8q")
-theme_override_styles/background = SubResource("StyleBoxFlat_7ufyn")
+theme_override_styles/background = SubResource("StyleBoxFlat_k2ap0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_277md")
 step = 0.1
 value = 80.0

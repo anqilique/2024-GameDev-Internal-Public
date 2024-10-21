@@ -6,7 +6,7 @@ var respawn_with_progress = true
 # Battle related variables.
 var wave = 0
 var live_enemies = 0
-var starting_waves = [[1, 0], [1, 1], [2, 1], [4, 2]]
+var starting_waves = [[0, 10], [1, 0], [1, 1], [2, 1], [1, 2], [2, 2], [3, 2], [4, 2]]
 
 # Movement related variables.
 var base_speed = 8
@@ -15,7 +15,7 @@ var jump_velocity = 8
 var jump_max_count = 1
 
 # Mask related variables.
-var broken_masks = []
+var broken_masks = [1, 2, 3, 4]
 var current_mask = 5
 var masks = [1, 2, 3, 4, 5]
 
@@ -41,3 +41,44 @@ var req_exp = max_exp - current_exp
 # Score related variables.
 var lifetime = 0
 var score = 0
+
+
+func reset_to_defaults():
+	# Battle related variables.
+	wave = 0
+	live_enemies = 0
+	starting_waves = [[1, 0], [1, 1], [2, 1], [1, 2], [2, 2], [3, 2], [4, 2]]
+
+	# Movement related variables.
+	base_speed = 8
+
+	jump_velocity = 8
+	jump_max_count = 1
+
+	# Mask related variables.
+	broken_masks = [1, 2, 3, 4]
+	current_mask = 5
+	masks = [1, 2, 3, 4, 5]
+
+	# Health related variables.
+	current_health = 100
+	max_health = 100
+	base_max_health = 100
+
+	starting_health = 100
+
+	# Attack related variables.
+	attack_damage = 15
+
+	# Currency related variables.
+	essence = 10
+
+	# Experience related variables.
+	level = 1
+	current_exp = 0
+	max_exp = 2
+	req_exp = max_exp - current_exp
+
+	# Score related variables.
+	lifetime = 0
+	score = 0

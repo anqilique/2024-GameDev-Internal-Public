@@ -10,21 +10,27 @@ const EXPERIENCE_BONUS = 1
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var move_to_player = false
+var has_hit_floor = false
 
 func _ready():  # Randomize velocities.
-	velocity.y = randf_range(0, 1)
+	velocity.y = randf_range(0, 2)
 	velocity.x = randf_range(-4, 4)
 	velocity.z = randf_range(-4, 4)
-	
-	var drop_sound = ["CollectableOne", "CollectableTwo"].pick_random()
-	AudioHandler.play_sound(drop_sound)
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
-		if move_to_player: move_towards_player(delta)
+		
+		if not has_hit_floor:
+			var drop_sound = ["CollectableOne", "CollectableTwo"].pick_random()
+			AudioHandler.play_sound(drop_sound)
+			
+			has_hit_floor = true
+		
+		if move_to_player:
+			move_towards_player(delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0, 2)
 			velocity.z = move_toward(velocity.x, 0, 2)
