@@ -5,11 +5,13 @@ func _ready():
 	$WhenPaused.hide()
 	$PauseButton.z_index = 1
 	
+	# Show the coloured rectangle below others.
 	for node in get_node("WhenPaused").get_children():
 		if node.name == "ColorRect":
 			node.z_index = 0
 		else:
 			node.z_index = 1
+
 
 func handle_ui_visibility(hide_list, show_list):
 	if hide_list != []:
@@ -24,18 +26,19 @@ func handle_ui_visibility(hide_list, show_list):
 			if not node.is_visible():
 				node.show()
 
+
 func switch_to_pause(pause_game):
 	AudioHandler.play_sound("Click")
 	
 	if pause_game:
 		$WhenPaused.show()
 		get_tree().paused = true
-		
 		handle_ui_visibility(["MaskMenu"], [])
 		
 	else:
 		$WhenPaused.hide()
 		get_tree().paused = false
+
 
 func _on_pause_button_pressed():
 	if $WhenPaused.is_visible():
@@ -43,8 +46,10 @@ func _on_pause_button_pressed():
 	else:
 		switch_to_pause(true)
 
+
 func _on_resume_button_pressed():
 	switch_to_pause(false)
+
 
 func _on_exit_pressed():
 	switch_to_pause(false)

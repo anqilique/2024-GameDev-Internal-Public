@@ -46,3 +46,40 @@ var healing_mask = {
 	"movement_speed_bonus" : -5,
 	"attack_damage_bonus" : -5,
 }
+
+
+func reset_to_defaults():
+	# Mask of Flight
+	flight_mask = {
+		"max_health_bonus" : -5,
+		"movement_speed_bonus" : 20,
+		"attack_damage_bonus" : 5,
+	}
+
+	# Mask of Swiftness
+	swiftness_mask = {
+		"max_health_bonus" : 0,
+		"movement_speed_bonus" : 10,
+		"attack_damage_bonus" : 10,
+	}
+
+	# Mask of Balance
+	balance_mask = {
+		"max_health_bonus" : 10,
+		"movement_speed_bonus" : 5,
+		"attack_damage_bonus" : 5,
+	}
+
+	# Mask of Fury
+	fury_mask = {
+		"max_health_bonus" : 5,
+		"movement_speed_bonus" : 0,
+		"attack_damage_bonus" : 10,
+	}
+
+	# Mask of Healing
+	healing_mask = {
+		"max_health_bonus" : 15,
+		"movement_speed_bonus" : -5,
+		"attack_damage_bonus" : -5,
+	}

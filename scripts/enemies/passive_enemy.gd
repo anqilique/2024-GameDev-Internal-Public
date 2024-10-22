@@ -8,6 +8,7 @@ extends CharacterBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+
 func _ready():
 	$HealthBar.hide()
 	
@@ -16,6 +17,7 @@ func _ready():
 	$HealthBar.set_values()
 	
 	reset_statetimer()
+
 
 func reset_statetimer():  # Randomize time spent in state.
 	time_in_state = randf_range(statetimer_min, statetimer_max)
@@ -43,6 +45,7 @@ func _physics_process(delta):
 				$Rig/CPUParticles3D.emitting = true
 	
 	move_and_slide()
+
 
 func go_to_new_state(current_state):  # Switch between idling/wandering.
 	if current_state == "EnemyIdle":

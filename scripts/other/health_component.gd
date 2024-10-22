@@ -4,6 +4,7 @@ class_name HealthComponent
 @export var health : int
 @export var max_health : int
 
+
 func damage(attack: Attack):
 	# Get the state machine of the parent node.
 	var state_machine = get_parent().get_node("StateMachine")
@@ -16,6 +17,7 @@ func damage(attack: Attack):
 	if health <= 0:  # If health is less than 1, parent node 'dies'.
 		var death_state = ""
 		
+		# Get the death state of the parent node.
 		match get_parent().get_groups()[0]:
 			"Player" : death_state = "PlayerDeath"
 			"Enemies" : death_state = "EnemyDeath"
@@ -28,6 +30,7 @@ func damage(attack: Attack):
 	else:  # If there is enough health left to survive.
 		var hit_state = ""
 		
+		# Get the hit state of the parent node.
 		match get_parent().get_groups()[0]:
 			"Player" : hit_state = "PlayerTakeDMG"
 			"Enemies" : hit_state = "EnemyTakeDMG"

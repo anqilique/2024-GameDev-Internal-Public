@@ -43,6 +43,8 @@ var score = 0
 
 
 func reset_to_defaults():
+	MaskVars.reset_to_defaults()
+	
 	respawn_with_progress = false
 	
 	# Battle related variables.

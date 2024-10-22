@@ -9,27 +9,34 @@ var tutorial_waves = []
 var spawn_count = PlayerVars.starting_waves[0]
 var enemies_spawned = 0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerVars.broken_masks = []
 	PlayerVars.current_mask = 5
 	PlayerVars.current_health = PlayerVars.starting_health
 	
+	# Use the configured starting waves as 'tutorials'.
 	for item in PlayerVars.starting_waves:
 		tutorial_waves.append(item)
 	
+	# Format of spawn_count is [Red Passive, Purple Chaser] enemies.
 	spawn_enemies(spawn_count[0], spawn_count[1])
 
 func update_spawn_count():
 	if tutorial_waves != []:
+		#  Remove the old/completed tutorial wave.
 		tutorial_waves.erase(tutorial_waves[0])
 		
-		if tutorial_waves != []:
+		if tutorial_waves != []:  # If there are remaining tutorials.
+			# Set the required spawn to that of the first tutorial.
 			spawn_count = tutorial_waves[0]
 		
 	else:
+		# No tutorials --> Continuously increase count.
 		spawn_count[0] += 1
 		spawn_count[1] += 1
+
 
 func spawn_enemies(how_many_passive, how_many_chaser):
 	enemies_spawned = 0
@@ -69,23 +76,28 @@ func _process(_delta):
 	
 	var update_spawn = true
 	
+	# If all masks are broken, restart game fully.
 	if not PlayerVars.respawn_with_progress:
 		PlayerVars.reset_to_defaults()
 		
+		# Remove all old, live enemies.
 		for old_enemy in get_tree().get_nodes_in_group("Enemies"):
 			old_enemy.queue_free()
 		
-		tutorial_waves = []
+		tutorial_waves = []  # Reset tutorial progress.
 		for item in PlayerVars.starting_waves:
 			tutorial_waves.append(item)
 		
 		update_spawn = false
 		PlayerVars.respawn_with_progress = true
 	
+	# When all enemies have been killed.
 	if PlayerVars.live_enemies == 0:
 		PlayerVars.wave += 1
 		
-		if update_spawn: update_spawn_count()
+		if update_spawn: 
+			update_spawn_count()
+		
 		spawn_enemies(spawn_count[0], spawn_count[1])
 	
 	PlayerVars.wave = clamp(PlayerVars.wave, 1, 100)

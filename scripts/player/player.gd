@@ -40,16 +40,17 @@ func check_mask(current_mask):
 	var mask_handler = "Rig/PlayerMesh/MeshMasks"
 	var current_mask_node = mask_handler + "/" + current_mask
 	
-	if not get_node(current_mask_node).is_visible():
-		get_node(current_mask_node).show()
-	
-		for mask in get_node(mask_handler).get_children():
+	# Hide other mask meshes except for current one.
+	for mask in get_node(mask_handler).get_children():
 			if mask.name != current_mask: mask.hide()
 	
-	else: return
+	# If the current one was hidden, show it.
+	if not get_node(current_mask_node).is_visible():
+		get_node(current_mask_node).show()
 
 
 func go_to_state(new_state):
+	# If player not dead or already in the target state.
 	if $StateMachine.current_state.name not in [new_state, "PlayerDeath"]:
 		$StateMachine.on_child_transition($StateMachine.current_state, new_state)
 
