@@ -134,7 +134,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if is_visible() and not get_tree().paused:
+		get_tree().paused = true
 
 
 func _on_mask_upgrades_pressed() -> void:
@@ -183,5 +184,6 @@ func _on_mask_damage_pressed() -> void:
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	get_tree().paused = true
 	update_player_stats_panel()
 	update_costs(true)
