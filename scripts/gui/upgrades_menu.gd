@@ -187,3 +187,8 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	get_tree().paused = true
 	update_player_stats_panel()
 	update_costs(true)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	if get_tree().paused:
+		get_tree().paused = false

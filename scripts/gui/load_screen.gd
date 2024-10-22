@@ -6,7 +6,7 @@ signal loadingscreen_has_full_coverage
 @onready var progress_bar : ProgressBar = $ProgressBar
 
 
-func _ready():
+func _ready():	
 	$RichTextLabel.text = "[center]Loading... Tip: %s" % Settings.tips.pick_random()
 	animator.play("start_load")
 

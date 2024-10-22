@@ -6,6 +6,7 @@ const FINAL_DEATH_TEXT = """
 """
 
 var pause_menu
+var upgrades_menu
 
 
 func _ready():
@@ -75,8 +76,8 @@ func handle_respawn():  # Send player to idle, hide death screen.
 
 func _on_quit_button_pressed():
 	AudioHandler.play_sound("Click")
-	
 	PlayerVars.reset_to_defaults()
+	
 	LoadHandler.load_scene("res://scenes/gui/main_menu.tscn")
 
 
