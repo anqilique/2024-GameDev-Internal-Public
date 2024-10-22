@@ -5,6 +5,7 @@ var player
 var rig_animator
 var mask_data
 
+
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	rig_animator = player.get_node("AnimationPlayer")
@@ -13,11 +14,14 @@ func enter():
 	player.get_node("AnimationPlayer").play("move")
 	player.get_node("Rig/CPUParticles3D").emitting = true
 
+
 func exit():
 	pass
 
+
 func update(_delta):
 	pass
+
 
 func physics_update(_delta):
 	# Handle jump.

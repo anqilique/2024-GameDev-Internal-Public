@@ -2,6 +2,8 @@ extends State
 class_name EnemyAttack
 
 @export var attack_cooldown : float
+@export var attack_minimum_damage = 2
+@export var attack_maximum_damage = 8
 
 var enemy
 
@@ -34,7 +36,7 @@ func update(_delta):
 					var attack = Attack.new()
 					
 					# Attack the player's hurtbox.
-					attack.attack_damage = randi_range(2, 8)
+					attack.attack_damage = randi_range(attack_minimum_damage, attack_maximum_damage)
 					hurtbox.damage(attack)
 					
 					# Start cooldown timer.

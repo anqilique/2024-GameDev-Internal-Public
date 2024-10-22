@@ -5,6 +5,7 @@ var player
 var rig_animator
 var mask_data
 
+
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	rig_animator = player.get_node("AnimationPlayer")
@@ -12,6 +13,7 @@ func enter():
 	
 	player.get_node("AnimationPlayer").play("idle")
 	player.get_node("Rig/CPUParticles3D").emitting = false
+
 
 func update(_delta):
 	if (  # If any of the horizontal movement keys are pressed.
@@ -21,8 +23,9 @@ func update(_delta):
 		Input.is_action_pressed("ui_down") or
 		Input.is_action_pressed("ui_accept")
 	):
+		# Move if any of these are pressed.
 		get_parent().on_child_transition(self, "PlayerMove")
-	
+
 
 func physics_update(_delta):
 	# Handle jump.

@@ -7,6 +7,7 @@ var player
 var animator
 var mask_data
 
+
 func enter():
 	player = get_node("/root/Main/Player")
 	animator = player.get_node("AnimationPlayer")
@@ -22,6 +23,7 @@ func enter():
 		if "attack" not in animator.current_animation:
 			player.get_node("AnimationPlayer").play("attack-1")
 
+
 func update(_delta):
 	if (  # If any of the horizontal movement keys are pressed.
 		Input.is_action_pressed("ui_left") or 
@@ -33,6 +35,7 @@ func update(_delta):
 		Input.is_action_just_released("ui_left_mouse_button")
 	):
 		get_parent().on_child_transition(self, "PlayerMove")
+
 
 func physics_update(_delta):
 	# Handle jump.

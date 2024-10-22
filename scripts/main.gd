@@ -23,6 +23,7 @@ func _ready():
 	# Format of spawn_count is [Red Passive, Purple Chaser] enemies.
 	spawn_enemies(spawn_count[0], spawn_count[1])
 
+
 func update_spawn_count():
 	if tutorial_waves != []:
 		#  Remove the old/completed tutorial wave.
@@ -38,36 +39,35 @@ func update_spawn_count():
 		spawn_count[1] += 1
 
 
+func spawn_enemy(type):
+	var new_enemy
+	
+	match type:
+		"Passive" : new_enemy = passive_enemy_scene.instantiate()
+		"Chaser" : new_enemy = chaser_enemy_scene.instantiate()
+	
+	# Randomize position.
+	var rand_x = randf_range(-22, 22)
+	var rand_z = randf_range(-16, 22)
+	new_enemy.position = Vector3(rand_x, ENEMY_SPAWN_Y, rand_z)
+	
+	add_child(new_enemy)
+	new_enemy.add_to_group("Enemies")
+	
+	enemies_spawned += 1
+
+
 func spawn_enemies(how_many_passive, how_many_chaser):
 	enemies_spawned = 0
 	
 	for n in range(how_many_passive):  # Spawn passive enemies.
-		var new_enemy = passive_enemy_scene.instantiate()
-		
-		# Randomize position.
-		var rand_x = randf_range(-22, 22)
-		var rand_z = randf_range(-16, 22)
-		new_enemy.position = Vector3(rand_x, ENEMY_SPAWN_Y, rand_z)
-		
-		add_child(new_enemy)
-		new_enemy.add_to_group("Enemies")
-		
-		enemies_spawned += 1
+		spawn_enemy("Passive")
 	
 	for n in range(how_many_chaser):  # Spawn chaser enemies.
-		var new_enemy = chaser_enemy_scene.instantiate()
-		
-		# Randomize position.
-		var rand_x = randf_range(-22, 22)
-		var rand_z = randf_range(-16, 22)
-		new_enemy.position = Vector3(rand_x, ENEMY_SPAWN_Y, rand_z)
-		
-		new_enemy.add_to_group("Enemies")
-		add_child(new_enemy)
-		
-		enemies_spawned += 1
+		spawn_enemy("Chaser")
 	
 	PlayerVars.live_enemies = enemies_spawned
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

@@ -1,6 +1,7 @@
 extends Node
 
 
+var starting_point = Vector3(0, 4.8, 0)
 var respawn_with_progress = false
 
 # Battle related variables.

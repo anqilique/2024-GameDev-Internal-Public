@@ -3,12 +3,12 @@ extends CharacterBody3D
 const HEALTH_BONUS = 12
 const ESSENCE_BONUS = 2
 const EXPERIENCE_BONUS = 1
+const SLIDE_SPEED = 2
 
 @export var move_speed = 15
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
 var move_to_player = false
 var has_hit_floor = false
 
@@ -36,8 +36,8 @@ func _physics_process(delta):
 			move_towards_player(delta)
 		
 		else:  # Slow to a stop.
-			velocity.x = move_toward(velocity.x, 0, 2)
-			velocity.z = move_toward(velocity.x, 0, 2)
+			velocity.x = move_toward(velocity.x, 0, SLIDE_SPEED)
+			velocity.z = move_toward(velocity.x, 0, SLIDE_SPEED)
 		
 		# If not animated, play animation.
 		if $AnimationPlayer.current_animation != "float":
@@ -64,9 +64,12 @@ func _on_collect_area_3d_body_entered(body):
 	if body.name == "Player":  # Collectable only by the player.
 		
 		# Get the right type of collectable function.
-		if is_in_group("Health Collectables"): collect_health()
-		elif is_in_group("Essence Collectables"): collect_essence()
-		elif is_in_group("Experience Collectables"): collect_experience()
+		if is_in_group("Health Collectables"):
+			collect_health()
+		elif is_in_group("Essence Collectables"):
+			collect_essence()
+		elif is_in_group("Experience Collectables"):
+			collect_experience()
 		
 		queue_free()
 

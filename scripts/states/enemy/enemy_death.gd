@@ -1,6 +1,8 @@
 extends State
 class_name EnemyDeath
 
+const Y_POSITIONS = [2, 3, 4]  # Health / Essence / EXP
+
 var enemy
 
 @export var health_collectable_scene : PackedScene
@@ -20,7 +22,7 @@ func enter():
 		var new_health_drop = health_collectable_scene.instantiate()
 		
 		new_health_drop.position = enemy.position
-		new_health_drop.position.y += 2
+		new_health_drop.position.y += Y_POSITIONS[0]
 		
 		new_health_drop.add_to_group("Health Collectables")
 		
@@ -35,7 +37,7 @@ func enter():
 		var new_essence_drop = essence_collectable_scene.instantiate()
 		
 		new_essence_drop.position = enemy.position
-		new_essence_drop.position.y += 3
+		new_essence_drop.position.y += Y_POSITIONS[1]
 		
 		new_essence_drop.add_to_group("Essence Collectables")
 		
@@ -49,7 +51,7 @@ func enter():
 	var new_exp_drop = exp_collectable_scene.instantiate()
 		
 	new_exp_drop.position = enemy.position
-	new_exp_drop.position.y += 5
+	new_exp_drop.position.y += Y_POSITIONS[2]
 	
 	new_exp_drop.add_to_group("Experience Collectables")
 	

@@ -7,6 +7,7 @@ var player
 var enemy
 var mask_data
 
+
 func enter():
 	AudioHandler.play_sound("Impact2")
 	
@@ -18,7 +19,8 @@ func enter():
 	
 	if colliders != []:
 		enemy = player.get_node("Hurtbox3D").get_overlapping_bodies()[0]
-	
+		
+		# Knock the player back away from enemy.
 		player.velocity = (player.global_transform.origin - enemy.global_transform.origin).normalized()
 		player.velocity *= 5
 		player.velocity.y = 5
@@ -29,6 +31,7 @@ func physics_update(_delta):  # Allow the player to move, but slower.
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var movement_speed = PlayerVars.base_speed + mask_data["movement_speed_bonus"]
 	
+	# If player has recovered, allow slow movement until exiting state.
 	if player.get_node("RecoveryTimer").is_stopped():
 		player.velocity.x = direction.x * movement_speed * SLOW_MULTIPLIER
 		player.velocity.z = direction.z * movement_speed * SLOW_MULTIPLIER

@@ -3,8 +3,9 @@ class_name PlayerDeath
 
 var player
 
+
 func calculate_score():
-	PlayerVars.score = 0 + PlayerVars.lifetime
+	PlayerVars.score = PlayerVars.lifetime
 	PlayerVars.score *= PlayerVars.level
 	
 	if len(PlayerVars.broken_masks) != 5:
@@ -20,8 +21,7 @@ func enter():
 	player.change_visibility("hide")
 	player.get_node("LifeTimer").stop()
 	
-	print(PlayerVars.current_mask, PlayerVars.broken_masks)
-	
+	# If current mask is not already stored in broken masks.
 	if PlayerVars.current_mask not in PlayerVars.broken_masks:
 		PlayerVars.broken_masks.append(PlayerVars.current_mask)
 	
@@ -29,6 +29,7 @@ func enter():
 	
 	var main_scene = player.get_parent()
 	main_scene.get_node("LayerUI/DeathMenu").show_screen()
+
 
 func exit():
 	player.change_visibility("show")
@@ -44,13 +45,13 @@ func exit():
 	# If can not find an available mask, respawn without progress.
 	if not PlayerVars.respawn_with_progress:
 		PlayerVars.reset_to_defaults()
-		
-	print("<-- RESPAWNING --> ", PlayerVars.respawn_with_progress)
 	
+	# Reset the player's health.
 	PlayerVars.current_health = PlayerVars.max_health
 	
+	# Update the health component.
 	var health_comp = player.get_node("HealthComponent")
 	health_comp.health = PlayerVars.current_health
 	health_comp.max_health = PlayerVars.max_health
 	
-	player.global_position = Vector3(0, 4.8, 0)
+	player.global_position = PlayerVars.starting_point

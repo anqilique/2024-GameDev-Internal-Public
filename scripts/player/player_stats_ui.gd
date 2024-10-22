@@ -6,16 +6,21 @@ extends Control
 var tween
 var last_mask_used = 5
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# Set up healthbar.
 	healthbar.value = PlayerVars.current_health
 	healthbar.max_value = PlayerVars.max_health
 	
+	# Set up the expbar.
 	expbar.value = PlayerVars.current_exp
 	expbar.max_value = PlayerVars.max_exp
 	
 	update_mask(PlayerVars.current_mask)
 	update_level(PlayerVars.level)
+
 
 func update_bar(bar, current, maximum):
 	if not tween or not tween.is_running():
@@ -43,6 +48,7 @@ func update_mask(current):
 func update_level(current):
 	$EXP/Label.text = "LVL " + str(current)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
@@ -59,7 +65,6 @@ func _process(_delta):
 		or PlayerVars.max_exp != expbar.max_value
 	):
 		update_bar(expbar, PlayerVars.current_exp, PlayerVars.max_exp)
-	
 	
 	# Update labels
 	

@@ -1,6 +1,7 @@
 extends Control
 
 const SHORTCUT = "ui_right_mouse_button"
+const SLOWED_SPEED = 0.2
 
 var change_mask_to
 var available_masks
@@ -26,7 +27,7 @@ func show_menu(location):
 	"""
 	
 	position = location  # Go to mouse position.
-	Engine.time_scale = 0.2  # Slow game down.
+	Engine.time_scale = SLOWED_SPEED  # Slow game down.
 	$CanvasLayer.visible = true  # Blur the background.
 	show()
 

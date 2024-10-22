@@ -6,7 +6,6 @@ const SPEED = 3
 var enemy
 var player
 var moving
-
 var nav_agent
 
 

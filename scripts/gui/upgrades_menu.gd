@@ -10,7 +10,6 @@ var mask_upgrade_cost = upgrade_value * 2
 
 var insufficient_essence_msg = "[center]Not Enough Essence!"
 
-
 var mask_colours_dict = {
 	1 : Settings.blue,
 	2 : Settings.red,
@@ -35,7 +34,6 @@ func update_player_stats_panel():
 	update_costs(false)
 	
 	mask_index = mask_dict.keys().find(current_mask_upgraded) + 1
-	
 	$UpgradePanel/MaskUpgrades.modulate = mask_colours_dict[mask_index]
 	
 	# Determine the colours of the mask strings.
@@ -75,10 +73,6 @@ func update_costs(update_text):
 	if update_text:
 		$ActivityPanel/RichTextLabel.text = cost_text
 		$UpgradePanel/CostText.text = cost_text
-
-
-func handle_mask_resource():
-	pass
 
 
 func handle_upgrade(type, attribute):
@@ -136,6 +130,7 @@ func handle_upgrade(type, attribute):
 func _ready() -> void:
 	update_player_stats_panel()
 	update_costs(true)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
