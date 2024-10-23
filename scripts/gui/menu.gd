@@ -54,7 +54,7 @@ func _on_settings_button_pressed() -> void:
 
 
 func _on_credits_button_pressed() -> void:
-	on_panel_button_pressed($Panels/ControlsPanel)
+	on_panel_button_pressed($Panels/CreditsPanel)
 
 
 func _on_button_down() -> void:
