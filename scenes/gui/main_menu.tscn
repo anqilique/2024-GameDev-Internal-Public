@@ -302,7 +302,6 @@ text = "		Movement - [WASD] or Arrow Keys
 		Pause - [P]"
 
 [node name="SettingsPanel" type="Panel" parent="UI/Panels"]
-visible = false
 layout_mode = 0
 offset_left = 349.0
 offset_top = 372.0
@@ -322,7 +321,7 @@ text = "
 
 		Sound Effects
 
-		Background Music"
+		Background Audio"
 
 [node name="FullScreen" type="CheckButton" parent="UI/Panels/SettingsPanel"]
 layout_mode = 0
@@ -368,6 +367,7 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("4_mwfd6")
 
 [node name="CreditsPanel" type="Panel" parent="UI/Panels"]
+visible = false
 layout_mode = 0
 offset_left = 349.0
 offset_top = 346.0

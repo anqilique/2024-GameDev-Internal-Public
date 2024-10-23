@@ -33,6 +33,7 @@ func hide_panels():
 Menu Buttons
 """
 
+
 func _on_play_button_pressed() -> void:
 	LoadHandler.load_scene("res://scenes/main.tscn")
 
