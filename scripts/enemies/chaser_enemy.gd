@@ -2,11 +2,13 @@ extends CharacterBody3D
 
 @export var statetimer_min : float
 @export var statetimer_max : float
-
 @onready var time_in_state : float
 
-# Get the gravity from the project settings to be synce	d with RigidBody nodes.
+@onready var state_machine = $StateMachine
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var health_range = [80, 120]
 
 
 func _ready():
@@ -15,7 +17,7 @@ func _ready():
 	
 	$HealthBar.hide()
 	
-	$HealthComponent.max_health = randi_range(80, 120)
+	$HealthComponent.max_health = randi_range(health_range[0], health_range[1])
 	$HealthComponent.health = $HealthComponent.max_health
 	$HealthBar.set_values()
 
@@ -27,13 +29,17 @@ func reset_statetimer():
 	$StateTimer.start()
 
 
+func go_to_state(new_state):
+	state_machine.on_child_transition(state_machine.current_state, new_state)
+
+
 func check_can_chase(_player):
 	if (
 		# If the enemy is not already chasing the player or being hit...
-		$StateMachine.current_state.name not in ["EnemyChase", "EnemyTakeDMG"]
+		state_machine.current_state.name not in ["EnemyChase", "EnemyTakeDMG"]
 		
 		# And the enemy is not already mid-attack.
-		and $StateMachine.current_state.name != "EnemyAttack"
+		and state_machine.current_state.name != "EnemyAttack"
 		
 		# And if enemy is not recovering from a hit.
 		and $RecoveryTimer.is_stopped()
@@ -44,7 +50,7 @@ func check_can_chase(_player):
 			
 			# Only chase if there are no objects between enemy and player.
 			if colliding_with.name == "Player":
-				$StateMachine.on_child_transition($StateMachine.current_state, "EnemyChase")
+				go_to_state("EnemyChase")
 
 
 func _physics_process(delta):
@@ -66,19 +72,19 @@ func _physics_process(delta):
 			$VisionRayCast3D.force_raycast_update()
 
 
-func go_to_new_state(current_state):
-	match current_state:  # Go to the other state.
+func switch_state(current_state):
+	match current_state:  # Switch between idle or wander.
 		"EnemyIdle" :  
-			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyWander")
+			go_to_state("EnemyWander")
 		"EnemyWander" :
-			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
+			go_to_state("EnemyIdle")
 	
 	# Randomize the time spent in that state.
 	reset_statetimer()
 
 
 func _on_state_timer_timeout():  # Switch states.
-	go_to_new_state($StateMachine.current_state.name)
+	switch_state(state_machine.current_state.name)
 
 
 func _on_vision_3d_body_entered(body):
@@ -88,22 +94,22 @@ func _on_vision_3d_body_entered(body):
 
 
 func _on_vision_3d_body_exited(body):  # If player goes out of range, back to idle.
-	if body.name == "Player" and $StateMachine.current_state.name != "EnemyIdle":
+	if body.name == "Player" and state_machine.current_state.name != "EnemyIdle":
 		if body.get_node("StateMachine").current_state.name != "PlayerDeath":
-			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
+			go_to_state("EnemyIdle")
 
 
 func _on_navigation_agent_3d_target_reached():  # If reached player location.
-	$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
+	go_to_state("EnemyAttack")
 
 
 func _on_hitbox_3d_body_entered(body):
 	if body.name == "Player":  # If player in range and alive.
 		if body.get_node("StateMachine").current_state.name != "PlayerDeath":
-			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
+			go_to_state("EnemyAttack")
 
 
 func _on_hitbox_3d_body_exited(body):
 		if body.name == "Player":  # If player leaves the enemy's detect range.
-			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
+			go_to_state("EnemyIdle")
 			check_can_chase(body)

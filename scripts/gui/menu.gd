@@ -6,20 +6,24 @@ const WINDOWED_MODE = 0
 @onready var music_enabled_icon = preload("res://assets/musicOn.png")
 @onready var music_disabled_icon = preload("res://assets/musicOff.png")
 
+@onready var settings = $Panels/SettingsPanel
+@onready var credits = $Panels/CreditsPanel
+@onready var controls = $Panels/ControlsPanel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Settings.current_window_mode = DisplayServer.window_get_mode()
 	
 	# Set the check buttons to saved values.
-	$Panels/SettingsPanel/SFX.button_pressed = Settings.play_sound_effects
-	$Panels/SettingsPanel/BGM.button_pressed = Settings.play_background_audio
+	settings.get_node("SFX").button_pressed = Settings.play_sound_effects
+	settings.get_node("BGM").button_pressed = Settings.play_background_audio
 	
 	# Check if in fullscreen or not, set the check button.
 	if Settings.current_window_mode != FULLSCREEN_MODE:
-		$Panels/SettingsPanel/FullScreen.button_pressed = false
+		settings.get_node("FullScreen").button_pressed = false
 	else:
-		$Panels/SettingsPanel/FullScreen.button_pressed = true
+		settings.get_node("FullScreen").button_pressed = true
 	
 	hide_panels()
 
@@ -47,15 +51,15 @@ func on_panel_button_pressed(panel_node):
 
 
 func _on_controls_button_pressed() -> void:
-	on_panel_button_pressed($Panels/ControlsPanel)
+	on_panel_button_pressed(controls)
 
 
 func _on_settings_button_pressed() -> void:
-	on_panel_button_pressed($Panels/SettingsPanel)
+	on_panel_button_pressed(settings)
 
 
 func _on_credits_button_pressed() -> void:
-	on_panel_button_pressed($Panels/CreditsPanel)
+	on_panel_button_pressed(credits)
 
 
 func _on_button_down() -> void:
@@ -80,20 +84,20 @@ func _on_full_screen_pressed() -> void:
 func _on_sfx_pressed() -> void:
 	if Settings.play_sound_effects:
 		Settings.play_sound_effects = false
-		$Panels/SettingsPanel/SFX/Sprite2D.texture = music_disabled_icon
+		settings.get_node("SFX/Sprite2D").texture = music_disabled_icon
 	else:
 		Settings.play_sound_effects = true
-		$Panels/SettingsPanel/SFX/Sprite2D.texture = music_enabled_icon
+		settings.get_node("SFX/Sprite2D").texture = music_enabled_icon
 		
-	$Panels/SettingsPanel/SFX.button_pressed = Settings.play_sound_effects
+	settings.get_node("SFX").button_pressed = Settings.play_sound_effects
 
 
 func _on_bgm_pressed() -> void:
 	if Settings.play_background_audio:
 		Settings.play_background_audio = false
-		$Panels/SettingsPanel/BGM/Sprite2D.texture = music_disabled_icon
+		settings.get_node("BGM/Sprite2D").texture = music_disabled_icon
 	else:
 		Settings.play_background_audio = true
-		$Panels/SettingsPanel/BGM/Sprite2D.texture = music_enabled_icon
+		settings.get_node("BGM/Sprite2D").texture = music_enabled_icon
 	
-	$Panels/SettingsPanel/BGM.button_pressed = Settings.play_background_audio
+	settings.get_node("BGM").button_pressed = Settings.play_background_audio

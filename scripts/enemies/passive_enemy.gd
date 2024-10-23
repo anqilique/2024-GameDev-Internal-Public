@@ -2,8 +2,11 @@ extends CharacterBody3D
 
 @export var statetimer_min : float
 @export var statetimer_max : float
-
 @onready var time_in_state : float
+
+@onready var state_machine = $StateMachine
+@onready var animator = $AnimationPlayer
+@onready var particles = $Rig/CPUParticles3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -30,28 +33,32 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	if $StateMachine.current_state.name == "EnemyIdle":
-		if $AnimationPlayer.is_playing():
-			$AnimationPlayer.play("RESET")
-			$AnimationPlayer.stop()
+	if state_machine.current_state.name == "EnemyIdle":
+		if animator.is_playing():
+			animator.play("RESET")
+			animator.stop()
 			
-			if $Rig/CPUParticles3D.emitting:
-				$Rig/CPUParticles3D.emitting = false
+			if particles.emitting:
+				particles.emitting = false
 			
-	elif not $AnimationPlayer.is_playing():
-			$AnimationPlayer.play("move")
+	elif not animator.is_playing():
+			animator.play("move")
 			
-			if not $Rig/CPUParticles3D.emitting:
-				$Rig/CPUParticles3D.emitting = true
+			if not particles.emitting:
+				particles.emitting = true
 	
 	move_and_slide()
 
 
-func go_to_new_state(current_state):  # Switch between idling/wandering.
+func go_to_state(new_state):
+	state_machine.on_child_transition(state_machine.current_state, new_state)
+
+
+func switch_state(current_state):  # Switch between idling/wandering.
 	if current_state == "EnemyIdle":
-		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyWander")
+		go_to_state("EnemyWander")
 	elif current_state == "EnemyWander":
-		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
+		go_to_state("EnemyIdle")
 	
 	# Randomize the time spent in state.
 	if current_state != "EnemyDeath":
@@ -59,15 +66,15 @@ func go_to_new_state(current_state):  # Switch between idling/wandering.
 
 
 func _on_state_timer_timeout():
-	go_to_new_state($StateMachine.current_state.name)
+	switch_state(state_machine.current_state.name)
 
 
 func _on_hitbox_3d_body_entered(body):
 	if body.name == "Player":  # If player in range and alive.
 		if body.get_node("StateMachine").current_state.name != "PlayerDeath":
-			$StateMachine.on_child_transition($StateMachine.current_state, "EnemyAttack")
+			go_to_state("EnemyAttack")
 
 
 func _on_hitbox_3d_body_exited(body):
 	if body.name == "Player":  # If player leaves the enemy's detect range.
-		$StateMachine.on_child_transition($StateMachine.current_state, "EnemyIdle")
+		go_to_state("EnemyIdle")

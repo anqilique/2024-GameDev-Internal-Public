@@ -1,5 +1,8 @@
 extends Node
 
+@onready var background_node_one = $AmbienceOne
+@onready var background_node_two = $AmbienceTwo
+
 
 func play_sound(node_name):
 	# If sound node exists and sound is enabled.
@@ -13,7 +16,7 @@ func _process(_delta: float) -> void:
 	if Settings.play_background_audio:
 		
 		# Check both background audio nodes.
-		for node in [$AmbienceOne, $AmbienceTwo]:
+		for node in [background_node_one, background_node_two]:
 			if not node.is_playing():
 				node.play()
 	
@@ -21,6 +24,6 @@ func _process(_delta: float) -> void:
 	elif not Settings.play_background_audio:
 		
 		# Check both background audio nodes.
-		for node in [$AmbienceOne, $AmbienceTwo]:
+		for node in [background_node_one, background_node_two]:
 			if node.is_playing():
 				node.stop()

@@ -13,35 +13,38 @@ func update_health(current, maximum):
 		tween.bind_node(self)
 
 
-func set_values():
-	var component_current_health = get_parent().get_node("HealthComponent").health
-	var component_max_health = get_parent().get_node("HealthComponent").max_health
+func get_component_health(type):
+	var health_value
 	
-	bar.value = component_current_health
-	bar.max_value = component_max_health
+	match type:
+		"current": 
+			health_value = get_parent().get_node("HealthComponent").health
+		"max":
+			health_value = get_parent().get_node("HealthComponent").max_health
+	
+	return health_value
+
+
+func set_values():
+	bar.value = get_component_health("current")
+	bar.max_value = get_component_health("max")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var component_current_health = get_parent().get_node("HealthComponent").health
-	var component_max_health = get_parent().get_node("HealthComponent").max_health
-	
 	hide()
 	
-	bar.value = component_current_health
-	bar.max_value = component_max_health
+	bar.value = get_component_health("current")
+	bar.max_value = get_component_health("max")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var component_current_health = get_parent().get_node("HealthComponent").health
-	var component_max_health = get_parent().get_node("HealthComponent").max_health
-	
 	if (
-		component_current_health != bar.value
-		or component_max_health != bar.max_value
+		get_component_health("current") != bar.value
+		or get_component_health("max") != bar.max_value
 	):
-		update_health(component_current_health, component_max_health)
+		update_health(get_component_health("current"), get_component_health("max"))
 	
 	if bar.value == bar.max_value:
 		hide()

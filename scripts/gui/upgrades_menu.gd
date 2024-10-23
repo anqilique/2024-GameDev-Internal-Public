@@ -1,6 +1,8 @@
 extends Control
 
-@onready var current_mask_upgraded = $UpgradePanel/MaskUpgrades.text
+@onready var activity_label = $ActivityPanel/RichTextLabel
+@onready var mask_upgrades = $UpgradePanel/MaskUpgrades
+@onready var current_mask_upgraded = mask_upgrades.text
 
 var mask_index = 5
 
@@ -28,13 +30,13 @@ var mask_dict = {
 
 
 func update_player_stats_panel():
-	var label = $PlayerStatsPanel/RichTextLabel
+	var stats_label = $PlayerStatsPanel/RichTextLabel
 	var mask_text_colours = []
 	
 	update_costs(false)
 	
 	mask_index = mask_dict.keys().find(current_mask_upgraded) + 1
-	$UpgradePanel/MaskUpgrades.modulate = mask_colours_dict[mask_index]
+	mask_upgrades.modulate = mask_colours_dict[mask_index]
 	
 	# Determine the colours of the mask strings.
 	for mask in PlayerVars.masks:
@@ -58,7 +60,7 @@ func update_player_stats_panel():
 		+ "%d Broken Masks" % len(PlayerVars.broken_masks)
 	)
 	
-	label.text = new_text
+	stats_label.text = new_text
 
 
 func update_costs(update_text):
@@ -71,7 +73,7 @@ func update_costs(update_text):
 	cost_text = cost_text % [base_upgrade_cost, mask_upgrade_cost]
 	
 	if update_text:
-		$ActivityPanel/RichTextLabel.text = cost_text
+		activity_label.text = cost_text
 		$UpgradePanel/CostText.text = cost_text
 
 
@@ -82,7 +84,7 @@ func handle_upgrade(type, attribute):
 		"base" :  # If upgrading base stats.
 			
 			if PlayerVars.essence < base_upgrade_cost:
-				$ActivityPanel/RichTextLabel.text = insufficient_essence_msg
+				activity_label.text = insufficient_essence_msg
 				AudioHandler.play_sound("Click")
 				return
 			
@@ -97,7 +99,7 @@ func handle_upgrade(type, attribute):
 		"mask" :  # If upgrading stats of a mask.
 			
 			if PlayerVars.essence < mask_upgrade_cost:
-				$ActivityPanel/RichTextLabel.text = insufficient_essence_msg
+				activity_label.text = insufficient_essence_msg
 				AudioHandler.play_sound("Click")
 				return
 			
@@ -121,7 +123,7 @@ func handle_upgrade(type, attribute):
 		"attack_damage_bonus" : attribute_text = "Attack"
 	
 	new_exchange_label = "[center]Last Exchange: Upgrade %s %s +%d" % [type.capitalize(), attribute_text, upgrade_value]
-	$ActivityPanel/RichTextLabel.text = new_exchange_label
+	activity_label.text = new_exchange_label
 	
 	update_player_stats_panel()
 
@@ -148,8 +150,8 @@ func _on_mask_upgrades_pressed() -> void:
 	
 	current_mask_upgraded = mask_dict.find_key(mask_index)
 	
-	$UpgradePanel/MaskUpgrades.text = current_mask_upgraded
-	$UpgradePanel/MaskUpgrades.modulate = mask_colours_dict[mask_index]
+	mask_upgrades.text = current_mask_upgraded
+	mask_upgrades.modulate = mask_colours_dict[mask_index]
 
 
 func _on_return_button_pressed() -> void:
