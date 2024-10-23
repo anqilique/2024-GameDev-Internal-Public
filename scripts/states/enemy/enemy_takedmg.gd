@@ -46,7 +46,8 @@ func _on_recovery_timer_timeout():
 				var player_state = body.get_node("StateMachine").current_state.name
 				
 				# Don't bother attacking if the player is dead.
-				if player_state == "PlayerDeath": return
+				if player_state == "PlayerDeath":
+					return
 				
 				# If player is alive, then attack.
 				state_machine.on_child_transition(state_machine.current_state, "EnemyAttack")

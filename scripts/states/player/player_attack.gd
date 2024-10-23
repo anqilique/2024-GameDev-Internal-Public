@@ -54,7 +54,8 @@ func _on_animation_player_animation_finished(anim_name):
 	if "attack" in anim_name:
 		
 		# If the player is dead, do not follow through with the attack.
-		if player.get_node("StateMachine").current_state.name == "PlayerDeath": return
+		if player.get_node("StateMachine").current_state.name == "PlayerDeath":
+			return
 		
 		# Attack all enemies within the player's attack range.
 		for body in player.get_node("Rig/Hitbox3D").get_overlapping_bodies():

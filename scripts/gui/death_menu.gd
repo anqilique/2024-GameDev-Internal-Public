@@ -10,7 +10,6 @@ var upgrades_menu
 
 
 func _ready():
-	
 	$RespawnButton.show()
 	$RespawnButton.disabled = false
 	$DeathText.text = "[center]\nYou Have Died"
@@ -27,11 +26,16 @@ func show_screen():
 		$RespawnButton.text = "RESPAWN"  # No need to restart, just respawn.
 		
 		match PlayerVars.current_mask:
-			1 : mask_name_text = "[color=%s]Mask of Swiftness" % Settings.blue
-			2 : mask_name_text = "[color=%s]Mask of Flight" % Settings.red
-			3 : mask_name_text = "[color=%s]Mask of Fury" % Settings.white
-			4 : mask_name_text = "[color=%s]Mask of Healing" % Settings.green
-			5 : mask_name_text = "[color=%s]Mask of Balance" % Settings.yellow
+			1:
+				mask_name_text = "[color=%s]Mask of Swiftness" % Settings.blue
+			2:
+				mask_name_text = "[color=%s]Mask of Flight" % Settings.red
+			3:
+				mask_name_text = "[color=%s]Mask of Fury" % Settings.white
+			4:
+				mask_name_text = "[color=%s]Mask of Healing" % Settings.green
+			5:
+				mask_name_text = "[color=%s]Mask of Balance" % Settings.yellow
 		
 		# Display to player which mask has broken on death.
 		$MaskText.text = "[center]The %s[/color] Has Broken..." % mask_name_text

@@ -8,10 +8,10 @@ var moving
 var direction
 
 var movement_dict = {
-	"FORWARD" : -1,
-	"BACKWARD" : 1,
-	"LEFT" : 1,
-	"RIGHT" : -1,
+	"FORWARD": -1,
+	"BACKWARD": 1,
+	"LEFT": 1,
+	"RIGHT": -1,
 }
 
 func enter():

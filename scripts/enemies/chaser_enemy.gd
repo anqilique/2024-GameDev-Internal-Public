@@ -74,9 +74,9 @@ func _physics_process(delta):
 
 func switch_state(current_state):
 	match current_state:  # Switch between idle or wander.
-		"EnemyIdle" :  
+		"EnemyIdle":  
 			go_to_state("EnemyWander")
-		"EnemyWander" :
+		"EnemyWander":
 			go_to_state("EnemyIdle")
 	
 	# Randomize the time spent in that state.

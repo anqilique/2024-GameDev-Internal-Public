@@ -13,19 +13,24 @@ var mask_upgrade_cost = upgrade_value * 2
 var insufficient_essence_msg = "[center]Not Enough Essence!"
 
 var mask_colours_dict = {
-	1 : Settings.blue,
-	2 : Settings.red,
-	3 : Settings.white,
-	4 : Settings.green,
-	5 : Settings.yellow,
+	1:
+		Settings.blue,
+	2:
+		Settings.red,
+	3:
+		Settings.white,
+	4:
+		Settings.green,
+	5:
+		Settings.yellow,
 }
 
 var mask_dict = {
-	"Mask of Swiftness" : 1,
-	"Mask of Flight" : 2,
-	"Mask of Fury" : 3,
-	"Mask of Healing" : 4,
-	"Mask of Balance" : 5,
+	"Mask of Swiftness": 1,
+	"Mask of Flight": 2,
+	"Mask of Fury": 3,
+	"Mask of Healing": 4,
+	"Mask of Balance": 5,
 }
 
 
@@ -81,7 +86,7 @@ func handle_upgrade(type, attribute):
 	var new_exchange_label
 	
 	match type:
-		"base" :  # If upgrading base stats.
+		"base":  # If upgrading base stats.
 			
 			if PlayerVars.essence < base_upgrade_cost:
 				activity_label.text = insufficient_essence_msg
@@ -92,11 +97,14 @@ func handle_upgrade(type, attribute):
 			PlayerVars.essence -= base_upgrade_cost
 			
 			match attribute:
-				"max_health_bonus" : PlayerVars.base_max_health += upgrade_value
-				"movement_speed_bonus" : PlayerVars.base_speed += upgrade_value
-				"attack_damage_bonus" : PlayerVars.attack_damage += upgrade_value
+				"max_health_bonus":
+					PlayerVars.base_max_health += upgrade_value
+				"movement_speed_bonus":
+					PlayerVars.base_speed += upgrade_value
+				"attack_damage_bonus":
+					PlayerVars.attack_damage += upgrade_value
 		
-		"mask" :  # If upgrading stats of a mask.
+		"mask":  # If upgrading stats of a mask.
 			
 			if PlayerVars.essence < mask_upgrade_cost:
 				activity_label.text = insufficient_essence_msg
@@ -107,20 +115,28 @@ func handle_upgrade(type, attribute):
 			PlayerVars.essence -= mask_upgrade_cost
 			
 			match current_mask_upgraded:
-				"Mask of Swiftness" : MaskVars.swiftness_mask[attribute] += upgrade_value
-				"Mask of Flight" : MaskVars.flight_mask[attribute] += upgrade_value
-				"Mask of Fury" : MaskVars.fury_mask[attribute] += upgrade_value
-				"Mask of Healing" : MaskVars.healing_mask[attribute] += upgrade_value
-				"Mask of Balance" : MaskVars.balance_mask[attribute] += upgrade_value
+				"Mask of Swiftness":
+					MaskVars.swiftness_mask[attribute] += upgrade_value
+				"Mask of Flight":
+					MaskVars.flight_mask[attribute] += upgrade_value
+				"Mask of Fury":
+					MaskVars.fury_mask[attribute] += upgrade_value
+				"Mask of Healing":
+					MaskVars.healing_mask[attribute] += upgrade_value
+				"Mask of Balance":
+					MaskVars.balance_mask[attribute] += upgrade_value
 	
 	PlayerVars.current_health = PlayerVars.base_max_health + MaskVars.get_mask_from_num()["max_health_bonus"]
 	
 	var attribute_text = ""
 	
 	match attribute:
-		"max_health_bonus" : attribute_text = "Health"
-		"movement_speed_bonus" : attribute_text = "Speed"
-		"attack_damage_bonus" : attribute_text = "Attack"
+		"max_health_bonus":
+			attribute_text = "Health"
+		"movement_speed_bonus":
+			attribute_text = "Speed"
+		"attack_damage_bonus":
+			attribute_text = "Attack"
 	
 	new_exchange_label = "[center]Last Exchange: Upgrade %s %s +%d" % [type.capitalize(), attribute_text, upgrade_value]
 	activity_label.text = new_exchange_label

@@ -19,8 +19,10 @@ func damage(attack: Attack):
 		
 		# Get the death state of the parent node.
 		match get_parent().get_groups()[0]:
-			"Player" : death_state = "PlayerDeath"
-			"Enemies" : death_state = "EnemyDeath"
+			"Player":
+				death_state = "PlayerDeath"
+			"Enemies":
+				death_state = "EnemyDeath"
 		
 		# If parent node has a death state, switch to the state.
 		if death_state != "" and state_machine.has_node(death_state):
@@ -32,8 +34,10 @@ func damage(attack: Attack):
 		
 		# Get the hit state of the parent node.
 		match get_parent().get_groups()[0]:
-			"Player" : hit_state = "PlayerTakeDMG"
-			"Enemies" : hit_state = "EnemyTakeDMG"
+			"Player":
+				hit_state = "PlayerTakeDMG"
+			"Enemies":
+				hit_state = "EnemyTakeDMG"
 		
 		# If a hit state exists, switch to it.
 		if hit_state != "" and state_machine.has_node(hit_state):

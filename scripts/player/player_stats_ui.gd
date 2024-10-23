@@ -35,11 +35,16 @@ func update_mask(current):
 	var mask_name_text = ""
 	
 	match current:
-		1 : mask_name_text = "[color=%s]Mask of Swiftness" % Settings.blue
-		2 : mask_name_text = "[color=%s]Mask of Flight" % Settings.red
-		3 : mask_name_text = "[color=%s]Mask of Fury" % Settings.white
-		4 : mask_name_text = "[color=%s]Mask of Healing" % Settings.green
-		5 : mask_name_text = "[color=%s]Mask of Balance" % Settings.yellow
+		1:
+			mask_name_text = "[color=%s]Mask of Swiftness" % Settings.blue
+		2:
+			mask_name_text = "[color=%s]Mask of Flight" % Settings.red
+		3:
+			mask_name_text = "[color=%s]Mask of Fury" % Settings.white
+		4:
+			mask_name_text = "[color=%s]Mask of Healing" % Settings.green
+		5:
+			mask_name_text = "[color=%s]Mask of Balance" % Settings.yellow
 	
 	$Mask/RichTextLabel.text = mask_name_text
 	last_mask_used = current

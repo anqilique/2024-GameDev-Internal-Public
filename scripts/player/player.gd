@@ -42,7 +42,8 @@ func check_mask(current_mask):
 	
 	# Hide other mask meshes except for current one.
 	for mask in get_node(mask_handler).get_children():
-			if mask.name != current_mask: mask.hide()
+			if mask.name != current_mask:
+				mask.hide()
 	
 	# If the current one was hidden, show it.
 	if not get_node(current_mask_node).is_visible():
