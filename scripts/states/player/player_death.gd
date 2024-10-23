@@ -5,11 +5,10 @@ var player
 
 
 func calculate_score():
-	PlayerVars.score = PlayerVars.lifetime
-	PlayerVars.score *= PlayerVars.level
+	PlayerVars.score += PlayerVars.lifetime
 	
 	if len(PlayerVars.broken_masks) != 5:
-		PlayerVars.score += PlayerVars.score * (5 - len(PlayerVars.broken_masks))
+		PlayerVars.score += PlayerVars.level * (5 - len(PlayerVars.broken_masks))
 	
 	HandleScore.save_high_score(PlayerVars.score)
 
