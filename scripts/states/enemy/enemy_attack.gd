@@ -33,11 +33,13 @@ func update(_delta):
 				# And if the player is not dead.
 				if body.get_node("StateMachine").current_state.name != "PlayerDeath":
 					var hurtbox = body.get_node("HurtboxComponent")
-					var attack = Attack.new()
+					var new_attack = Attack.new()
 					
 					# Attack the player's hurtbox.
-					attack.attack_damage = randi_range(attack_minimum_damage, attack_maximum_damage)
-					hurtbox.damage(attack)
+					var attack_damage = randi_range(attack_minimum_damage, attack_maximum_damage)
+					
+					new_attack.attack_damage = attack_damage
+					hurtbox.damage(new_attack)
 					
 					# Start cooldown timer.
 					enemy.get_node("AttackTimer").start()

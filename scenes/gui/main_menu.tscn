@@ -302,6 +302,7 @@ text = "		Movement - [WASD] or Arrow Keys
 		Pause - [P]"
 
 [node name="SettingsPanel" type="Panel" parent="UI/Panels"]
+visible = false
 layout_mode = 0
 offset_left = 349.0
 offset_top = 372.0
@@ -367,10 +368,9 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("4_mwfd6")
 
 [node name="CreditsPanel" type="Panel" parent="UI/Panels"]
-visible = false
 layout_mode = 0
 offset_left = 349.0
-offset_top = 346.0
+offset_top = 266.0
 offset_right = 1105.0
 offset_bottom = 614.0
 theme = ExtResource("3_ghmx4")
@@ -380,12 +380,14 @@ layout_mode = 0
 offset_left = 6.0
 offset_top = 17.0
 offset_right = 274.0
-offset_bottom = 294.0
+offset_bottom = 325.0
 theme_override_font_sizes/normal_font_size = 25
 text = "
 		Audio
 
 		UI Icons
+
+		Code Snippets
 
 		Everything Else"
 
@@ -400,6 +402,8 @@ text = "
 Kenney, newlocknew, LukaCafuka
 
 Kenney
+
+Dicode, Queble
 
 Angelique Hulot"
 
