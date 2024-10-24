@@ -235,7 +235,7 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aby6m"]
-radius = 1.0
+radius = 0.694705
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a5so8"]
 size = Vector3(4.84603, 1.89258, 5.16504)
@@ -301,6 +301,7 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.579096, 0.260816)
 shape = SubResource("SphereShape3D_aby6m")
 
 [node name="Hurtbox3D" type="Area3D" parent="."]
